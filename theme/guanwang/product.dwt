@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$page_title}</title>
+<link href="bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Custom Theme files -->
+<!--theme style-->
+<link href="style.css" rel="stylesheet" type="text/css" media="all" />	
+<script src="images/jquery.min.js"></script>
+<!--//theme style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+{literal}
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>{/literal}
+<!-- start menu -->
+<script src="images/simpleCart.min.js"> </script>
+<!-- start menu -->
+<link href="memenu.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="images/memenu.js"></script>
+
+<script>{literal}$(document).ready(function(){$(".memenu").memenu();});{/literal}</script>	
+<!-- /start menu -->
+<link href="form.css" rel="stylesheet" type="text/css" media="all" />
+<link href="flexslider.css" rel="stylesheet"  type="text/css" media="screen" />
+
+</head>
+<body> 
+<!--header-->
+ {include file="inc/header.tpl"}
+<!--header//-->
+<div class="product">
+	 <div class="container">				
+		 <div class="product-price1">
+			 <div class="top-sing">
+				  <div class="col-md-7 single-top">	
+					 <div class="flexslider">
+							  <ul class="slides">
+								<li data-thumb="{$product.thumb}">
+									<div class="thumb-image"> <img src="{$product.image}" data-imagezoom="false" class="img-responsive" alt=""/> </div>
+								</li>
+								<li data-thumb="{$product.thumb}">
+									 <div class="thumb-image"> <img src="{$product.image}" data-imagezoom="false" class="img-responsive" alt=""/> </div>
+								</li>
+								<li data-thumb="{$product.thumb}">
+								   <div class="thumb-image"> <img src="{$product.image}" data-imagezoom="false" class="img-responsive" alt=""/> </div>
+								</li> 
+							  </ul>
+						</div>					 					 
+						<!-- <script src="images/imagezoom.js"></script> -->
+						<script defer src="images/jquery.flexslider.js"></script>
+						{literal}
+						<script>
+						// Can also be used with $(document).ready()
+						$(window).load(function() {
+						  $('.flexslider').flexslider({
+							animation: "slide",
+							controlNav: "thumbnails"
+						  });
+						});
+						</script>
+						{/literal}
+
+				 </div>	
+			     <div class="col-md-5 single-top-in simpleCart_shelfItem">
+					  <div class="single-para ">
+						 <h4>{$product.bigCate}{$product.smallCate} {$product.name}</h4>							
+							<h5 class="item_price">{$product.price}</h5>							
+							<p class="para">
+								{$product.bigCate}{$product.smallCate} {$product.name} 编号：GP0020151117000006 百研仓库2
+							</p>
+							<div class="prdt-info-grid">
+								 <ul>
+									 <li>- 商品编号 : GP0020151117000006</li>
+									 <li>- 品种: {$product.name} </li>
+									 <li>-  生产日期: {$product.add_time}</li>
+									 <li>- 大小 : 长 1，宽 1 厚度 1</li>
+								 </ul>
+							</div>
+							<!-- <div class="check">
+							 <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>Enter pin code for delivery &amp; availability</p>
+							 <form class="navbar-form">
+								  <div class="form-group">
+									<input type="text" class="form-control" placeholder="Enter Pin code">
+								  </div>
+								  <button type="submit" class="btn btn-default">Verify</button>
+							 </form>
+						    </div>
+							<a href="#" class="add-cart item_add">加入购物车</a>	 -->						
+					 </div>
+				 </div>
+				 <div class="clearfix"> </div>
+			 </div>
+	     </div>
+		 <div class="bottom-prdt">
+		 	<h4>相关产品</h4>
+			 <div class="btm-grid-sec">
+			 	<!--{if !empty($relate)}-->
+				 <!--{foreach from=$relate name=relate item = re}-->
+				 <div class="col-md-2 btm-grid">
+					 <a href="{$re.url}">
+						<img src="{$re.image}" width="116px" alt=""/>
+						<h4>{$product.bigCate}{$product.smallCate}{$re.name}</h4>
+						<span>{$re.price}</span></a>
+				 </div>
+				 <!--{/foreach}-->
+				 <!--{else}-->
+				 无相关产品
+				 <!--{/if}-->
+				  <div class="clearfix"></div>
+			 </div>			
+		 </div>
+	 </div>
+</div>
+<!---->
+{include file="inc/footer.tpl"}
+<!---->
+</body>
+</html>
