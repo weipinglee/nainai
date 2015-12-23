@@ -75,6 +75,11 @@ $smarty->assign('zhaopin', $zhaopin);
 $smarty->assign('zh', $zh);//zhaopin_category表的
 $smarty->assign('zhaopin_category', $dou->get_category('zhaopin_category', 0, $cat_id));
 
+
+$edi['url'] = $GLOBALS['dou']->rewrite_url('edi', '');
+$smarty->assign('edi', $edi);
+
+
 //招聘信息分页
 $pageBar = getPageBar($smarty->_tpl_vars['pager']);
 
@@ -99,6 +104,6 @@ function getPageBar( $pager ){
      
     return $pageBar;
 }
-
+//$smarty->display('edi.dwt');
 $smarty->display('zhaopin.dwt');
 ?>

@@ -143,5 +143,37 @@ class Upload {
         ImageDestroy($img);
         return $thumb_name;
     }
+
+    /**
+     * +----------------------------------------------------------
+     * 上传简历（新增）
+     * 
+     * +----------------------------------------------------------
+    */
+    function createDir() {
+        $path = 'data/upload/'.date('Y/m/d');
+        $abs = ROOT.$path;
+        if(is_dir($ads) || mkdir($abs , 0777, true)) {
+            return $path;
+        } else {
+            return false;
+        }
+    }
+
+    //生成随机字符串
+    function randStr($length = 6) {
+        $str = str_shuffle('ABCDEFGHJKMNPQRSTUVWXYabcdefghjkmnpqrstuvwxy23456789');
+        $str = substr($str , 0, $length);
+        return $str;
+    }
+
+    //获取文件后缀
+    function getExt($name) {
+        return strtchr($name , '.');
+    }
+
+
+
+
 }
 ?>

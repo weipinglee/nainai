@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>简历管理</title>
+<link href="bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link href="jianjie.css" rel="stylesheet" type="text/css">
+<script src="images/jquery.min.js"></script>
+<script type="text/javascript" src="images/slide_show.js"></script>
+</head>
+
+<body>
+   {include file="inc/header.tpl"}
+<div class="jianjie_main" style="padding-top:30px;">
+
+<div class="main_left">
+{include file="inc/page_left.tpl"}
+</div>
+
+	<div class="main_right">
+
+  		<a href="#"><img class="xiasanjiao" src="images/jianjie_3.png" alt="下三角"></a>
+  		<h2>简历管理  <a class="complete">完成</a></h2>
+ 		
+  		<hr>  
+   		<div><img src="images/none_jl.jpg" style="width:100%;"  alt="还"/></div>
+ 		<div class="jl_txt">
+ 			<ul class="jl_title">
+ 				<li><span>简历名称</span></li>
+ 				<li><span>更新时间</span></li>
+ 				<li><span>操作</span></li>
+ 			</ul>
+ 			<!-- 存在简历信息样式 -->
+ 			<!-- <ul class="jl_cont">
+ 				<li><span>xxx</span></li>
+ 				<li><span>2015/12/8</span></li>
+ 				<li><span>操作</span></li>
+ 			</ul> -->
+ 			<!-- 存在简历信息样式结束 -->
+ 			<div class="txt_null">
+ 				<p style="text-align: center;line-height: 70px;">empty?</p>
+ 			</div>
+ 		</div> 
+ 		<hr> 
+ 		<div>
+ 			<!-- <div class="wj_txt">
+        <span class="wj_name">文件名：</span>
+        <input name="" type="text" id="viewfile" onmouseout="document.getElementById(&#39;upload&#39;).style.display=&#39;none&#39;;" class="inputstyle">
+                  <span for="unload" onmouseover="document.getElementById(&#39;upload&#39;).style.display=&#39;block&#39;;" class="file1">打开</span>
+                    <input type="file" onchange="document.getElementById(&#39;viewfile&#39;).value=this.value;this.style.display=&#39;none&#39;;" class="file" id="upload" style="display: none;">
+      </div>
+      
+      <div class="wj_txt">
+        <span class="wj_name">&nbsp;格式：</span>
+        <input name="" type="text" id="viewfiles" onmouseout="document.getElementById(&#39;uploads&#39;).style.display=&#39;none&#39;;" class="inputstyle">
+                  <span for="unload" onmouseover="document.getElementById(&#39;uploads&#39;).style.display=&#39;block&#39;;" class="file1">上传</span>
+                    <input type="file" onchange="document.getElementById(&#39;viewfiles&#39;).value=this.value;this.style.display=&#39;none&#39;;" class="file" id="uploads" style="display: none;">
+      </div> -->
+      <!-- 上传简历 -->
+      <form action="{$jianli.url}" method="post" enctype="multipart/form-data">
+        <div class="wj_txt">
+          <span class="wj_name">简历位置:</span>
+          <input name="fil" type="file">
+        </div>
+         <div class="wj_txt">
+          <span class="wj_name">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <input name="fil" type="submit" value="提交" style="width:70px;background:#47bde9">
+        </div>
+      </form>
+ 		</div> 
+ 	</div>
+
+</div>
+{include file="inc/footer.tpl"}
+</body>
+</html>
