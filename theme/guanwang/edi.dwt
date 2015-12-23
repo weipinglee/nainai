@@ -66,7 +66,7 @@
         </div>
          <div class="wj_txt">
           <span class="wj_name">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          <input name="fil" type="submit" value="提交" style="width:70px;background:#47bde9">
+          <input  type="submit" value="提交" style="width:70px;background:#47bde9">
         </div>
       </form>
  		</div> 

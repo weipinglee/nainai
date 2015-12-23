@@ -169,7 +169,7 @@ class Upload {
 
     //获取文件后缀
     function getExt($name) {
-        return strtchr($name , '.');
+        return strrchr($name , '.');
     }
 
 
