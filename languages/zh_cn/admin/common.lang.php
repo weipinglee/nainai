@@ -13,7 +13,7 @@
  */
 
 // 公共语言项
-$_LANG['home'] = 'DouPHP 管理中心';
+$_LANG['home'] = '耐耐网 管理中心';
 $_LANG['yes'] = '是';
 $_LANG['no'] = '否';
 $_LANG['open'] = '开启';
@@ -56,6 +56,7 @@ $_LANG['display'] = '显示';
 $_LANG['hidden'] = '隐藏';
 $_LANG['email'] = '邮件地址';
 $_LANG['price_format'] = '￥d% 元';
+$_LANG['salary_format'] = '￥d% 元';//新增salary的格式
 $_LANG['without'] = '对不起，您无权限进行此操作';
 $_LANG['input_name'] = '名称';
 $_LANG['input_value'] = '内容';
@@ -81,7 +82,7 @@ $_LANG['mail_send_success'] = '邮件发送成功';
 $_LANG['mail_send_fail'] = '邮件发送失败，请重试';
 
 // 管理员登录
-$_LANG['login'] = 'DouPHP 管理中心';
+$_LANG['login'] = '耐耐网 管理中心';
 $_LANG['login_action'] = '管理员登录';
 $_LANG['login_user_name'] = '用户名';
 $_LANG['login_email'] = 'E-mail';
@@ -117,7 +118,7 @@ $_LANG['top_manager_edit'] = '编辑我的个人资料';
 $_LANG['top_logout'] = '退出';
 $_LANG['menu_home'] = '管理首页';
 $_LANG['menu_page'] = '单页面管理';
-$_LANG['footer_copyright'] = '版权所有 © 2013-2015 漳州豆壳网络科技有限公司，并保留所有权利。';
+$_LANG['footer_copyright'] = '版权所有 © 有限公司，并保留所有权利。';
 
 // 系统警示
 $_LANG['warning_install_exists'] = '您还没有删除 install 文件夹，出于安全的考虑，我们建议您删除 install 文件夹。';

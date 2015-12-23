@@ -151,7 +151,7 @@ class Action extends Common {
             $titles = $title . $cat_name . $main;
         }
         
-        $page_title = ($titles ? $titles . $GLOBALS['_CFG']['site_name'] : $GLOBALS['_CFG']['site_title']) . ' - Powered by DouPHP';
+        $page_title = ($titles ? $titles . $GLOBALS['_CFG']['site_name'] : $GLOBALS['_CFG']['site_title']) . ' - Powered by 耐耐网';
         
         return $page_title;
     }

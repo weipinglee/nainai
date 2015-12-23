@@ -96,7 +96,7 @@ function getPageBar( $pager ){
         $pageBar[$i]['code'] = $i;
         $pageBar[$i]['link'] = $href.$i;
     }
-
+     
     return $pageBar;
 }
 ?>

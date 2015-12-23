@@ -37,7 +37,7 @@ a:focus, input[type=button] ,input[type=submit] {
 .jianjie_main .upload{height:31px;}
 .jianjie_main .title{border-bottom: 1px solid #666;height: 35px;padding-bottom: 4px;}
 .jianjie_main .title li{float: left;height: 31px;line-height:31px; width: 20%;text-align: center;}
-.jianjie_main .title li .zhaopin_hr{padding-left: 35px;background: url(../images/hr_icon_03.png) no-repeat;display: block;text-align: left;}
+.jianjie_main .title li .zhaopin_hr{padding-left: 35px;background: url(images/hr_icon_03.png) no-repeat;display: block;text-align: left;}
 .work_d:hover .workplace{
 	display: block;
 }
@@ -103,7 +103,7 @@ left: 35%;
   }
    .c-tip-arrow em {
  /* border-bottom-color: #000;*/
-  background: url(../images/top_line.png) no-repeat center -1px;
+  background: url(./images/top_line.png) no-repeat center -1px;
   }
 
   
@@ -126,6 +126,7 @@ left: 35%;
 	text-align: right !important;
 	padding-right: 10px;
 }
+/* 修改了招聘职位那里的text-align 2015-12-22 */
 #toggle .pro li{float: left;height: 35px;line-height:35px; width:20%;text-align: center;    font-family: '微软雅黑';
     font-size: 17px;}
 
@@ -153,7 +154,7 @@ left: 35%;
 .content{
 	
 	 margin: 0px 35px;
-    background: url(../images/left_bg.jpg) #f4f4f4 repeat-y;
+    background: url(./images/left_bg.jpg) #f4f4f4 repeat-y;
     display: inline-block;
     padding-left: 40px;
     /* display: -webkit-box;

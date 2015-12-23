@@ -12,7 +12,7 @@
 
 <body>
   {include file="inc/header.tpl"}
-<div class="jianjie_main">
+<div class="jianjie_main"  style="padding-top:30px;">
 
 <div class="main_left">
 <!--  qq交谈 -->
@@ -27,7 +27,7 @@
   <hr>
   
   <div class="detail_new">
-  <h3>{$article.title}</h3>
+  <h3 style="padding-left:30px;">{$article.title}</h3>
   <h5 class="arro_top">
   <b>{$lang.add_time}：{$article.add_time}</b>  <span>信息来源:国资委网站 </span> <b>浏览次数：<i>{$lang.click}：{$article.click}</i> </b>
   

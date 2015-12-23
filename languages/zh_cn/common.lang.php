@@ -20,8 +20,11 @@ $_LANG['click'] = '点击数';
 $_LANG['price'] = '价格';
 $_LANG['price_format'] = '￥d% 元';
 $_LANG['price_discuss'] = '面议';
+$_LANG['salary'] = '薪资';//新
+$_LANG['salary_format'] = '￥d% 元';//新
+$_LANG['salary_discuss'] = '面议';//新
 $_LANG['copyright'] = '© d% 2015 All Rights Reserved.';
-$_LANG['powered_by'] = "<a href='http://www.douco.com' target='_blank'>Powered by DouPHP</a>";
+$_LANG['powered_by'] = "<a href='http://www.com' target='_blank'>Powered by 耐耐网</a>";
 $_LANG['home'] = '首页';
 $_LANG['add_favorite'] = '收藏本站';
 $_LANG['link'] = '友情链接';

@@ -11,55 +11,94 @@
  * Author: DouCo
  * Release Date: 2015-10-16
  */
+//新
 define('IN_DOUCO', true);
 
 require (dirname(__FILE__) . '/include/init.php');
 
+if(!empty($_REQUEST['id'])){
+	$cat_id = $_REQUEST['id'] + 0;
+	$where = ' where p.cat_id = '.$cat_id. ' ';
+}
 
-// 验证并获取合法的ID，如果不合法将其设定为-1
-$id = $firewall->get_legal_id('zhaopin', $_REQUEST['id'], $_REQUEST['unique_id']);
-// if ($id == -1)
-//     $dou->dou_msg($GLOBALS['_LANG']['page_wrong'], ROOT_URL);
+// 获取分页信息 新
+$page = $check->is_number($_REQUEST['page']) ? trim($_REQUEST['page']) : 1;
+$limit = $dou->pager('zhaopin', ($_DISPLAY['zhaopin'] ? $_DISPLAY['zhaopin'] : 10), $page, $dou->rewrite_url('zhaopin', $cat_id), $where);
+/* 获取招聘信息列表 新 */
+$sql = "SELECT p.id, p.cat_id, p.job, p.salary , p.add_time, p.zhize , p.zige, c.cat_name  FROM " . $dou->table('zhaopin') .' as p left join '. $dou->table('zhaopin_category') . ' as c on p.cat_id = c.cat_id ' . $where . " ORDER BY p.add_time DESC" . $limit;
+$query = $dou->query($sql);
+// echo $sql;exit;
+while($row = $dou->fetch_assoc($query)){
+	$row['add_time'] = date("Y-m-d", $row['add_time']);
+	$zhaopin[] = $row ;
+}
+$sql = "SELECT cat_id,cat_name FROM " . $dou->table('zhaopin_category') .  " ORDER BY sort " . $limit;
+$query = $dou->query($sql);
+while($row = $dou->fetch_assoc($query)){
+	$row['url'] = $dou->rewrite_url('zhaopin', $row['cat_id']);
+	$zh[] = $row ;
+}
+
+// 格式化数据
+//新增薪资
+/*$zhaopin['salary'] = $zhaopin['salary'] > 0 ? $dou->salary_format($zhaopin['salary']) : $_LANG['salary_discuss'];*/
+
+
+$zhaopin['add_time'] = date("Y-m-d", $zhaopin['add_time']);
+
+// 格式化自定义参数
+foreach (explode(',', $zhaopin['defined']) as $row) {
+    $row = explode('：', str_replace(":", "：", $row));
     
-    // 获取单页面信息
-$zhaopin = get_page_info($id);
-$top_id = $zhaopin['parent_id'] == 0 ? $id : $zhaopin['parent_id'];
+    if ($row['1']) {
+        $defined[] = array (
+                "arr" => $row['0'],
+                "value" => $row['1'] 
+        );
+    }
+}
+
 
 // 赋值给模板-meta和title信息
-$smarty->assign('page_title', $dou->page_title('zhaopin', '', $zhaopin['page_name']));
+$smarty->assign('page_title', $dou->page_title('zhaopin_category', $cat_id, $zhaopin['title']));
 $smarty->assign('keywords', $zhaopin['keywords']);
 $smarty->assign('description', $zhaopin['description']);
 
-// 赋值给模板-导航栏
+// 赋值给模板-导航栏 新
 $smarty->assign('nav_top_list', $dou->get_nav('top'));
-$smarty->assign('nav_middle_list', $dou->get_nav('middle', '0', 'zhaopin', $id));
+$smarty->assign('nav_middle_list', $dou->get_nav('middle', '0', 'zhaopin_category', $cat_id, $cate_info['parent_id']));
 $smarty->assign('nav_bottom_list', $dou->get_nav('bottom'));
-
 // 赋值给模板-数据
-$smarty->assign('ur_here', $dou->ur_here('zhaopin', '', $zhaopin['page_name']));
-$smarty->assign('page_list', $dou->get_page_list($top_id, $id));
-$smarty->assign('top', get_page_info($top_id));
+$smarty->assign('ur_here', $dou->ur_here('zhaopin_category', $cat_id));
+$smarty->assign('cate_info', $cate_info);
 $smarty->assign('zhaopin', $zhaopin);
-if ($top_id == $id)
-    $smarty->assign("top_cur", 'top_cur');
+$smarty->assign('zh', $zh);//zhaopin_category表的
+$smarty->assign('zhaopin_category', $dou->get_category('zhaopin_category', 0, $cat_id));
 
+//招聘信息分页
+$pageBar = getPageBar($smarty->_tpl_vars['pager']);
 
-$smarty->display('zhaopin.dwt');
+$smarty->assign('pageBar', $pageBar);
 
-/**
- * +----------------------------------------------------------
- * 获取单页面信息
- * +----------------------------------------------------------
- */
-function get_page_info($id = 0) {
-    $query = $GLOBALS['dou']->select($GLOBALS['dou']->table('zhaopin'), '*', '`id` = \'' . $id . '\'');
-    $zhaopin = $GLOBALS['dou']->fetch_array($query);
+function getPageBar( $pager ){
+    $href = substr($pager['last'], 0, strrpos($pager['last'], 'page=')) . 'page='; //页面链接
     
-    if ($zhaopin) {
-        $zhaopin['url'] = $GLOBALS['dou']->rewrite_url('zhaopin', $zhaopin['id']);
+    $curr = $pager['page']; //当前页码
+
+    $count = $pager['page_count']; //总页数
+
+    $left = max($curr-2, 1); //初步计算最左边页码
+
+    $right = min($left + 4, $count); //计算最右边页码
+    $left = max($right-4, 1);// 计算最终左边的页码
+    $pageBar = array();
+    for($i=$left; $i<=$right; $i++){
+        $pageBar[$i]['code'] = $i;
+        $pageBar[$i]['link'] = $href.$i;
     }
-    
-    return $zhaopin;
+     
+    return $pageBar;
 }
 
+$smarty->display('zhaopin.dwt');
 ?>

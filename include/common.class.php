@@ -175,12 +175,16 @@ class Common extends DbMysql {
         } elseif ($module == 'article') {
             $unique = $unique_id ? '/' . $unique_id : $unique_id;
             $unique = 'news' . $unique;
-        } else {
+        } elseif ($module == 'zhaopin') {//新增招聘别名时
+            $unique = $unique_id ? '/' . $unique_id : $unique_id;
+            $unique = 'zhaops' . $unique;
+        }else {
             $unique = $unique_id ? '/' . $unique_id : $unique_id;
             $unique = $module . $unique;
         }
         
         return $unique;
+        print_r($unique);exit;
     }
     
     /**
@@ -193,10 +197,23 @@ class Common extends DbMysql {
     function price_format($price = '') {
         $price = number_format($price, $GLOBALS['_CFG']['price_decimal']);
         $price_format = preg_replace('/d%/Ums', $price, $GLOBALS['_LANG']['price_format']);
-        
         return $price_format;
     }
     
+    /**
+     * +----------------------------------------------------------
+     * 格式化招聘薪资(新)
+     * +----------------------------------------------------------
+     * $salary 需要格式化的薪资
+     * +----------------------------------------------------------
+     */
+    /*function salary_format($salary = '') {
+        $salary = number_format($salary, $GLOBALS['_CFG']['salary_decimal']);
+        $salary_format = preg_replace('/d%/Ums', $salary, $GLOBALS['_LANG']['salary_format']);
+
+        return $salary_format;
+    }
+*/
     /**
      * +----------------------------------------------------------
      * 获取当前分类下所有子分类
@@ -330,6 +347,9 @@ class Common extends DbMysql {
             if ($row['title']) $item['title'] = $row['title'];
             if ($row['name']) $item['name'] = $row['name'];
             if (!empty($row['price'])) $item['price'] = $row['price'] > 0 ? $this->price_format($row['price']) : $GLOBALS['_LANG']['price_discuss'];
+            //新-薪资
+            /*if (!empty($row['salary'])) $item['salary'] = $row['salary'] > 0 ? $this->salary_format($row['salary']) : $GLOBALS['_LANG']['salary_discuss'];*/
+
             if ($row['click']) $item['click'] = $row['click'];
 
             $item['add_time'] = date("Y-m-d", $row['add_time']);

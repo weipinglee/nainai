@@ -87,6 +87,7 @@ $smarty->assign('ur_here', $search_results);
 $smarty->assign('search_module', $module);
 $smarty->assign('product_category', $dou->get_category('product_category'));
 $smarty->assign('article_category', $dou->get_category('article_category'));
+$smarty->assign('zhaopin_category', $dou->get_category('zhaopin_category'));//新
 $smarty->assign('search_list', $search_list);
 
 $smarty->display('search.dwt');
