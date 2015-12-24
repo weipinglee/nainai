@@ -28,7 +28,11 @@ body {behavior: url("csshover.htc");}
 
 <body>
   {include file="inc/header.tpl"}
-  <div class="top_bg"><div class="main_top"><img src="images/peo_1.png"  alt=""></div></div>
+  <div class="top_bg">
+    <!-- <div class="main_top">
+      <img src="images/peo_1.png"  alt="">
+    </div> -->
+  </div>
 <div class="jianjie_main">
   <ul class="title">
     <li><span class="zhaopin_hr">招聘职位</span></li>
