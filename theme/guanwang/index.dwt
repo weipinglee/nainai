@@ -161,7 +161,7 @@ win.height = win.Document.body.scrollHeight;
 		 <div class="items-sec btm-sec">
 			 <div class="col-md-6 feature-grid">
 				<div class="new_head"><h4 class="icon_3">{$recommend_article.video.name}
-</h4><span><a href="{$recommend_article.hangqing.url}">
+</h4><span><a href="{$recommend_article.video.url}">
 						更多>>
 					</a></span></div>
 				<div class="news_con">
