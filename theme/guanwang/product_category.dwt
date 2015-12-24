@@ -255,8 +255,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                       plist += '<a href="'+ data[i].url +'"><div class="product-grid"></div>';
                       plist += '<div class="more-product"><span> </span></div>';           
                       plist += '<div class="product-img b-link-stripe b-animate-go  thickbox">';
-                      plist += '<img src="'+ data[i].thumb +'"  class="img-responsive" alt="'+ data[i].name +'"'; 
-                      plist += 'width="'+ data[i].thumb_width +'" height="'+ data[i].thumb_height +'">';
+                      plist += '<img src="'+ data[i].thumb +'px' +'"  class="img-responsive" alt="'+ data[i].name +'"'; 
+                      plist += 'width="'+ data[i].thumb_width + 'px' +'" height="'+ data[i].thumb_height +'">';
                       plist += '<div class="b-wrapper"><h4 class="b-animate b-from-left  b-delay03"><button><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>快速查看</button>';
                       plist += '</h4></div></div></a>';
                       plist += '<div class="product-info simpleCart_shelfItem"><div class="product-info-cust prt_name">';

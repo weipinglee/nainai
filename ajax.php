@@ -24,8 +24,9 @@ function ajax_product_list(){
 	$page = $check->is_number($_REQUEST['page']) ? trim($_REQUEST['page']) : 1;
 	$limit = $dou->pager('product', ($_DISPLAY['product'] ? $_DISPLAY['product'] : 10), $page, $dou->rewrite_url('product_category', $cat_id), $where);
 
-	/* 获取产品列表 */
-	$sql = "SELECT id, cat_id, name, price, content, image, add_time, description FROM " . $dou->table('product') . $where . " ORDER BY id DESC" . $limit;
+	/* 获取产品列表：按照选出来价格范围商品的价格从低到高*/
+	//$sql = "SELECT id, cat_id, name, price, content, image, add_time, description FROM " . $dou->table('product') . $where . " ORDER BY id DESC" . $limit;
+	$sql = "SELECT id, cat_id, name, price, content, image, add_time, description FROM " . $dou->table('product') . $where . " ORDER BY price" . $limit;
 	$query = $dou->query($sql);
 
 	while ($row = $dou->fetch_array($query)) {
