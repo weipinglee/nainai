@@ -229,6 +229,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 }
            });
           $( "#amount" ).val( "￥" + $( "#slider-range" ).slider( "values", 0 ) + " - ￥" + $( "#slider-range" ).slider( "values", 1 ) );
+
+          $( "#slider-range" ).mouseup(function(ev){
+            if(ev.which == 1){
+              var val = $( "#amount" ).val().split('-');
+              var minprice = $.trim(val[ 0 ]).substr(1);
+              var maxprice = $.trim(val[ 1 ]).substr(1);
+              var req_id = $('#req_id').val();
+              $.ajax({
+                type:'post',
+                url:'/ajax.php',
+                data:{
+                  type:'ajax_product_list',
+                  min:minprice,
+                  max:maxprice,
+                  req_id:req_id
+                },
+                // dataType:'json',
+                success:function(data){
+                  if(data != 0){
+                    data = eval(data);
+                    var plist = '';
+                    for( var i=0; i<data.length; i++){
+                      plist += '<a href="'+ data[i].url +'"><div class="product-grid"></div>';
+                      plist += '<div class="more-product"><span> </span></div>';           
+                      plist += '<div class="product-img b-link-stripe b-animate-go  thickbox">';
+                      plist += '<img src="'+ data[i].thumb +'"  class="img-responsive" alt="'+ data[i].name +'"'; 
+                      plist += 'width="'+ data[i].thumb_width +'" height="'+ data[i].thumb_height +'">';
+                      plist += '<div class="b-wrapper"><h4 class="b-animate b-from-left  b-delay03"><button><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>快速查看</button>';
+                      plist += '</h4></div></div></a>';
+                      plist += '<div class="product-info simpleCart_shelfItem"><div class="product-info-cust prt_name">';
+                      plist += '<h4>'+ data[i].name +'</h4><span class="item_price">'+ data[i].price +'</span>';
+                      plist += '<div class="clearfix"> </div></div> </div>';
+                    }
+                    $('div.product-model-sec').html(plist);
+                  }
+                }
+              });
+            }
+          });
           });//]]> 
           </script>
           {/literal}
