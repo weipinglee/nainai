@@ -36,7 +36,8 @@ a:focus, input[type=button] ,input[type=submit] {
 
 .jianjie_main .upload{height:31px;}
 .jianjie_main .title{border-bottom: 1px solid #666;height: 35px;padding-bottom: 4px;}
-.jianjie_main .title li{float: left;height: 31px;line-height:31px; width: 20%;text-align: center;}
+/* .jianjie_main .title li{float: left;height: 31px;line-height:31px; width: 20%;text-align: center;} */
+.jianjie_main .title li{float: left;height: 31px;line-height:31px; width: 19%;text-align: center;}
 .jianjie_main .title li .zhaopin_hr{padding-left: 35px;background: url(images/hr_icon_03.png) no-repeat;display: block;text-align: left;}
 .work_d:hover .workplace{
 	display: block;

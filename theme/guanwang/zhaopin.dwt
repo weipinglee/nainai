@@ -62,7 +62,7 @@ body {behavior: url("csshover.htc");}
       <li>{$zhaopin.cat_name}</li>
       <li>{$zhaopin.salary}</li>
       <li>{$zhaopin.add_time}</li>
-      <li class="button"><a class="ytd_bg" href="#">已投递</a></li>
+      <!-- <li class="button"><a class="ytd_bg" href="#">已投递</a></li> -->
     </ul>
      <div class="cont_txt" style="display:none">
     <div class="content">
