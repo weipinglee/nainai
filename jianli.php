@@ -31,13 +31,13 @@ if(!empty($_FILES) && $_FILES['fil']['error'] == 0) {
 	
 	$flag = move_uploaded_file($_FILES['fil']['tmp_name'],  dirname(__FILE__).'/data/upload'.$des);
 	if($flag){
-	    /*echo "<script>alert('上传成功');</script>";
-	    echo "<script>window.location.href="/";</script>";*/
-	    echo 'ok';
+	    echo "<script>alert('上传成功');</script>";
+	    echo "<script>window.location.href="/";</script>";
+	    //echo 'ok';
 	}else{
-	    /*echo "<script>alert('上传失败');</script>";
-	    echo "<script>window.location.href="/";</script>";*/
-	    echo 'fail';
+	    echo "<script>alert('上传失败');</script>";
+	    echo "<script>window.location.href="/";</script>";
+	    //echo 'fail';
 	}
 
 }

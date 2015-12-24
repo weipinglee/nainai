@@ -22,16 +22,16 @@
 	<div class="main_right">
 
   		<a href="#"><img class="xiasanjiao" src="images/jianjie_3.png" alt="下三角"></a>
-  		<h2>简历管理  <a class="complete">完成</a></h2>
+  		<h2>简历管理  <!-- <a class="complete">完成</a> --></h2>
  		
-  		<hr>  
-   		<div><img src="images/none_jl.jpg" style="width:100%;"  alt="还"/></div>
- 		<div class="jl_txt">
- 			<ul class="jl_title">
- 				<li><span>简历名称</span></li>
- 				<li><span>更新时间</span></li>
- 				<li><span>操作</span></li>
- 			</ul>
+  		<!-- <hr>   -->
+   		<div><!-- <img src="images/none_jl.jpg" style="width:100%;"  alt="还"/> --></div>
+                 <div class="jl_txt">
+                   <!-- <ul class="jl_title">
+                     <li><span>简历名称</span></li>
+                     <li><span>更新时间</span></li>
+                     <li><span>操作</span></li>
+                   </ul> -->
  			<!-- 存在简历信息样式 -->
  			<!-- <ul class="jl_cont">
  				<li><span>xxx</span></li>
@@ -40,8 +40,8 @@
  			</ul> -->
  			<!-- 存在简历信息样式结束 -->
  			<div class="txt_null">
- 				<p style="text-align: center;line-height: 70px;">empty?</p>
- 			</div>
+              <!-- <p style="text-align: center;line-height: 70px;">empty?</p> -->
+            </div>
  		</div> 
  		<hr> 
  		<div>
