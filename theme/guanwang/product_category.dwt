@@ -211,6 +211,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                  <li>                               
                 <div id="slider-range"></div>             
                 <input type="text" id="amount"  value="" style="border: 0; font-weight: NORMAL;   font-family: 'Dosis-Regular';" />
+                <input type="hidden" id="req_id" value="{$cat_id}">
                </li>      
               </ul>
            </section>
