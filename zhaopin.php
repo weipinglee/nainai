@@ -17,8 +17,11 @@ define('IN_DOUCO', true);
 require (dirname(__FILE__) . '/include/init.php');
 
 if(!empty($_REQUEST['id'])){
-	$cat_id = $_REQUEST['id'] + 0;
-	$where = ' where p.cat_id = '.$cat_id. ' ';
+    $cat_id = $_REQUEST['id'] + 0;
+    $where = ' where p.cat_id = '.$cat_id. ' ';
+}else{
+    $cat_id = '';
+    $where = '';
 }
 
 // 获取分页信息 新
@@ -29,27 +32,21 @@ $sql = "SELECT p.id, p.cat_id, p.job, p.salary , p.add_time, p.zhize , p.zige, c
 $query = $dou->query($sql);
 // echo $sql;exit;
 while($row = $dou->fetch_assoc($query)){
-	$row['add_time'] = date("Y-m-d", $row['add_time']);
-	$zhaopin[] = $row ;
+    $row['add_time'] = date("Y-m-d", $row['add_time']);
+    $zhaopin[] = $row ;
 }
-$sql = "SELECT cat_id,cat_name FROM " . $dou->table('zhaopin_category') .  " ORDER BY sort " . $limit;
+// var_dump($limit);exit;
+$sql = "SELECT cat_id,cat_name FROM " . $dou->table('zhaopin_category') .  " ORDER BY sort " ;
 $query = $dou->query($sql);
 while($row = $dou->fetch_assoc($query)){
-	$row['url'] = $dou->rewrite_url('zhaopin', $row['cat_id']);
-	$zh[] = $row ;
+    $row['url'] = $dou->rewrite_url('zhaopin', $row['cat_id']);
+    $zh[] = $row ;
 }
 
-// 格式化数据
-//新增薪资
-/*$zhaopin['salary'] = $zhaopin['salary'] > 0 ? $dou->salary_format($zhaopin['salary']) : $_LANG['salary_discuss'];*/
-
-
-$zhaopin['add_time'] = date("Y-m-d", $zhaopin['add_time']);
 
 // 格式化自定义参数
 foreach (explode(',', $zhaopin['defined']) as $row) {
     $row = explode('：', str_replace(":", "：", $row));
-    
     if ($row['1']) {
         $defined[] = array (
                 "arr" => $row['0'],
@@ -73,12 +70,12 @@ $smarty->assign('ur_here', $dou->ur_here('zhaopin_category', $cat_id));
 $smarty->assign('cate_info', $cate_info);
 $smarty->assign('zhaopin', $zhaopin);
 $smarty->assign('zh', $zh);//zhaopin_category表的
-$smarty->assign('zhaopin_category', $dou->get_category('zhaopin_category', 0, $cat_id));
+$smarty->assign('zhaopin_category', $dou->get_category('zhaopin_category', 0, ''));
 
 
 $edi['url'] = $GLOBALS['dou']->rewrite_url('edi', '');
 $smarty->assign('edi', $edi);
-
+// print_r($zhaopin);exit;
 
 //招聘信息分页
 $pageBar = getPageBar($smarty->_tpl_vars['pager']);
@@ -105,5 +102,6 @@ function getPageBar( $pager ){
     return $pageBar;
 }
 //$smarty->display('edi.dwt');
+
 $smarty->display('zhaopin.dwt');
 ?>

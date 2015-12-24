@@ -3,12 +3,13 @@
 <head>
 <title>Products</title>
 <link href="bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="style.css" rel="stylesheet" type="text/css" media="all" />  
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="images/jquery.min.js"></script>
 
 <!-- Custom Theme files -->
 <!--theme style-->
-<link href="style.css" rel="stylesheet" type="text/css" media="all" />  
+
 <!--//theme style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -86,8 +87,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
          <section  class="sky-form">
            <div class="product_right">
              <h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>分类</h4>
-              {include file="inc/product_tree.tpl"} 
-            
+              
+            <!-- {foreach from=$product_category key=ckey item=cate} 一级分类 -->
+            <div class="tab{$ckey+1}">
+             <ul class="place">         <li {if $cate.cur} class="sort" {/if}>
+                <a href="{$cate.url}">{$cate.cat_name}
+                </a>
+               </li>
+               <li class="by"><img src="images/do.png" alt=""></li>
+                <div class="clearfix"> </div>
+            </ul>
+              <!-- {if $cate.child} -->
+            <div class="single-bottom">        <!-- {foreach from=$cate.child item=child} 二级分类 -->    
+                <a {if $child.cur} class="cur"{/if} href="{$child.url}">
+                <p>{$child.cat_name}</p>
+                </a>
+              
+                 <!-- {/foreach} -->
+               </div>
+              <!-- {/if} -->
+            </div>
+            <!-- {/foreach} -->
             <!--script-->
               {literal}
             <script>
@@ -190,8 +210,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <ul class="dropdown-menu1">
                  <li>                               
                 <div id="slider-range"></div>             
-                <input type="text" id="amount" readonly value="" style="border: 0; font-weight: NORMAL;   font-family: 'Dosis-Regular';" />
-                <input type="hidden" id="req_id" value="{if !empty($req_id)}{$req_id}{/if}">
+                <input type="text" id="amount"  value="" style="border: 0; font-weight: NORMAL;   font-family: 'Dosis-Regular';" />
                </li>      
               </ul>
            </section>
