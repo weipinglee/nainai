@@ -42,8 +42,6 @@ $smarty->assign('top', get_page_info($top_id));*/
 $smarty->assign('edi', $edi);
 $jianli['url'] = $GLOBALS['dou']->rewrite_url('jianli', '');
 $smarty->assign('jianli', $jianli);
-//var_dump($jianli['url']);exit;
-
 $smarty->display('edi.dwt');
 
 

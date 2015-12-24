@@ -14,13 +14,9 @@
 define('IN_DOUCO', true);
 
 require (dirname(__FILE__) . '/include/init.php');
-// echo dirname(__FILE__);
 // rec操作项的初始化
 //$rec = $check->is_rec($_REQUEST['rec']) ? $_REQUEST['rec'] : 'default';
 //简历上传
-// include_once (ROOT_PATH . 'include/upload.class.php');
-//echo ROOT_PATH;exit;
-// echo dirname(__FILE__) . '/include/upload.class.php';exit;
 require (dirname(__FILE__) . '/include/upload.class.php');
 if(!empty($_FILES) && $_FILES['fil']['error'] == 0) {
 	$Upload = new Upload();
@@ -28,17 +24,29 @@ if(!empty($_FILES) && $_FILES['fil']['error'] == 0) {
 	/*if(move_uploaded_file($_FILES['fil']['tmp_name'], ROOT.$des)) {
 		$表名 ['fil'] = $des;
 	}*/
-	
-	$flag = move_uploaded_file($_FILES['fil']['tmp_name'],  dirname(__FILE__).'/data/upload'.$des);
-	if($flag){
-	    echo "<script>alert('上传成功');</script>";
-	    echo "<script>window.location.href='zhaopin.php';</script>";
-	    //echo 'ok';
-	}else{
-	    echo "<script>alert('上传失败');</script>";
-	    echo "<script>window.location.href='zhaopin.php';</script>";
-	    //echo 'fail';
+	$jianli = $Upload->jian($_FILES['fil']);
+	if($jianli == '0') {
+		echo "<script>alert('文件不存在');</script>";
+	    echo "<script>window.location.href='edi.php';</script>";
+	} else if($jianli == '2') {
+		echo "<script>alert('文件类型不正确,请选择doc或者docx格式的文件上传');</script>";
+	    echo "<script>window.location.href='edi.php';</script>";
+	} else if($jianli == '3') {
+		echo "<script>alert('文件过大,不能上传');</script>";
+	    echo "<script>window.location.href='edi.php';</script>";
+	} else {
+		$flag = move_uploaded_file($_FILES['fil']['tmp_name'],  dirname(__FILE__).'/data/upload'.$des);
+		if($flag){
+		    echo "<script>alert('上传成功');</script>";
+		    echo "<script>window.location.href='zhaopin.php';</script>";
+		}else{
+		    echo "<script>alert('上传失败');</script>";
+		    echo "<script>window.location.href='edi.php';</script>";
+		}
+
+
 	}
+	
 
 }
 

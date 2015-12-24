@@ -17,8 +17,10 @@ if (!defined('IN_DOUCO')) {
 class Upload {
     var $images_dir;
     var $thumb_dir;
-    var $upfile_type; // 上传的类型，默认为：jpg gif png rar zip
-    var $upfile_size_max; // 上传大小限制，单位是“KB”，默认为：2048KB
+    var $upfile_type; // 上传的类型，只允许 doc,docx
+    var $upfile_size_max = 2048 ; // 上传大小限制，单位是“KB”，默认为：2048KB
+    var $jianli_type = array('doc','docx');
+    var $jianli_size_max  = 2097152;//1024 * 1024 *2 即2048KB 即2048*1024字节
     var $to_file = true; // $this->to_file设定为false时将以原图文件名创建缩略图
     
     /**
@@ -34,7 +36,28 @@ class Upload {
         $this->upfile_type = $upfile_type;
         $this->upfile_size_max = $upfile_size_max;
     }
-    
+    /**
+     * +----------------------------------------------------------
+     *  判断上传文件和大小 是否正确
+     * @param string $fileName  上传的文件 即 $_FILES['fil']
+     * +----------------------------------------------------------
+     */
+    function jian( $file = '') {
+        if(empty($file)){
+            return 0; //返回 0  文件不存在
+        }
+        $ext = substr($file['name'], strrpos($file['name'], '.') + 1 );
+         //var_dump($this->jianli_type);exit;
+        if(!in_array($ext, $this->jianli_type)){
+            return 2;// 返回 2  文件类型不正确
+        }
+        if( $file['size'] > $this->jianli_size_max){
+            return 3;// 返回 3 文件尺寸过大
+        }
+        return 1;// 返回1  正确
+    }
+
+
     /**
      * +----------------------------------------------------------
      * 图片上传的处理函数
