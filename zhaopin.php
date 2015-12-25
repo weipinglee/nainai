@@ -16,19 +16,23 @@ define('IN_DOUCO', true);
 
 require (dirname(__FILE__) . '/include/init.php');
 
+$tb = $dou->table('zhaopin');
+
 if(!empty($_REQUEST['id'])){
     $cat_id = $_REQUEST['id'] + 0;
-    $where = ' where p.cat_id = '.$cat_id. ' ';
+    $where = " where $tb.cat_id = ".$cat_id. ' ';
 }else{
     $cat_id = '';
     $where = '';
 }
 
 // 获取分页信息 新
-$page = $check->is_number($_REQUEST['page']) ? trim($_REQUEST['page']) : 1;
+$page = $check->is_number($_REQUEST['page']) ? trim($_REQUEST['page']) : '1';
 $limit = $dou->pager('zhaopin', ($_DISPLAY['zhaopin'] ? $_DISPLAY['zhaopin'] : 10), $page, $dou->rewrite_url('zhaopin', $cat_id), $where);
+
 /* 获取招聘信息列表 新 */
-$sql = "SELECT p.id, p.cat_id, p.job, p.salary , p.add_time, p.zhize , p.zige, c.cat_name  FROM " . $dou->table('zhaopin') .' as p left join '. $dou->table('zhaopin_category') . ' as c on p.cat_id = c.cat_id ' . $where . " ORDER BY p.add_time DESC" . $limit;
+
+$sql = "SELECT $tb.id, $tb.cat_id, $tb.job, $tb.salary , $tb.add_time, $tb.zhize , $tb.zige, c.cat_name  FROM " . $dou->table('zhaopin') .' left join '. $dou->table('zhaopin_category') . " as c on $tb.cat_id = c.cat_id " . $where . " ORDER BY $tb.add_time DESC" . $limit;
 $query = $dou->query($sql);
 // echo $sql;exit;
 while($row = $dou->fetch_assoc($query)){

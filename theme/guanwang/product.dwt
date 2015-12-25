@@ -103,7 +103,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 <a href="{$re.url}">
 						<img src="{$re.image}" width="116px" alt=""/>
 						<h4>{$product.bigCate}{$product.smallCate}{$re.name}</h4>
-						<span>{$re.price}</span></a>
+						<span>
+							<!--{if $re.price eq 0}-->
+							面议
+							<!--{else}-->
+							{$re.price}
+							<!--{/if}-->
+						</span></a>
 				 </div>
 				 <!--{/foreach}-->
 				 <!--{else}-->

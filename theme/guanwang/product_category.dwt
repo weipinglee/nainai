@@ -55,7 +55,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       </li>
      </ol>
       <h2>{$cate_info.cat_name}</h2>     
-     <div class="col-md-9 product-model-sec"><!-- {foreach from=$product_list name=product_list item=product} --> 
+     <div class="col-md-9 product-model-sec">
+        <!-- {foreach from=$product_list name=product_list item=product} --> 
            <a href="{$product.url}"><div class="product-grid">
             <div class="more-product"><span> </span></div>            
             <div class="product-img b-link-stripe b-animate-go  thickbox">
@@ -65,7 +66,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <button><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>快速查看</button>
               </h4>
               </div>
-            </div></a>            
+              </div>
+            </a>         
             <div class="product-info simpleCart_shelfItem">
               <div class="product-info-cust prt_name">
                 <h4>{$product.name}</h4>                
@@ -211,7 +213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                  <li>                               
                 <div id="slider-range"></div>             
                 <input type="text" id="amount"  value="" style="border: 0; font-weight: NORMAL;   font-family: 'Dosis-Regular';" />
-                <input type="hidden" id="req_id" value="{$cat_id}">
+                <input type="hidden" id="req_id" value="{$req_id}">
                </li>      
               </ul>
            </section>
@@ -246,22 +248,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   max:maxprice,
                   req_id:req_id
                 },
-                // dataType:'json',
                 success:function(data){
                   if(data != 0){
                     data = eval(data);
                     var plist = '';
                     for( var i=0; i<data.length; i++){
-                      plist += '<a href="'+ data[i].url +'"><div class="product-grid"></div>';
-                      plist += '<div class="more-product"><span> </span></div>';           
-                      plist += '<div class="product-img b-link-stripe b-animate-go  thickbox">';
-                      plist += '<img src="'+ data[i].thumb +'px' +'"  class="img-responsive" alt="'+ data[i].name +'"'; 
-                      plist += 'width="'+ data[i].thumb_width + 'px' +'" height="'+ data[i].thumb_height +'">';
-                      plist += '<div class="b-wrapper"><h4 class="b-animate b-from-left  b-delay03"><button><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>快速查看</button>';
-                      plist += '</h4></div></div></a>';
-                      plist += '<div class="product-info simpleCart_shelfItem"><div class="product-info-cust prt_name">';
-                      plist += '<h4>'+ data[i].name +'</h4><span class="item_price">'+ data[i].price +'</span>';
-                      plist += '<div class="clearfix"> </div></div> </div>';
+                        plist +=  '<a href="'+ data[i].url +'">';
+                        plist +=    '<div class="product-grid">';
+                        plist +=      '<div class="more-product"><span> </span></div>';         
+                        plist +=      '<div class="product-img b-link-stripe b-animate-go  thickbox">';
+                        plist +=        '<img src="'+ data[i].thumb +'"  class="img-responsive" alt="'+ data[i].name +'" width="'+ data[i].thumb_width +'" height="'+ data[i].thumb_width +'">';
+                        plist +=        '<div class="b-wrapper">';
+                        plist +=          '<h4 class="b-animate b-from-left  b-delay03">';            
+                        plist +=            '<button><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>快速查看</button>';
+                        plist +=          '</h4>';
+                        plist +=      '</div>';
+                        plist +=    '</div>';            
+                        plist +=  '</a>';
+                        plist +=  '<div class="product-info simpleCart_shelfItem">';
+                        plist +=    '<div class="product-info-cust prt_name">';
+                        plist +=      '<h4>'+ data[i].name +'</h4>';            
+                        plist +=      '<span class="item_price">'+ data[i].price +'</span>';
+                        plist +=      '<div class="clearfix"></div>';
+                        plist +=    '</div>';                       
+                        plist +=    '</div>';
+                        plist +=  '</div>';
                     }
                     $('div.product-model-sec').html(plist);
                   }
