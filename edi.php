@@ -30,9 +30,9 @@ $smarty->assign('keywords', $page['keywords']);
 $smarty->assign('description', $page['description']);*/
 
 // 赋值给模板-导航栏
-$smarty->assign('nav_top_list', $dou->get_nav('top'));
+//$smarty->assign('nav_top_list', $dou->get_nav('top'));
 $smarty->assign('nav_middle_list', $dou->get_nav('middle', '0', 'page', $id));
-$smarty->assign('nav_bottom_list', $dou->get_nav('bottom'));
+//$smarty->assign('nav_bottom_list', $dou->get_nav('bottom'));
 
 // 赋值给模板-数据
 /*$smarty->assign('ur_here', $dou->ur_here('page', '', $page['page_name']));

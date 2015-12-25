@@ -51,9 +51,9 @@ $smarty->assign('keywords', $article['keywords']);
 $smarty->assign('description', $article['description']);
 
 // 赋值给模板-导航栏
-$smarty->assign('nav_top_list', $dou->get_nav('top'));
+//$smarty->assign('nav_top_list', $dou->get_nav('top'));
 $smarty->assign('nav_middle_list', $dou->get_nav('middle', '0', 'article_category', $cat_id, $parent_id));
-$smarty->assign('nav_bottom_list', $dou->get_nav('bottom'));
+//$smarty->assign('nav_bottom_list', $dou->get_nav('bottom'));
 // print_r($article);exit;
 // 赋值给模板-数据
 $smarty->assign('ur_here', $dou->ur_here('article_category', $cat_id, $article['title']));

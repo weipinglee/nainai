@@ -45,6 +45,7 @@ $smarty->assign('description', $_CFG['site_description']);
 // 赋值给模板-导航栏
 $smarty->assign('nav_top_list', $dou->get_nav('top'));
 $smarty->assign('nav_middle_list', $dou->get_nav('middle'));
+//var_dump($dou->get_nav('middle'));exit;
 $smarty->assign('nav_bottom_list', $dou->get_nav('bottom'));
 
 // 赋值给模板-数据
