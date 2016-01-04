@@ -72,7 +72,7 @@ class Upload {
         
         // 没有命名规则默认以时间作为文件名
         if (empty($image_name)) {
-            $image_name = time(); // 设定当前时间为图片名称
+            $image_name = md5(microtime(true).rand(100000, 999999)); // 设定当前时间为图片名称
         }
         
         if (@ empty($_FILES[$upfile]['name'])) {
@@ -86,6 +86,8 @@ class Upload {
         }
         $photo = $image_name . "." . $img_type; // 写入数据库的文件名
         $upfile_name = $this->images_dir . $photo; // 上传后的文件名称
+
+        // echo $upfile_name;exit;
         $upfile_ok = move_uploaded_file($_FILES[$upfile]["tmp_name"], $upfile_name);
         if ($upfile_ok) {
             $img_size = $_FILES[$upfile]["size"];

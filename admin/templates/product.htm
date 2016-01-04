@@ -139,6 +139,50 @@
         <input type="text" name="price" value="{if $product.price}{$product.price}{else}0{/if}" size="40" class="inpMain" />
        </td>
       </tr>
+      <!-- 新增商品编号 -->
+      <tr>
+        <td align="right">{$lang.product_num}</td>
+        <td>
+          <input type="text" name="num" value="{$product.num}" size="40" class="inpMain" />
+        </td>
+      </tr>
+      <!-- -->
+      <!-- 新增仓库名称 -->
+      <tr>
+        <td align="right">{$lang.product_cangku}</td>
+        <td>
+          <input type="text" name="cangku" value="{$product.cangku}" size="40" class="inpMain" />
+        </td>
+      </tr>
+      <!-- -->
+      <!-- 新增品种 -->
+      <tr>
+        <td align="right">{$lang.product_pinzhong}</td>
+        <td>
+          <input type="text" name="pinzhong" value="{$product.pinzhong}" size="40" class="inpMain" />
+        </td>
+      </tr>
+      <!-- 新增生产日期 -->
+      <tr>
+        <td align="right">{$lang.product_date}</td>
+        <td>
+          <input type="text" name="date" value="{$product.date}" size="40" class="inpMain" />
+        </td>
+      </tr>
+      <!-- -->
+      <!-- 新增商品尺码信息 -->
+      <tr>
+        <td align="right">{$lang.product_size}</td>
+        <td>{$lang.product_length}:
+          <input type="text" name="length" value="{$product.length}" size="10" class="inpMain" />
+          {$lang.product_width}:
+          <input type="text" name="width" value="{$product.width}" size="10" class="inpMain" />
+          {$lang.product_height}:
+          <input type="text" name="height" value="{$product.height}" size="10" class="inpMain" />
+          <span style="color:red;">(&nbsp;&nbsp;单位:米&nbsp;&nbsp;)</span>
+        </td>
+      </tr>
+      <!-- -->
       <!-- {if $product.defined} -->
       <tr>
        <td align="right" valign="top">{$lang.product_defined}</td>
@@ -171,9 +215,21 @@
        </td>
       </tr>
       <tr>
-       <td align="right">{$lang.thumb}</td>
+       <td align="right">{$lang.thumb1}</td>
        <td>
-        <input type="file" name="image" size="38" class="inpFlie" />
+        <input type="file" name="image1" size="38" class="inpFlie" />
+        {if $product.image}<a href="../{$product.image}" target="_blank"><img src="images/icon_yes.png"></a>{else}<img src="images/icon_no.png">{/if}</td>
+      </tr>
+      <tr>
+       <td align="right">{$lang.thumb2}</td>
+       <td>
+        <input type="file" name="image2" size="38" class="inpFlie" />
+        {if $product.image}<a href="../{$product.image}" target="_blank"><img src="images/icon_yes.png"></a>{else}<img src="images/icon_no.png">{/if}</td>
+      </tr>
+      <tr>
+       <td align="right">{$lang.thumb3}</td>
+       <td>
+        <input type="file" name="image3" size="38" class="inpFlie" />
         {if $product.image}<a href="../{$product.image}" target="_blank"><img src="images/icon_yes.png"></a>{else}<img src="images/icon_no.png">{/if}</td>
       </tr>
       <tr>

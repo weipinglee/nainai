@@ -29,7 +29,7 @@
   <div class="detail_new">
   <h3 style="padding-left:30px;">{$article.title}</h3>
   <h5 class="arro_top">
-  <b>{$lang.add_time}：{$article.add_time}</b>  <span>信息来源:国资委网站 </span> <b>浏览次数：<i>{$lang.click}：{$article.click}</i> </b>
+  <b>{$lang.add_time}：{$article.add_time}</b>  <span>信息来源:{$article.laiyuan} </span> <b>浏览次数：<i>{$article.click}</i> </b>
   
   <h5/>
   

@@ -104,7 +104,7 @@ catch (e) {
 					<li {if $index.cur} class="active" {/if}><a href="{$site.root_url}" class="menu_li">{$lang.home}</a></li>
 					<!-- {foreach from=$nav_middle_list name=nav_middle_list item=nav} --> 
 					<li {if $nav.cur} class="active hover" {/if} >
-						<a href="{$nav.url}"{if $smarty.foreach.nav_middle_list.iteration eq 7}{/if}{if $nav.target} target="_blank"{/if}>
+						<a href="{$nav.url}"{if $smarty.foreach.nav_middle_list.iteration eq 5}{/if}{if $nav.target} target="_blank"{/if}>
 							{$nav.nav_name}
 						</a>
 						<!-- {if $nav.child} -->
