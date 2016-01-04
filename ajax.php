@@ -26,7 +26,7 @@ function ajax_product_list(){
 
 	/* 获取产品列表：按照选出来价格范围商品的价格从低到高*/
 	//$sql = "SELECT id, cat_id, name, price, content, image, add_time, description FROM " . $dou->table('product') . $where . " ORDER BY id DESC" . $limit;
-	$sql = "SELECT id, cat_id, name, price, content, image, add_time, description FROM " . $dou->table('product') . $where . " ORDER BY price" . $limit;
+	$sql = "SELECT id, cat_id, name, price, content, image1, add_time, description FROM " . $dou->table('product') . $where . " ORDER BY price" . $limit;
 	$query = $dou->query($sql);
 
 	while ($row = $dou->fetch_array($query)) {
@@ -37,11 +37,12 @@ function ajax_product_list(){
 	    $description = $row['description'] ? $row['description'] : $dou->dou_substr($row['content'], 150);
 	    
 	    // 生成缩略图的文件名
-	    $image = explode(".", $row['image']);
-	    $thumb = ROOT_URL . $image[0] . "_thumb." . $image[1];
+	    // $image = explode(".", $row['image1']);
+	    // $thumb = ROOT_URL . $image[0] . "_thumb." . $image[1];
+	    $thumb = ROOT_URL . $row['image1'];
 	    
 	    // 格式化价格
-	    $price = $row['price'] > 0 ? $dou->price_format($row['price']) : $_LANG['price_discuss'];
+	    $price = $row['price'] > 0 ? $dou->price_format($row['price']) : $GLOBALS['_LANG']['price_discuss'];
 	    
 	    $product_list[] = array (
 	            "id" => $row['id'],

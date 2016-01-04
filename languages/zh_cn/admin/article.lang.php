@@ -25,6 +25,7 @@ $_LANG['mobile_display_home_article'] = '手机版首页展示文章数量';
 
 // 文章分类
 $_LANG['article_category'] = '文章分类';
+$_LANG['article_laiyuan'] = '信息来源';//新增文章来源
 $_LANG['article_category_add'] = '添加分类';
 $_LANG['article_category_edit'] = '编辑文章分类';
 $_LANG['article_category_del'] = '删除文章分类';

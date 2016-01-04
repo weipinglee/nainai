@@ -67,7 +67,7 @@ $smarty->assign('description', $zhaopin['description']);
 
 // 赋值给模板-导航栏 新
 $smarty->assign('nav_top_list', $dou->get_nav('top'));
-$smarty->assign('nav_middle_list', $dou->get_nav('middle', '0', 'zhaopin_category', $cat_id, $cate_info['parent_id']));
+$smarty->assign('nav_middle_list', $dou->get_nav('middle', '0', 'zhaopin', $cat_id, $cate_info['parent_id']));
 //var_dump($dou->get_nav('middle', '0', 'zhaopin_category', $cat_id, $cate_info['parent_id']));exit;
 $smarty->assign('nav_bottom_list', $dou->get_nav('bottom'));
 // 赋值给模板-数据

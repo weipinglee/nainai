@@ -131,11 +131,32 @@ elseif ($rec == 'insert') {
         $dou->dou_msg($_LANG['price_wrong']);
         
     // 判断是否有上传图片/上传图片生成
-    if ($_FILES['image']['name'] != '') {
-        $upfile = $img->upload_image('image', $id); // 上传的文件域
-        $file = $images_dir . $upfile;
-        $img->make_thumb($upfile, $_CFG['thumb_width'], $_CFG['thumb_height']);
+    /*
+    if ($_FILES['image1']['name'] != '') {
+        $upfile1 = $img->upload_image('image1', $id); // 上传的文件域
+        $file1 = $images_dir . $upfile1;
+        
+        //$img->make_thumb($upfile1, $_CFG['thumb1_width'], $_CFG['thumb1_height']);
+    }else if($_FILES['image2']['name'] != '') {
+        $upfile2 = $img->upload_image('image2', $id); // 上传的文件域
+        $file2 = $images_dir . $upfile2;
+        
+        //$img->make_thumb($upfile2, $_CFG['thumb2_width'], $_CFG['thumb2_height']);
+    }else if($_FILES['image3']['name'] != '') {
+        $upfile3 = $img->upload_image('image3', $id); // 上传的文件域
+        $file3 = $images_dir . $upfile3;
+
+        //$img->make_thumb($upfile3, $_CFG['thumb3_width'], $_CFG['thumb3_height']);
     }
+    */
+    
+    if(!empty($_FILES)){
+        $file = array();
+        foreach($_FILES as $key => $val){
+            $file[] = $images_dir . $img->upload_image( $key , $id); // 上传的文件域
+        }
+    }
+    
     $add_time = time();
     
     // 格式化自定义参数
@@ -143,12 +164,12 @@ elseif ($rec == 'insert') {
     
     // CSRF防御令牌验证
     $firewall->check_token($_POST['token'], 'product_add');
-    
-    $sql = "INSERT INTO " . $dou->table('product') . " (id, cat_id, name, price, defined, content, image ,keywords, add_time, description)" . " VALUES (NULL, '$_POST[cat_id]', '$_POST[name]', '$_POST[price]', '$_POST[defined]', '$_POST[content]', '$file', '$_POST[keywords]', '$add_time', '$_POST[description]')";
+    //新增字段
+    $sql = "INSERT INTO " . $dou->table('product') . " (id, cat_id, name, price, defined, content, image1 , image2 , image3 , keywords, add_time, description , num ,cangku , pinzhong, date , length , width , height)" . " VALUES (NULL, '$_POST[cat_id]', '$_POST[name]', '$_POST[price]', '$_POST[defined]', '$_POST[content]', '$file[0]', '$file[1]' , '$file[2]' , '$_POST[keywords]', '$add_time', '$_POST[description]' , '$_POST[num]' ,'$_POST[cangku]' , '$_POST[pinzhong]' , '$_POST[date]' , '$_POST[length]' , '$_POST[width]' , '$_POST[height]')";
     $dou->query($sql);
     
     // 为了产品图片管理方便，重新以产品ID定义图片名称
-    if ($_FILES['image']['name'] != '') {
+    /*if ($_FILES['image']['name'] != '') {
         // 格式化图片名称
         $good_id = mysql_insert_id();
         $no_ext = explode('.', $file);
@@ -166,7 +187,7 @@ elseif ($rec == 'insert') {
         $resql = "update " . $dou->table('product') . " SET image='$new_name' WHERE id='$good_id'";
     }
     $dou->query($resql);
-    
+    */
     $dou->create_admin_log($_LANG['product_add'] . ': ' . $_POST['name']);
     $dou->dou_msg($_LANG['product_add_succes'], 'product.php');
 } 
@@ -218,16 +239,40 @@ elseif ($rec == 'update') {
         $dou->dou_msg($_LANG['price_wrong']);
         
     // 上传图片生成
-    if ($_FILES['image']['name'] != "") {
+    if ($_FILES['image1']['name'] != "") {
         // 分析商品图片名称
-        $basename = basename($_POST['image']);
-        $file_name = substr($basename, 0, strrpos($basename, '.'));
+        $basename1 = basename($_POST['image1']);
+        $file_name1 = substr($basename1, 0, strrpos($basename1, '.'));
         
-        $upfile = $img->upload_image('image', $file_name); // 上传的文件域
-        $file = $images_dir . $upfile;
-        $img->make_thumb($upfile, $_CFG['thumb_width'], $_CFG['thumb_height']);
+        $upfile1 = $img->upload_image('image1', $file_name1); // 上传的文件域
+        $file1 = $images_dir . $upfile1;
+        //$img->make_thumb($upfile, $_CFG['thumb_width'], $_CFG['thumb_height']);
         
-        $up_file = ", image='$file'";
+        $up_file1 = ", image='$file1'";
+    }
+
+    if ($_FILES['image2']['name'] != "") {
+        // 分析商品图片名称
+        $basename2 = basename($_POST['image2']);
+        $file_name2 = substr($basename2, 0, strrpos($basename2, '.'));
+        
+        $upfile2 = $img->upload_image('image2', $file_name2); // 上传的文件域
+        $file2 = $images_dir . $upfile2;
+        //$img->make_thumb($upfile, $_CFG['thumb_width'], $_CFG['thumb_height']);
+        
+        $up_file2 = ", image='$file2'";
+    }
+
+    if ($_FILES['image3']['name'] != "") {
+        // 分析商品图片名称
+        $basename3 = basename($_POST['image3']);
+        $file_name3 = substr($basename3, 0, strrpos($basename3, '.'));
+        
+        $upfile3 = $img->upload_image('image3', $file_name3); // 上传的文件域
+        $file3 = $images_dir . $upfile3;
+        //$img->make_thumb($upfile, $_CFG['thumb_width'], $_CFG['thumb_height']);
+        
+        $up_file3 = ", image='$file3'";
     }
     
     // 格式化自定义参数
@@ -236,7 +281,7 @@ elseif ($rec == 'update') {
     // CSRF防御令牌验证
     $firewall->check_token($_POST['token'], 'product_edit');
     
-    $sql = "update " . $dou->table('product') . " SET cat_id = '$_POST[cat_id]', name = '$_POST[name]', price = '$_POST[price]', defined = '$_POST[defined]' ,content = '$_POST[content]'" . $up_file . ", keywords = '$_POST[keywords]', description = '$_POST[description]' WHERE id = '$_POST[id]'";
+    $sql = "update " . $dou->table('product') . " SET cat_id = '$_POST[cat_id]', name = '$_POST[name]', price = '$_POST[price]', defined = '$_POST[defined]' ,content = '$_POST[content]'" . $up_file1 . $up_file2 . $up_file3 . ", keywords = '$_POST[keywords]', description = '$_POST[description]' , num = '$_POST[num]' , cangku = '$_POST[cangku]' , pinzhong = '$_POST[pinzhong]' ,date = '$_POST[date]' , length = '$_POST[length]' ,width = '$_POST[width]' , height = '$_POST[height]' WHERE id = '$_POST[id]'";
     $dou->query($sql);
     
     $dou->create_admin_log($_LANG['product_edit'] . ': ' . $_POST['name']);
@@ -255,7 +300,7 @@ elseif ($rec == 're_thumb') {
             'href' => 'product.php' 
     ));
     
-    $sql = "SELECT id, image FROM " . $dou->table('product') . "ORDER BY id ASC";
+    $sql = "SELECT id, image1 ,image2 ,image3 FROM " . $dou->table('product') . "ORDER BY id ASC";
     $count = mysql_num_rows($query = $dou->query($sql));
     $mask['count'] = preg_replace('/d%/Ums', $count, $_LANG['product_thumb_count']);
     $mask_tag = '<i></i>';
@@ -334,8 +379,12 @@ elseif ($rec == 'del') {
     
     if (isset($_POST['confirm']) ? $_POST['confirm'] : '') {
         // 删除相应商品图片
-        $image = $dou->get_one("SELECT image FROM " . $dou->table('product') . " WHERE id = '$id'");
-        $dou->del_image($image);
+        $image1 = $dou->get_one("SELECT image1 FROM " . $dou->table('product') . " WHERE id = '$id'");
+        $image2 = $dou->get_one("SELECT image2 FROM " . $dou->table('product') . " WHERE id = '$id'");
+        $image3 = $dou->get_one("SELECT image3 FROM " . $dou->table('product') . " WHERE id = '$id'");
+        $dou->del_image($image1);
+        $dou->del_image($image2);
+        $dou->del_image($image3);
         
         $dou->create_admin_log($_LANG['product_del'] . ': ' . $name);
         $dou->delete($dou->table('product'), "id = $id", 'product.php');
@@ -373,15 +422,19 @@ elseif ($rec == 'action') {
  */
 function get_sort_product() {
     $limit = $GLOBALS['_DISPLAY']['home_product'] ? ' LIMIT ' . $GLOBALS['_DISPLAY']['home_product'] : '';
-    $sql = "SELECT id, name, image FROM " . $GLOBALS['dou']->table('product') . " WHERE sort > 0 ORDER BY sort DESC" . $limit;
+    $sql = "SELECT id, name, image1 ,image2,image3 FROM " . $GLOBALS['dou']->table('product') . " WHERE sort > 0 ORDER BY sort DESC" . $limit;
     $query = $GLOBALS['dou']->query($sql);
     while ($row = $GLOBALS['dou']->fetch_array($query)) {
-        $image = ROOT_URL . $row['image'];
+        $image1 = ROOT_URL . $row['image1'];
+        $image2 = ROOT_URL . $row['image2'];
+        $image3 = ROOT_URL . $row['image3'];
         
         $sort[] = array (
                 "id" => $row['id'],
                 "name" => $row['name'],
-                "image" => $image 
+                "image1" => $image1,
+                "image2" => $image2,
+                "image3" => $image3
         );
     }
     

@@ -16,6 +16,7 @@ define('IN_DOUCO', true);
 if (isset($_REQUEST['mobile'])) setcookie('client', 'pc'); // 判断时候强制在移动端中显示PC版
 
 require (dirname(__FILE__) . '/include/init.php');
+//var_dump($GLOBALS['_LANG']);exit;
 
 // 如果存在搜索词则转入搜索页面
 if ($_REQUEST['s']) {

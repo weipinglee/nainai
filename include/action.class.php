@@ -45,6 +45,7 @@ class Action extends Common {
                 } else {
                     $value['url'] = $this->rewrite_url($value['module'], $value['guide']);
                     $value['cur'] = $this->dou_current($value['module'], $value['guide'], $current_module, $current_id, $current_parent_id);
+                    //var_dump($value['module']);exit;
                 }
                 
                 foreach ($data as $child) {

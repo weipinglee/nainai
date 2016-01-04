@@ -216,7 +216,7 @@ html[xmlns] .flexslider .slides {
 }
 .flex-control-thumbs img {
   width: 100%;
-  height: auto;
+  height: 91px;
   display: block;
   opacity: .7;
   cursor: pointer;

@@ -28,7 +28,7 @@ $page = $check->is_number($_REQUEST['page']) ? trim($_REQUEST['page']) : 1;
 $limit = $dou->pager('product', ($_DISPLAY['product'] ? $_DISPLAY['product'] : 10), $page, $dou->rewrite_url('product_category', $cat_id), $where);
 
 /* 获取产品列表 */
-$sql = "SELECT id, cat_id, name, price, content, image, add_time, description FROM " . $dou->table('product') . $where . " ORDER BY id DESC" . $limit;
+$sql = "SELECT id, cat_id, name, price, content, image1, image2,image3 , add_time, description FROM " . $dou->table('product') . $where . " ORDER BY id DESC" . $limit;
 $query = $dou->query($sql);
 
 while ($row = $dou->fetch_array($query)) {
@@ -40,6 +40,9 @@ while ($row = $dou->fetch_array($query)) {
     
     // 生成缩略图的文件名
     $image = explode(".", $row['image']);
+    // $image1 = explode(".", $row['image1']);
+    // $image2 = explode(".", $row['image2']);
+    // $image3 = explode(".", $row['image3']);
     $thumb = ROOT_URL . $image[0] . "_thumb." . $image[1];
     
     // 格式化价格
@@ -52,6 +55,9 @@ while ($row = $dou->fetch_array($query)) {
             "price" => $price,
             "thumb" => $thumb,
             "add_time" => $add_time,
+            "image1" => $row['image1'],
+            "image2" => $row['image2'],
+            "image3" => $row['image3'],
             "description" => $description,
             "url" => $url 
     );
@@ -77,7 +83,7 @@ $smarty->assign('ur_here', $dou->ur_here('product_category', $cat_id));
 $smarty->assign('cate_info', $cate_info);
 $smarty->assign('product_category', $dou->get_category('product_category', 0, $cat_id));
 $smarty->assign('product_list', $product_list);
-
+$smarty->assign('product', $product);
 
 //分类id
 $smarty->assign('req_id', $_REQUEST['id']);
