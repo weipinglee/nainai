@@ -38,14 +38,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				  <div class="col-md-7 single-top">	
 					 <div class="flexslider">
 							  <ul class="slides">
-								<li data-thumb="{$product.image1}">
-									<div class="thumb-image"> <img src="{$product.image1}" data-imagezoom="false" class="img-responsive" alt=""/> </div>
+								<li data-thumb="{$product.thumb}">
+									<div class="thumb-image"> <img src="{$product.image}" data-imagezoom="false" class="img-responsive" alt=""/> </div>
 								</li>
-								<li data-thumb="{$product.image2}">
-									 <div class="thumb-image"> <img src="{$product.image2}" data-imagezoom="false" class="img-responsive" alt=""/> </div>
+								<li data-thumb="{$product.thumb}">
+									 <div class="thumb-image"> <img src="{$product.image}" data-imagezoom="false" class="img-responsive" alt=""/> </div>
 								</li>
-								<li data-thumb="{$product.image3}">
-								   <div class="thumb-image"> <img src="{$product.image3}" data-imagezoom="false" class="img-responsive" alt=""/> </div>
+								<li data-thumb="{$product.thumb}">
+								   <div class="thumb-image"> <img src="{$product.image}" data-imagezoom="false" class="img-responsive" alt=""/> </div>
 								</li> 
 							  </ul>
 						</div>					 					 
@@ -69,14 +69,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						 <h4>{$product.bigCate}{$product.smallCate} {$product.name}</h4>							
 							<h5 class="item_price">{$product.price}</h5>							
 							<p class="para">
-								{$product.bigCate}{$product.smallCate} {$product.name} 编号：{$product.num} {$product.cangku}
+								{$product.bigCate}{$product.smallCate} {$product.name} 编号：GP0020151117000006 百研仓库2
 							</p>
 							<div class="prdt-info-grid">
 								 <ul>
-									 <li>- 商品编号 : {$product.num}</li>
-									 <li>- 品种: {$product.pinzhong} </li>
-									 <li>- 生产日期: {$product.date}</li>
-									 <li>- 大小 : 长 {$product.length}&nbsp;米 , 宽 {$product.width}&nbsp;米 ,厚度 {$product.height}&nbsp;米</li>
+									 <li>- 商品编号 : GP0020151117000006</li>
+									 <li>- 品种: {$product.name} </li>
+									 <li>-  生产日期: {$product.add_time}</li>
+									 <li>- 大小 : 长 1，宽 1 厚度 1</li>
 								 </ul>
 							</div>
 							<!-- <div class="check">
@@ -101,7 +101,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 <!--{foreach from=$relate name=relate item = re}-->
 				 <div class="col-md-2 btm-grid">
 					 <a href="{$re.url}">
-						<img src="{$re.image1}" width="116px" alt=""/>
+						<img src="{$re.image}" width="116px" alt=""/>
 						<h4>{$product.bigCate}{$product.smallCate}{$re.name}</h4>
 						<span>
 							<!--{if $re.price eq 0}-->

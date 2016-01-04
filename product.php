@@ -37,7 +37,6 @@ while ($row = $dou->fetch_assoc($query)) {
 // 格式化数据
 $product['price'] = $product['price'] > 0 ? $dou->price_format($product['price']) : $_LANG['price_discuss'];
 $product['add_time'] = date("Y-m-d", $product['add_time']);
-//$product['date'] = date("Y-m-d", $product['date']);//新增
 
 // 生成缩略图的文件名
 $image = explode(".", $product['image']);

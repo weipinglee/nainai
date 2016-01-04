@@ -151,10 +151,8 @@ elseif ($rec == 'insert') {
     // CSRF防御令牌验证
     $firewall->check_token($_POST['token'], 'article_add');
     
-    $sql = "INSERT INTO " . $dou->table('article') . " (id, cat_id, title, defined, content, image ,keywords, add_time, description , laiyuan)" . " VALUES (NULL, '$_POST[cat_id]', '$_POST[title]', '$_POST[defined]', '$_POST[content]', '$file', '$_POST[keywords]', '$add_time', '$_POST[description]', '$_POST[laiyuan]')";
-    //echo $sql;exit;
+    $sql = "INSERT INTO " . $dou->table('article') . " (id, cat_id, title, defined, content, image ,keywords, add_time, description)" . " VALUES (NULL, '$_POST[cat_id]', '$_POST[title]', '$_POST[defined]', '$_POST[content]', '$file', '$_POST[keywords]', '$add_time', '$_POST[description]')";
     $dou->query($sql);
-    //var_dump($dou->query);exit;
     
     $dou->create_admin_log($_LANG['article_add'] . ': ' . $_POST['title']);
     $dou->dou_msg($_LANG['article_add_succes'], 'article.php');
@@ -223,7 +221,7 @@ elseif ($rec == 'update') {
     // CSRF防御令牌验证
     $firewall->check_token($_POST['token'], 'article_edit');
     
-    $sql = "UPDATE " . $dou->table('article') . " SET cat_id = '$_POST[cat_id]', title = '$_POST[title]', defined = '$_POST[defined]' ,content = '$_POST[content]'" . $up_file . ", keywords = '$_POST[keywords]', description = '$_POST[description]' , laiyuan = '$_POST[laiyuan]' WHERE id = '$_POST[id]'";
+    $sql = "UPDATE " . $dou->table('article') . " SET cat_id = '$_POST[cat_id]', title = '$_POST[title]', defined = '$_POST[defined]' ,content = '$_POST[content]'" . $up_file . ", keywords = '$_POST[keywords]', description = '$_POST[description]' WHERE id = '$_POST[id]'";
     $dou->query($sql);
     
     $dou->create_admin_log($_LANG['article_edit'] . ': ' . $_POST['title']);

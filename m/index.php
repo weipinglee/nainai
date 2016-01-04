@@ -30,9 +30,6 @@ $query = $dou->query($sql);
 $about = $dou->fetch_array($query);
 
 // 写入到index数组
-$index['about_name'] = $about['page_name'];
-$index['about_content'] = $dou->dou_substr($about['content'], 300);
-$index['about_link'] = $dou->rewrite_url('page', '1');
 $index['cur'] = true;
 
 // 赋值给模板-meta和title信息
@@ -47,40 +44,7 @@ $smarty->assign('nav_list', is_array($dou->get_nav()) ? $dou->get_nav() : $dou->
 $smarty->assign('show_list', is_array($dou->get_show_list('mobile')) ? $dou->get_show_list('mobile') : $dou->get_show_list('pc'));
 $smarty->assign('index', $index);
 $smarty->assign('recommend_product', $dou->get_list('product', 'ALL', $_DISPLAY['home_product'], 'sort DESC'));
-/*$smarty->assign('recommend_article', $dou->get_list('article', 'ALL', $_DISPLAY['home_article'], 'sort DESC'));*/
+$smarty->assign('recommend_article', $dou->get_list('article', 'ALL', $_DISPLAY['home_article'], 'sort DESC'));
 
-$sql = 'select cat_id, cat_name, unique_id from dou_article_category';
-$query = $dou->query($sql);
-while( $tmp = $dou->fetch_assoc($query)){
-    $tmp['url'] = $dou->rewrite_url('article_category', $tmp['cat_id']);
-    $cate[] = $tmp;
-}
-foreach($cate as $key => $val){
-    $cate[$val['unique_id']]['name'] = $val['cat_name'];
-    $cate[$val['unique_id']]['url'] = $val['url'];
-    $cate[$val['unique_id']]['article'] = $dou->get_list('article', $val['cat_id'], $_DISPLAY['home_article'], 'sort DESC'); 
-    unset($cate[$key]);
-}
-$smarty->assign('recommend_article', $cate);
 $smarty->display('index.dwt');
-
-/**
- * +----------------------------------------------------------
- * 获取下级幻灯列表
- * +----------------------------------------------------------
- */
-function get_link_list() {
-    $sql = "SELECT * FROM " . $GLOBALS['dou']->table('link') . " ORDER BY sort ASC, id ASC";
-    $query = $GLOBALS['dou']->query($sql);
-    while ($row = $GLOBALS['dou']->fetch_array($query)) {
-        $link_list[] = array (
-                "id" => $row['id'],
-                "link_name" => $row['link_name'],
-                "link_url" => $row['link_url'],
-                "sort" => $row['sort'] 
-        );
-    }
-    
-    return $link_list;
-}
 ?>
