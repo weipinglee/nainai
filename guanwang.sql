@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: 2016-01-04 17:22:00
--- 服务器版本： 5.6.17
--- PHP Version: 5.5.12
+-- 主机: localhost
+-- 生成日期: 2016 年 01 月 05 日 01:46
+-- 服务器版本: 5.6.12-log
+-- PHP 版本: 5.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,8 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `guanwang`
+-- 数据库: `guanwang`
 --
+CREATE DATABASE IF NOT EXISTS `guanwang` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `guanwang`;
 
 -- --------------------------------------------------------
 
@@ -43,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `dou_admin` (
 --
 
 INSERT INTO `dou_admin` (`user_id`, `user_name`, `email`, `password`, `action_list`, `add_time`, `last_login`, `last_ip`) VALUES
-(1, 'admin123', '', 'e10adc3949ba59abbe56e057f20f883e', 'ALL', 1448960629, 1451823624, '127.0.0.1');
+(1, 'admin123', '', 'e10adc3949ba59abbe56e057f20f883e', 'ALL', 1448960629, 1451956709, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -60,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `dou_admin_log` (
   PRIMARY KEY (`id`),
   KEY `create_time` (`create_time`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=338 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=343 ;
 
 --
 -- 转存表中的数据 `dou_admin_log`
@@ -403,7 +405,12 @@ INSERT INTO `dou_admin_log` (`id`, `create_time`, `user_id`, `action`, `ip`) VAL
 (334, 1451924271, 1, '添加商品: 1111111111', '127.0.0.1'),
 (335, 1451924307, 1, '添加商品: 111111111111111111', '127.0.0.1'),
 (336, 1451924374, 1, '编辑商品: 888888888888', '127.0.0.1'),
-(337, 1451924391, 1, '编辑商品: 1111111111', '127.0.0.1');
+(337, 1451924391, 1, '编辑商品: 1111111111', '127.0.0.1'),
+(338, 1451956709, 1, '管理员登录: 登录成功！', '127.0.0.1'),
+(339, 1451956933, 1, '批量删除: JIANLI IN (''24'',''26'',''28'')', '127.0.0.1'),
+(340, 1451957774, 1, '批量删除: JIANLI IN (''41'',''39'',''37'',''35'',''38'',''40'',''36'',''34'')', '127.0.0.1'),
+(341, 1451957781, 1, '批量删除: JIANLI IN (''44'',''42'',''43'')', '127.0.0.1'),
+(342, 1451958138, 1, '批量删除: JIANLI IN (''56'',''55'',''54'',''51'',''48'',''46'',''53'',''45'',''50'',''47'',''52'',''49'')', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -567,14 +574,16 @@ CREATE TABLE IF NOT EXISTS `dou_jianli` (
   `zhaopin_id` int(10) NOT NULL,
   `position` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=60 ;
 
 --
 -- 转存表中的数据 `dou_jianli`
 --
 
 INSERT INTO `dou_jianli` (`id`, `name`, `add_time`, `zhaopin_id`, `position`) VALUES
-(23, '李西豫.doc', 1451924149, 24, 'E:/wamp/www/upload/data/upload/SVCGjE.doc');
+(58, 'shop库基本表整理.doc', 1451958168, 22, 'D:/wamp/www/nainai/data/upload/AwvFdr.doc'),
+(59, 'shop库基本表整理.doc', 1451958172, 19, 'D:/wamp/www/nainai/data/upload/QgpNmk.doc'),
+(57, 'shop库基本表整理.doc', 1451958163, 24, 'D:/wamp/www/nainai/data/upload/n6Dd7A.doc');
 
 -- --------------------------------------------------------
 
