@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2016 年 01 月 05 日 01:46
+-- 生成日期: 2016 年 01 月 05 日 08:28
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.12
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `dou_admin_log` (
   PRIMARY KEY (`id`),
   KEY `create_time` (`create_time`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=343 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=349 ;
 
 --
 -- 转存表中的数据 `dou_admin_log`
@@ -410,7 +410,13 @@ INSERT INTO `dou_admin_log` (`id`, `create_time`, `user_id`, `action`, `ip`) VAL
 (339, 1451956933, 1, '批量删除: JIANLI IN (''24'',''26'',''28'')', '127.0.0.1'),
 (340, 1451957774, 1, '批量删除: JIANLI IN (''41'',''39'',''37'',''35'',''38'',''40'',''36'',''34'')', '127.0.0.1'),
 (341, 1451957781, 1, '批量删除: JIANLI IN (''44'',''42'',''43'')', '127.0.0.1'),
-(342, 1451958138, 1, '批量删除: JIANLI IN (''56'',''55'',''54'',''51'',''48'',''46'',''53'',''45'',''50'',''47'',''52'',''49'')', '127.0.0.1');
+(342, 1451958138, 1, '批量删除: JIANLI IN (''56'',''55'',''54'',''51'',''48'',''46'',''53'',''45'',''50'',''47'',''52'',''49'')', '127.0.0.1'),
+(343, 1451958907, 1, '批量删除: ZHAOPIN IN (''24'',''23'',''22'',''20'',''19'',''18'',''17'',''16'',''15'',''14'',''13'',''11'')', '127.0.0.1'),
+(344, 1451959004, 1, '添加招聘: 运维专员', '127.0.0.1'),
+(345, 1451959027, 1, '添加招聘: 文员', '127.0.0.1'),
+(346, 1451959053, 1, '添加招聘: 网站测试', '127.0.0.1'),
+(347, 1451977963, 1, '批量删除: JIANLI IN (''65'',''64'',''63'',''62'',''61'',''60'',''59'',''58'')', '127.0.0.1'),
+(348, 1451978275, 1, '批量删除: JIANLI IN (''71'',''70'',''69'',''68'',''67'',''66'',''57'')', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -573,17 +579,22 @@ CREATE TABLE IF NOT EXISTS `dou_jianli` (
   `add_time` int(10) unsigned NOT NULL DEFAULT '0',
   `zhaopin_id` int(10) NOT NULL,
   `position` varchar(255) NOT NULL,
+  `job` varchar(150) NOT NULL,
+  `cat_id` smallint(5) NOT NULL DEFAULT '0',
+  `cat_name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=60 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=84 ;
 
 --
 -- 转存表中的数据 `dou_jianli`
 --
 
-INSERT INTO `dou_jianli` (`id`, `name`, `add_time`, `zhaopin_id`, `position`) VALUES
-(58, 'shop库基本表整理.doc', 1451958168, 22, 'D:/wamp/www/nainai/data/upload/AwvFdr.doc'),
-(59, 'shop库基本表整理.doc', 1451958172, 19, 'D:/wamp/www/nainai/data/upload/QgpNmk.doc'),
-(57, 'shop库基本表整理.doc', 1451958163, 24, 'D:/wamp/www/nainai/data/upload/n6Dd7A.doc');
+INSERT INTO `dou_jianli` (`id`, `name`, `add_time`, `zhaopin_id`, `position`, `job`, `cat_id`, `cat_name`) VALUES
+(79, 'shop库基本表整理1126.doc', 1451978749, 26, 'D:/wamp/www/nainai/data/upload/aKtRju.doc', '文员', 3, '北京'),
+(80, 'shop库基本表整理.doc', 1451978842, 26, 'D:/wamp/www/nainai/data/upload/8dAWcP.doc', '文员', 3, '北京'),
+(83, 'shop库基本表整理.doc', 1451982417, 27, 'D:/wamp/www/nainai/data/upload/nmvHBN.doc', '网站测试', 4, '唐山'),
+(82, 'shop库基本表整理1126.doc', 1451982411, 12, 'D:/wamp/www/nainai/data/upload/NW9eEv.doc', 'java工程师', 2, '上海'),
+(81, 'shop库基本表整理.doc', 1451982406, 26, 'D:/wamp/www/nainai/data/upload/mvWPaD.doc', '文员', 3, '北京');
 
 -- --------------------------------------------------------
 
@@ -796,26 +807,17 @@ CREATE TABLE IF NOT EXISTS `dou_zhaopin` (
   `zige` longtext NOT NULL,
   `parent_id` smallint(5) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
 
 --
 -- 转存表中的数据 `dou_zhaopin`
 --
 
 INSERT INTO `dou_zhaopin` (`id`, `cat_id`, `job`, `defined`, `image`, `keywords`, `add_time`, `click`, `description`, `sort`, `salary`, `zhize`, `zige`, `parent_id`) VALUES
-(22, 2, '99', '', '', '', 1450837945, 0, '', 0, '面议', '9', '9', 0),
-(19, 2, '6', '', '', '', 1450837880, 0, '', 0, '面议', '6', '6', 0),
-(20, 2, '7', '', '', '', 1450837889, 0, '', 0, '面议', '7', '7', 0),
-(18, 2, '5', '', '', '', 1450837872, 0, '', 0, '面议', '5', '', 0),
-(14, 2, '1', '', '', '', 1450837822, 0, '', 0, '面议', '1', '1', 0),
-(15, 2, '2', '', '', '', 1450837829, 0, '', 0, '面议', '2', '2', 0),
-(16, 2, '3', '', '', '', 1450837839, 0, '', 0, '面议', '3', '3', 0),
-(17, 2, '4', '', '', '', 1450837848, 0, '', 0, '面议', '4', '4', 0),
-(11, 2, '招聘新', '', '', '', 1450836619, 0, '', 0, '面议', '<p>\n	1.招聘信息\n</p>\n<p>\n	2.招聘信息\n</p>\n<p>\n	3.招聘信息\n</p>', '<p>\r\n	1.招聘信息\r\n</p>\r\n<p>\r\n	2.招聘信息\r\n</p>\r\n<p>\r\n	3.招聘信息\r\n</p>', 0),
+(26, 3, '文员', '', '', '', 1451959027, 0, '', 0, '面议', '1.完成上级交给的任务<br />\r\n2.完成上级交给的任务<br />\r\n3.完成上级交给的任务<br />\r\n4.完成上级交给的任务<br />\r\n<div>\r\n	<br />\r\n</div>', '1.热爱工作<br />\r\n2.认真负责<br />\r\n3.3年以上经验<br />\r\n4.大专以上学历<br />', 0),
 (12, 2, 'java工程师', '', '', '', 1450836655, 0, '', 0, '5000-8000', '<p>\r\n	1.招聘信息\r\n</p>\r\n<p>\r\n	2.招聘信息\r\n</p>\r\n<p>\r\n	3.招聘信息\r\n</p>', '<p>\r\n	1.招聘信息\r\n</p>\r\n<p>\r\n	2.招聘信息\r\n</p>\r\n<p>\r\n	3.招聘信息\r\n</p>', 0),
-(13, 2, '新的', '', '', '', 1450836871, 0, '', 0, '8000-10000', '<p>\r\n	1.招聘信息\r\n</p>\r\n<p>\r\n	2.招聘信息\r\n</p>\r\n<p>\r\n	3.招聘信息\r\n</p>', '<p>\r\n	1.招聘信息\r\n</p>\r\n<p>\r\n	2.招聘信息\r\n</p>\r\n<p>\r\n	3.招聘信息\r\n</p>', 0),
-(23, 0, 'ss', '', '', '', 1451038337, 0, '', 0, 's', 'ss', 'ss', 0),
-(24, 2, '333', '', '', '', 1451796494, 0, '', 0, '面议', '333', '333', 0);
+(25, 2, '运维专员', '', '', '', 1451959004, 0, '', 0, '面议', '<p>\r\n	1.完成上级交给的任务\r\n</p>\r\n<p>\r\n	<span>2.完成上级交给的任务</span>\r\n</p>\r\n<p>\r\n	<span>3.完成上级交给的任务</span>\r\n</p>\r\n<p>\r\n	<span>4.完成上级交给的任务</span>\r\n</p>', '<p>\r\n	1.热爱工作\r\n</p>\r\n<p>\r\n	2.认真负责\r\n</p>\r\n<p>\r\n	3.3年以上经验\r\n</p>\r\n<p>\r\n	4.大专以上学历\r\n</p>', 0),
+(27, 4, '网站测试', '', '', '', 1451959053, 0, '', 0, '面议', '1.完成上级交给的任务<br />\r\n2.完成上级交给的任务<br />\r\n3.完成上级交给的任务<br />\r\n4.完成上级交给的任务<br />', '1.热爱工作<br />\r\n2.认真负责<br />\r\n3.3年以上经验<br />\r\n4.大专以上学历<br />', 0);
 
 -- --------------------------------------------------------
 

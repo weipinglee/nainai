@@ -26,7 +26,7 @@ $smarty->assign('cur', 'jianli');
 
 /**
  * +----------------------------------------------------------
- * 招聘列表
+ * 简历列表
  * +----------------------------------------------------------
  */
 if ($rec == 'default') {
@@ -41,7 +41,9 @@ if ($rec == 'default') {
     $keyword = isset($_REQUEST['keyword']) ? trim($_REQUEST['keyword']) : '';
     
     // 筛选条件
-    $where = ' WHERE cat_id IN (' . $cat_id . $dou->dou_child_id('jianli_category', $cat_id) . ')';
+    /*$where = ' WHERE cat_id IN (' . $cat_id . $dou->dou_child_id('zhaopin_category', $cat_id) . ')';*/
+    $where = ' WHERE cat_id = ' . $cat_id ;
+    //var_dump($where);exit;
     if ($keyword) {
         $where = $where . " AND job LIKE '%$keyword%'";
         $get = '&keyword=' . $keyword;
@@ -52,8 +54,7 @@ if ($rec == 'default') {
     $page_url = 'jianli.php' . ($cat_id ? '?cat_id=' . $cat_id : '');
     $limit = $dou->pager('jianli', 15, $page, $page_url, $where, $get);
     
-    $sql = "SELECT id, name , add_time , zhaopin_id, position FROM " . $dou->table('jianli') . " ORDER BY add_time DESC" . $limit;
-    // echo $sql;exit;
+    $sql = "SELECT id, name , add_time , zhaopin_id, position , job , cat_id , cat_name FROM " . $dou->table('jianli') . $where. " ORDER BY id DESC" . $limit;
     $query = $dou->query($sql);
     while ($row = $dou->fetch_array($query)) {
         // $cat_name = $dou->get_one("SELECT cat_name FROM " . $dou->table('jianli_category') . " WHERE cat_id = '$row[cat_id]'");
@@ -68,9 +69,12 @@ if ($rec == 'default') {
                 "zhaopin_id" => $row['zhaopin_id'],
                 "add_time" => $add_time,
                 'url'=>$url,
+                "job" => $row['job'],
+                "cat_name" => $row['cat_name']
         );
     }
     
+    //var_dump($jianli_list);exit;
     // 首页显示招聘数量限制框
     for($i = 1; $i <= $_CFG['home_display_jianli']; $i++) {
         $sort_bg .= "<li><em></em></li>";
@@ -82,53 +86,10 @@ if ($rec == 'default') {
     $smarty->assign('sort_bg', $sort_bg);
     $smarty->assign('cat_id', $cat_id);
     $smarty->assign('keyword', $keyword);
-    $smarty->assign('jianli_category', $dou->get_category_nolevel('jianli_category'));
+    $smarty->assign('zhaopin_category', $dou->get_category_nolevel('zhaopin_category'));//工作地点
     $smarty->assign('jianli_list', $jianli_list);
     // var_dump($jianli_list);exit;
     $smarty->display('jianli.htm');
-} 
-
-
-/**
- * +----------------------------------------------------------
- * 首页商品筛选
- * +----------------------------------------------------------
- */
-elseif ($rec == 'sort') {
-    $_SESSION['if_sort'] = $_SESSION['if_sort'] ? false : true;
-    
-    // 跳转到上一页面
-    $dou->dou_header($_SERVER['HTTP_REFERER']);
-} 
-
-/**
- * +----------------------------------------------------------
- * 设为首页显示商品
- * +----------------------------------------------------------
- */
-elseif ($rec == 'set_sort') {
-    // 验证并获取合法的ID
-    $id = $check->is_number($_REQUEST['id']) ? $_REQUEST['id'] : $dou->dou_msg($_LANG['illegal'], 'jianli.php');
-    
-    $max_sort = $dou->get_one("SELECT sort FROM " . $dou->table('jianli') . " ORDER BY sort DESC");
-    $new_sort = $max_sort + 1;
-    $dou->query("UPDATE " . $dou->table('jianli') . " SET sort = '$new_sort' WHERE id = '$id'");
-    
-    $dou->dou_header($_SERVER['HTTP_REFERER']);
-} 
-
-/**
- * +----------------------------------------------------------
- * 取消首页显示商品
- * +----------------------------------------------------------
- */
-elseif ($rec == 'del_sort') {
-    // 验证并获取合法的ID
-    $id = $check->is_number($_REQUEST['id']) ? $_REQUEST['id'] : $dou->dou_msg($_LANG['illegal'], 'jianli.php');
-    
-    $dou->query("UPDATE " . $dou->table('jianli') . " SET sort = '' WHERE id = '$id'");
-    
-    $dou->dou_header($_SERVER['HTTP_REFERER']);
 } 
 
 
@@ -142,9 +103,6 @@ elseif ($rec == 'action') {
         if ($_POST['action'] == 'del_all') {
             // 批量招聘删除
             $dou->del_all('jianli', $_POST['checkbox'], 'id', 'image');
-        } elseif ($_POST['action'] == 'category_move') {
-            // 批量移动分类
-            $dou->category_move('jianli', $_POST['checkbox'], $_POST['new_cat_id']);
         } else {
             $dou->dou_msg($_LANG['select_empty']);
         }

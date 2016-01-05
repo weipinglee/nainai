@@ -28,6 +28,7 @@ $_LANG['mobile_display_home_jianli'] = '手机版首页展示简历数量';
 //$_LANG['jianli_category'] = '职位分类';
 $_LANG['jianli_category_add'] = '添加职位';
 $_LANG['jianli_category_edit'] = '编辑职位';
+$_LANG['jianli_pin'] = '应聘职位';
 $_LANG['jianli_category_del'] = '删除职位';
 $_LANG['jianli_category_del_is_parent'] = '"d%"不是末级分类或者分类下还存在招聘，您不能删除';
 $_LANG['jianli_category_name'] = '工作地点';

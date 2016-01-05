@@ -47,6 +47,19 @@ $jianli['url'] = $GLOBALS['dou']->rewrite_url('jianli', '');
 $smarty->assign('jianli', $jianli);
 $smarty->assign('zpid', $_GET['id'] + 0);
 
+
+//两表联查，查出dou_zhaopin表的job和cat_name字段
+$sc = $dou->table('zhaopin');
+$sql = "SELECT $sc.job , d.cat_id , d.cat_name FROM " . $dou->table('zhaopin') . ' left join '. $dou->table('zhaopin_category') . " as d on $sc.cat_id = d.cat_id where id= " . $_GET['id'] ;
+$query = $dou->query($sql);
+
+while($row = $dou->fetch_assoc($query)){
+    $jc[] = $row ;
+}
+
+$smarty->assign('job', $jc[0]['job']);
+$smarty->assign('cat_name', $jc[0]['cat_name']);
+$smarty->assign('cat_id', $jc[0]['cat_id']);
 $smarty->display('edi.dwt');
 
 

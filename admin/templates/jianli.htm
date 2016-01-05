@@ -21,7 +21,7 @@
     <form action="jianli.php" method="post">
      <select name="cat_id">
       <option value="0">{$lang.uncategorized}</option>
-      <!-- {foreach from=$jianli_category item=cate} -->
+      <!-- {foreach from=$zhaopin_category item=cate} -->
       <!-- {if $cate.cat_id eq $cat_id} -->
       <option value="{$cate.cat_id}" selected="selected">{$cate.mark} {$cate.cat_name}</option>
       <!-- {else} -->
@@ -56,6 +56,8 @@
       <th width="40" align="center">{$lang.record_id}</th>
       <th align="left">{$lang.jianli_name}</th>
       <!-- <th width="150" align="center">{$lang.jianli_category}</th> -->
+      <th width="150" align="center">{$lang.jianli_pin}</th>
+      <th width="150" align="center">{$lang.zhaopin_category}</th>
       <th width="80" align="center">{$lang.jianli_send_time}</th>
       <th width="80" align="center">{$lang.handler}</th>
      </tr>
@@ -63,7 +65,9 @@
      <tr>
       <td align="center"><input type="checkbox" name="checkbox[]" value="{$jianli.id}" /></td>
       <td align="center">{$jianli.id}</td>
-      <td><a href="jianli.php?rec=edit&id={$jianli.id}">{$jianli.name}</a></td>
+      <td >{$jianli.name}</td>
+      <td align="center">{$jianli.job}</td>
+      <td align="center">{$jianli.cat_name}</td>
       <td align="center">{$jianli.add_time}</td>
       <td align="center">
        <a href="{$jianli.url}" target="_blank">{$lang.jianli_download}</a>
@@ -75,7 +79,6 @@
      <select name="action" onchange="douAction()">
       <option value="0">{$lang.select}</option>
       <option value="del_all">{$lang.del}</option>
-      <option value="category_move">{$lang.category_move}</option>
      </select>
      <select name="new_cat_id" style="display:none">
       <option value="0">{$lang.uncategorized}</option>

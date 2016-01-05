@@ -45,25 +45,16 @@
  		</div> 
  		<hr> 
  		<div>
- 			<!-- <div class="wj_txt">
-        <span class="wj_name">文件名：</span>
-        <input name="" type="text" id="viewfile" onmouseout="document.getElementById(&#39;upload&#39;).style.display=&#39;none&#39;;" class="inputstyle">
-                  <span for="unload" onmouseover="document.getElementById(&#39;upload&#39;).style.display=&#39;block&#39;;" class="file1">打开</span>
-                    <input type="file" onchange="document.getElementById(&#39;viewfile&#39;).value=this.value;this.style.display=&#39;none&#39;;" class="file" id="upload" style="display: none;">
-      </div>
-      
-      <div class="wj_txt">
-        <span class="wj_name">&nbsp;格式：</span>
-        <input name="" type="text" id="viewfiles" onmouseout="document.getElementById(&#39;uploads&#39;).style.display=&#39;none&#39;;" class="inputstyle">
-                  <span for="unload" onmouseover="document.getElementById(&#39;uploads&#39;).style.display=&#39;block&#39;;" class="file1">上传</span>
-                    <input type="file" onchange="document.getElementById(&#39;viewfiles&#39;).value=this.value;this.style.display=&#39;none&#39;;" class="file" id="uploads" style="display: none;">
-      </div> -->
       <!-- 上传简历 -->
       <form action="{$jianli.url}" method="post" enctype="multipart/form-data">
         <div class="wj_txt">
           <span class="wj_name">简历位置:</span>
           <input name="fil" type="file">
+          <!-- 获取zhaopin 表的 id,job,cat_id -->
           <input type="hidden" name="zpid" value="{$zpid}">
+          <input type="hidden" name="job" value="{$job}">
+          <input type="hidden" name="cat_name" value="{$cat_name}">
+          <input type="hidden" name="cat_id" value="{$cat_id}">
         </div>
          <div class="wj_txt">
           <span class="wj_name">&nbsp;&nbsp;&nbsp;&nbsp;</span>

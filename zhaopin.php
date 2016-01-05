@@ -78,20 +78,6 @@ $smarty->assign('zhaopin', $zhaopin);
 $smarty->assign('zh', $zh);//zhaopin_category表的
 $smarty->assign('zhaopin_category', $dou->get_category('zhaopin_category', 0, ''));
 
-/*
-$sql2 = "SELECT id, cat_id FROM " . $dou->table('zhaopin') ;
-$query = $dou->query($sql2);
-
-while($row = $dou->fetch_assoc($query)) {
-   $row['url'] = $dou->rewrite_url('edi', $row['id']);
-   $edi[] = $row;
-}
-
-
-$smarty->assign('edi', $edi);
-//var_dump($edi[$row]['url']);exit;
-var_dump($edi);exit;
-*/
 //招聘信息分页
 $pageBar = getPageBar($smarty->_tpl_vars['pager']);
 
@@ -116,7 +102,7 @@ function getPageBar( $pager ){
      
     return $pageBar;
 }
-//$smarty->display('edi.dwt');
+
 
 $smarty->display('zhaopin.dwt');
 ?>

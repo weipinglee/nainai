@@ -21,6 +21,19 @@ require (dirname(__FILE__) . '/include/upload.class.php');
 if(!empty($_POST['zpid'])){
 	$zpid = $_POST['zpid'];
 }
+
+if(!empty($_POST['job'])){
+	$job = $_POST['job'];
+}
+
+if(!empty($_POST['cat_name'])){
+	$cat_name = $_POST['cat_name'];
+}
+
+if(!empty($_POST['cat_id'])){
+	$cat_id = $_POST['cat_id'];
+}
+
 if(!empty($_FILES) && $_FILES['fil']['error'] == 0) {
 	$Upload = new Upload();
 	$des = $Upload->createDir().'/'.$Upload->randStr().$Upload->getExt($_FILES['fil']['name']);
@@ -56,9 +69,11 @@ if(!empty($_FILES) && $_FILES['fil']['error'] == 0) {
 			$jlInfo['add_time'] = time();
 			$jlInfo['zhaopin_id'] = $zpid;
 			$jlInfo['position'] = $path;
+			$jlInfo['job'] = $job;
+			$jlInfo['cat_name'] = $cat_name;
 			*/
 
-			$sql = 'INSERT INTO ' .$dou->table('jianli'). "(name, add_time, zhaopin_id, position) values('".$_FILES["fil"]["name"]."', '". time() ."', '$zpid', '$path')";
+			$sql = 'INSERT INTO ' .$dou->table('jianli'). "(name, add_time, zhaopin_id, position , job , cat_id , cat_name ) values('".$_FILES["fil"]["name"]."', '". time() ."', '$zpid', '$path' , '$job' , '$cat_id' , '$cat_name' )";
 			
 			$dou->query($sql);
 

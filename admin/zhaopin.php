@@ -12,11 +12,11 @@
  * Release Date: 2015-10-16
  */
 define('IN_DOUCO', true);
-
 require (dirname(__FILE__) . '/include/init.php');
-
 // rec操作项的初始化
 $rec = $check->is_rec($_REQUEST['rec']) ? $_REQUEST['rec'] : 'default';
+
+
 
 // 图片上传
 include_once (ROOT_PATH . 'include/upload.class.php');
@@ -31,6 +31,7 @@ if (!file_exists(ROOT_PATH . $images_dir)) {
 $smarty->assign('rec', $rec);
 $smarty->assign('cur', 'zhaopin');
 
+
 /**
  * +----------------------------------------------------------
  * 招聘列表
@@ -42,11 +43,11 @@ if ($rec == 'default') {
             'text' => $_LANG['zhaopin_add'],
             'href' => 'zhaopin.php?rec=add' 
     ));
+
     
     // 获取参数
     $cat_id = $check->is_number($_REQUEST['cat_id']) ? $_REQUEST['cat_id'] : 0;
     $keyword = isset($_REQUEST['keyword']) ? trim($_REQUEST['keyword']) : '';
-    
     // 筛选条件
     $where = ' WHERE cat_id IN (' . $cat_id . $dou->dou_child_id('zhaopin_category', $cat_id) . ')';
     if ($keyword) {
@@ -282,8 +283,8 @@ elseif ($rec == 'del') {
     // 验证并获取合法的ID
     $id = $check->is_number($_REQUEST['id']) ? $_REQUEST['id'] : $dou->dou_msg($_LANG['illegal'], 'zhaopin.php');
     $job = $dou->get_one("SELECT job FROM " . $dou->table('zhaopin') . " WHERE id = '$id'");
-    
     if (isset($_POST['confirm']) ? $_POST['confirm'] : '') {
+
         // 删除相应商品图片
         $image = $dou->get_one("SELECT image FROM " . $dou->table('zhaopin') . " WHERE id = '$id'");
         $dou->del_image($image);
