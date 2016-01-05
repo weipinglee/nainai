@@ -41,9 +41,7 @@ if ($rec == 'default') {
     $keyword = isset($_REQUEST['keyword']) ? trim($_REQUEST['keyword']) : '';
     
     // 筛选条件
-    /*$where = ' WHERE cat_id IN (' . $cat_id . $dou->dou_child_id('zhaopin_category', $cat_id) . ')';*/
-    $where = ' WHERE cat_id = ' . $cat_id ;
-    //var_dump($where);exit;
+    $where = ' WHERE cat_id IN (' . $cat_id . $dou->dou_child_id('zhaopin_category', $cat_id) . ')';
     if ($keyword) {
         $where = $where . " AND job LIKE '%$keyword%'";
         $get = '&keyword=' . $keyword;
@@ -55,6 +53,7 @@ if ($rec == 'default') {
     $limit = $dou->pager('jianli', 15, $page, $page_url, $where, $get);
     
     $sql = "SELECT id, name , add_time , zhaopin_id, position , job , cat_id , cat_name FROM " . $dou->table('jianli') . $where. " ORDER BY id DESC" . $limit;
+    //echo $sql;exit;
     $query = $dou->query($sql);
     while ($row = $dou->fetch_array($query)) {
         // $cat_name = $dou->get_one("SELECT cat_name FROM " . $dou->table('jianli_category') . " WHERE cat_id = '$row[cat_id]'");
