@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2016 年 01 月 05 日 08:28
+-- 生成日期: 2016 年 01 月 05 日 09:38
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.12
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `dou_admin_log` (
   PRIMARY KEY (`id`),
   KEY `create_time` (`create_time`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=349 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=357 ;
 
 --
 -- 转存表中的数据 `dou_admin_log`
@@ -416,7 +416,15 @@ INSERT INTO `dou_admin_log` (`id`, `create_time`, `user_id`, `action`, `ip`) VAL
 (345, 1451959027, 1, '添加招聘: 文员', '127.0.0.1'),
 (346, 1451959053, 1, '添加招聘: 网站测试', '127.0.0.1'),
 (347, 1451977963, 1, '批量删除: JIANLI IN (''65'',''64'',''63'',''62'',''61'',''60'',''59'',''58'')', '127.0.0.1'),
-(348, 1451978275, 1, '批量删除: JIANLI IN (''71'',''70'',''69'',''68'',''67'',''66'',''57'')', '127.0.0.1');
+(348, 1451978275, 1, '批量删除: JIANLI IN (''71'',''70'',''69'',''68'',''67'',''66'',''57'')', '127.0.0.1'),
+(349, 1451983599, 1, '批量删除: PRODUCT IN (''56'',''55'',''54'',''53'',''52'',''51'')', '127.0.0.1'),
+(350, 1451983764, 1, '添加商品: 商品1', '127.0.0.1'),
+(351, 1451983836, 1, '添加商品: 商品2', '127.0.0.1'),
+(352, 1451983885, 1, '添加商品: 商品3', '127.0.0.1'),
+(353, 1451983933, 1, '添加商品: 商品4', '127.0.0.1'),
+(354, 1451986557, 1, '添加商品: 测试商品发布', '127.0.0.1'),
+(355, 1451986593, 1, '编辑商品: 测试商品发布', '127.0.0.1'),
+(356, 1451986651, 1, '添加商品: 新', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -710,19 +718,19 @@ CREATE TABLE IF NOT EXISTS `dou_product` (
   `width` int(5) NOT NULL,
   `height` int(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=57 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
 
 --
 -- 转存表中的数据 `dou_product`
 --
 
 INSERT INTO `dou_product` (`id`, `cat_id`, `name`, `price`, `defined`, `content`, `image1`, `image2`, `image3`, `keywords`, `add_time`, `description`, `sort`, `num`, `cangku`, `pinzhong`, `date`, `length`, `width`, `height`) VALUES
-(54, 6, '888888888888', '0.00', '', '8', 'images/product/a07ba4b6cf9fa70add43bf09ce08dd54.jpg', 'images/product/855c7b5eb4f7e334f616c72ef029e049.jpg', 'images/product/5b60733d046c6e10dc0e743300457968.jpg', '', 1451835422, '', 0, '8888', '88888', '88888', '888', 6, 7, 7),
-(53, 6, '33333333333', '44535.00', '', '2', 'images/product/7c4b80782d82ede8d5eb36f26f361501.jpg', 'images/product/0a4bd8a114c51a0e8f2e74daedd20094.jpg', 'images/product/f09dbbbb1edeb362f1c2e079f6a5e096.jpg', '', 1451835022, '', 0, 'GH99900', '上海仓', '新', '2015-3-4', 22, 22, 2),
-(52, 6, '11111111111', '3332.00', '', '33', 'images/product/3b8c5fe9b7137d6b67d19992fee7c19a.jpg', 'images/product/11b9aa1eff7c6a493ff4de2036e12143.jpg', 'images/product/ae0124dab821489dadcdcce667200439.jpg', '', 1451834981, '', 0, 'DJ8889', '北京仓', '旧', '2016-01-03', 33, 33, 33),
-(51, 6, '商品1', '9999.00', '', '<p>\r\n	新的\r\n</p>\r\n<p>\r\n	<br />\r\n</p>\r\n<p>\r\n	<img src="http://test.com/images/upload/image/20160103/20160103162631_87659.jpg" alt="" />\r\n</p>', 'images/product/efd0c9f73eb3f25a6d2135a005a747f2.jpg', 'images/product/3c1b0530edbe62514deb61f8a08c7d83.jpg', 'images/product/fd6fc70d5bb571389b97b6c4779e00d0.jpg', '', 1451834804, '', 0, 'GD6666', '北京仓库', '新品种', '2015-3-4', 34, 56, 33),
-(55, 6, '1111111111', '0.00', '', '1', 'images/product/749e028c5515bfd9d5ef4f3eb7a913b2.jpg', 'images/product/60f5fa13fe7ef99bd12ed2e4681d06bb.jpg', 'images/product/26ed720b14ee2ebf9830550d7aa504d3.jpg', '', 1451924271, '', 0, '1', '1', '1', '1', 1, 1, 1),
-(56, 6, '111111111111111111', '5555.00', '', '2', 'images/product/bcfe173195e94f87b7934580b4c7a574.jpg', 'images/product/87407599af9fb26896adbed59859336d.jpg', 'images/product/c73ad06b522130c9f329f973ec3dcb0b.jpg', '', 1451924307, '', 0, 'eee222', '222', '22', '22', 2, 2, 2);
+(59, 6, '商品3', '38902.00', '', '<p>\r\n	新\r\n</p>\r\n<p>\r\n	<img src="http://test.com/images/upload/image/20160105/20160105085115_15210.jpg" alt="" /><img src="http://test.com/images/upload/image/20160105/20160105085115_70419.jpg" alt="" /><img src="http://test.com/images/upload/image/20160105/20160105085115_62424.jpg" alt="" />\r\n</p>', 'images/product/3f6ac07e68e3b559e0b31a7d7e51be73.jpg', 'images/product/14807b01d5a1e2d9d1f02eae87d28076.jpg', 'images/product/e5683da5b105b369d0ce92e12dc0736e.jpg', '', 1451983885, '', 0, 'SE324', '上海仓', '新', '2012-3-4', 3, 3, 3),
+(58, 6, '商品2', '2999.00', '', '<p>\r\n	这也是个新商品\r\n</p>\r\n<p>\r\n	<br />\r\n</p>\r\n<p>\r\n	<img src="http://test.com/images/upload/image/20160105/20160105085026_34743.jpg" alt="" /><img src="http://test.com/images/upload/image/20160105/20160105085026_28341.jpg" alt="" /><img src="http://test.com/images/upload/image/20160105/20160105085027_99711.jpg" alt="" />\r\n</p>', 'images/product/cf78c0d4bc9657b77f37da5aa021118c.jpg', 'images/product/712f8bf32b88d85a80f07a18b08edd8a.jpg', 'images/product/3cf631ff226dd4fb9306d719152848a3.jpg', '', 1451983836, '', 0, 'SK9098', '北京仓', '新', '2012-3-4', 33, 22, 22),
+(57, 6, '商品1', '19999.00', '', '<p>\r\n	这是个新的商品\r\n</p>\r\n<p>\r\n	<img src="http://test.com/images/upload/image/20160105/20160105084914_51921.jpg" alt="" />\r\n</p>', 'images/product/6bff36507680999958bd8c0d85400aaa.jpg', 'images/product/944ff35c737f12a3a312b20f6f3e6500.jpg', 'images/product/d33d414f27e20acdaafa9beb1a13114f.jpg', '', 1451983764, '', 0, 'DF1111', '北京仓', '新', '2014-5', 23, 4, 5),
+(60, 6, '商品4', '9000.00', '', '<img src="http://test.com/images/upload/image/20160105/20160105085204_51223.jpg" alt="" /><img src="http://test.com/images/upload/image/20160105/20160105085204_47106.jpg" alt="" />', 'images/product/99fda801752971d7c0b1435713d8b2d6.jpg', 'images/product/474d5e7a20e88cbdec6b406feabe760e.jpg', 'images/product/c2b45f72c013e6093681e7c6e3d72c99.jpg', '', 1451983933, '', 0, 'ER2222', '上海仓', '新', '2013-2-4', 3, 2, 3),
+(61, 6, '测试商品发布', '0.00', '', '<p>\r\n	22\r\n</p>\r\n<p>\r\n	<img src="http://test.com/images/upload/image/20160105/20160105093549_27160.jpg" alt="" />\r\n</p>', 'images/product/a9ae0c74bc38382e7f6bbe94a98ff558.jpg', 'images/product/fd589e16f1eefa579d16f25943ffd37c.jpg', 'images/product/705547095c9d5b5a61c5bbaa32f05368.jpg', '', 1451986557, '', 0, 'DE3333', '上海仓', '新', '2015-11-05', 22, 22, 22),
+(62, 6, '新', '0.00', '', '<p>\r\n	22\r\n</p>\r\n<p>\r\n	<img src="http://test.com/images/upload/image/20160105/20160105093723_44942.jpg" alt="" />\r\n</p>', 'images/product/805df7db4fef8164a42add58a1681c42.jpg', 'images/product/a0a8164df6d8a2b72091c362c8a1c9aa.jpg', 'images/product/7002a321493decdaf7d013240b2c88f7.jpg', '', 1451986651, '', 0, '333', '44', '新', '2015-10-01', 22, 22, 22);
 
 -- --------------------------------------------------------
 
