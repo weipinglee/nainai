@@ -49,7 +49,7 @@ body {behavior: url("csshover.htc");}
     </li>
     <li><span>薪资水平</span></li>
     <li><span>发布时间</span></li>
-    <li style="text-align:right;"><a href="{$edi.url}"><img src="images/upload_files.png" border="0" class="upload"></a></li>
+    <!--  -->
   </ul>
 
   <div class="clear"></div>
@@ -63,6 +63,7 @@ body {behavior: url("csshover.htc");}
       <li>{$zhaopin.salary}</li>
       <li>{$zhaopin.add_time}</li>
       <!-- <li class="button"><a class="ytd_bg" href="#">已投递</a></li> -->
+      <li style="text-align:right;"><a href="{$zhaopin.url}"><img src="images/upload_files.png" border="0" class="upload"></a></li>
     </ul>
      <div class="cont_txt" style="display:none">
     <div class="content">

@@ -63,6 +63,7 @@
         <div class="wj_txt">
           <span class="wj_name">简历位置:</span>
           <input name="fil" type="file">
+          <input type="hidden" name="zpid" value="{$zpid}">
         </div>
          <div class="wj_txt">
           <span class="wj_name">&nbsp;&nbsp;&nbsp;&nbsp;</span>

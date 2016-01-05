@@ -18,9 +18,13 @@ require (dirname(__FILE__) . '/include/init.php');
 //$rec = $check->is_rec($_REQUEST['rec']) ? $_REQUEST['rec'] : 'default';
 //简历上传
 require (dirname(__FILE__) . '/include/upload.class.php');
+if(!empty($_POST['zpid'])){
+	$zpid = $_POST['zpid'];
+}
 if(!empty($_FILES) && $_FILES['fil']['error'] == 0) {
 	$Upload = new Upload();
 	$des = $Upload->createDir().'/'.$Upload->randStr().$Upload->getExt($_FILES['fil']['name']);
+	
 	/*if(move_uploaded_file($_FILES['fil']['tmp_name'], ROOT.$des)) {
 		$表名 ['fil'] = $des;
 	}*/
@@ -35,8 +39,29 @@ if(!empty($_FILES) && $_FILES['fil']['error'] == 0) {
 		echo "<script>alert('文件过大,不能上传');</script>";
 	    echo "<script>window.location.href='edi.php';</script>";
 	} else {
-		$flag = move_uploaded_file($_FILES['fil']['tmp_name'],  dirname(__FILE__).'/data/upload'.$des);
+		$path = dirname(__FILE__).'/data/upload';
+		$path = str_replace(DIRECTORY_SEPARATOR, '/', $path);
+		if(!file_exists($path)){
+			mkdir($path, 0777, true);
+		}
+		$path .= $des;
+
+		$flag = move_uploaded_file($_FILES['fil']['tmp_name'], $path );
+		
 		if($flag){
+			
+			/*
+			$jlInfo = array();
+			$jlInfo['name'] = $_FILES['fil']['name'];
+			$jlInfo['add_time'] = time();
+			$jlInfo['zhaopin_id'] = $zpid;
+			$jlInfo['position'] = $path;
+			*/
+
+			$sql = 'INSERT INTO ' .$dou->table('jianli'). "(name, add_time, zhaopin_id, position) values('".$_FILES["fil"]["name"]."', '". time() ."', '$zpid', '$path')";
+			
+			$dou->query($sql);
+
 		    echo "<script>alert('上传成功');</script>";
 		    echo "<script>window.location.href='zhaopin.php';</script>";
 		}else{

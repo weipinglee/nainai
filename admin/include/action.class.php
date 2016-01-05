@@ -22,6 +22,7 @@ class Action extends Common {
      */
     function dou_workspace() {
         $menu_list = $this->get_menu_list();
+        //var_dump($menu_list);exit;
         $workspace['menu_column'] = $menu_list['column'];
         //print_r($workspace['menu_column']);exit;
         $workspace['menu_single'] = $menu_list['single'];

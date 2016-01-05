@@ -37,6 +37,7 @@ $query = $dou->query($sql);
 // echo $sql;exit;
 while($row = $dou->fetch_assoc($query)){
     $row['add_time'] = date("Y-m-d", $row['add_time']);
+    $row['url'] = $dou->rewrite_url('edi', $row['id']);
     $zhaopin[] = $row ;
 }
 // var_dump($limit);exit;
@@ -77,11 +78,20 @@ $smarty->assign('zhaopin', $zhaopin);
 $smarty->assign('zh', $zh);//zhaopin_category表的
 $smarty->assign('zhaopin_category', $dou->get_category('zhaopin_category', 0, ''));
 
+/*
+$sql2 = "SELECT id, cat_id FROM " . $dou->table('zhaopin') ;
+$query = $dou->query($sql2);
 
-$edi['url'] = $GLOBALS['dou']->rewrite_url('edi', '');
+while($row = $dou->fetch_assoc($query)) {
+   $row['url'] = $dou->rewrite_url('edi', $row['id']);
+   $edi[] = $row;
+}
+
+
 $smarty->assign('edi', $edi);
-// print_r($zhaopin);exit;
-
+//var_dump($edi[$row]['url']);exit;
+var_dump($edi);exit;
+*/
 //招聘信息分页
 $pageBar = getPageBar($smarty->_tpl_vars['pager']);
 

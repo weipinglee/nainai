@@ -114,12 +114,12 @@ class DbMysql {
     
     // 从结果集中取得一行作为关联数组
     function fetch_assoc($query) {
-        return mysql_fetch_assoc($query);
+        return @mysql_fetch_assoc($query);
     }
     
     // 从结果集取得的行生成的数组
     function fetch_array($query) {
-        return mysql_fetch_array($query);
+        return @mysql_fetch_array($query);
     }
     
     // 返回 MySQL 服务器的信息

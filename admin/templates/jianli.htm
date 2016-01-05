@@ -15,13 +15,13 @@
  <div id="dcMain">
    {include file="ur_here.htm"}
    <div class="mainBox" style="{$workspace.height}">
-    <!-- {if $rec eq 'default'} 招聘列表 -->
-    <h3><a href="{$action_link.href}" class="actionBtn add">{$action_link.text}</a>{$ur_here}</h3>
+    <!-- {if $rec eq 'default'} 简历列表 -->
+    
     <div class="filter">
-    <form action="zhaopin.php" method="post">
+    <form action="jianli.php" method="post">
      <select name="cat_id">
       <option value="0">{$lang.uncategorized}</option>
-      <!-- {foreach from=$zhaopin_category item=cate} -->
+      <!-- {foreach from=$jianli_category item=cate} -->
       <!-- {if $cate.cat_id eq $cat_id} -->
       <option value="{$cate.cat_id}" selected="selected">{$cate.mark} {$cate.cat_name}</option>
       <!-- {else} -->
@@ -34,9 +34,9 @@
     </form>
     <span>
     <!-- {if $if_sort} -->
-    <a class="btnGray" href="zhaopin.php?rec=sort">{$lang.sort_close}</a>
+    <a class="btnGray" href="jianli.php?rec=sort">{$lang.sort_close}</a>
     <!-- {else} -->
-    <a class="btnGray" href="zhaopin.php?rec=sort">{$lang.sort_zhaopin}</a>
+    <a class="btnGray" href="jianli.php?rec=sort">{$lang.sort_jianli}</a>
     <!-- {/if} -->
     </span>
     </div>
@@ -46,39 +46,34 @@
       {$sort_bg}
      </ul>
      <ul class="homeSortList">
-      <!-- {foreach from=$sort name=sort item=zhaopin} -->
+      <!-- {foreach from=$sort name=sort item=jianli} -->
       <li>
-       <em>{$zhaopin.job}</em>
-       <a href="zhaopin.php?rec=del_sort&id={$zhaopin.id}" title="{$lang.sort_cancel}">X</a>
+       <em>{$jianli.job}</em>
+       <a href="jianli.php?rec=del_sort&id={$jianli.id}" title="{$lang.sort_cancel}">X</a>
       </li>
       <!-- {/foreach} -->
      </ul>
     </div>
     <!-- {/if} -->
     <div id="list"{if $if_sort} class="homeSortLeft"{/if}>
-    <form name="action" method="post" action="zhaopin.php?rec=action">
+    <form name="action" method="post" action="jianli.php?rec=action">
     <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
      <tr>
       <th width="22" align="center"><input name='chkall' type='checkbox' id='chkall' onclick='selectcheckbox(this.form)' value='check'></th>
       <th width="40" align="center">{$lang.record_id}</th>
-      <th align="left">{$lang.zhaopin_name}</th>
-      <th width="150" align="center">{$lang.zhaopin_category}</th>
-      <th width="80" align="center">{$lang.add_time}</th>
+      <th align="left">{$lang.jianli_name}</th>
+      <!-- <th width="150" align="center">{$lang.jianli_category}</th> -->
+      <th width="80" align="center">{$lang.jianli_send_time}</th>
       <th width="80" align="center">{$lang.handler}</th>
      </tr>
-     <!-- {foreach from=$zhaopin_list item=zhaopin} -->
+     <!-- {foreach from=$jianli_list item=jianli} -->
      <tr>
-      <td align="center"><input type="checkbox" name="checkbox[]" value="{$zhaopin.id}" /></td>
-      <td align="center">{$zhaopin.id}</td>
-      <td><a href="zhaopin.php?rec=edit&id={$zhaopin.id}">{$zhaopin.job}</a><!-- {if $zhaopin.image} --> <a href="../{$zhaopin.image}" target="_blank"><img src="images/icon_picture.png" width="16" height="16" align="absMiddle"></a><!-- {/if} --></td>
-      <td align="center"><!-- {if $zhaopin.cat_name} --><a href="zhaopin.php?cat_id={$zhaopin.cat_id}">{$zhaopin.cat_name}</a><!-- {else} -->{$lang.uncategorized}<!-- {/if} --></td>
-      <td align="center">{$zhaopin.add_time}</td>
+      <td align="center"><input type="checkbox" name="checkbox[]" value="{$jianli.id}" /></td>
+      <td align="center">{$jianli.id}</td>
+      <td><a href="jianli.php?rec=edit&id={$jianli.id}">{$jianli.name}</a></td>
+      <td align="center">{$jianli.add_time}</td>
       <td align="center">
-       <!-- {if $if_sort} -->
-       <a href="zhaopin.php?rec=set_sort&id={$zhaopin.id}">{$lang.sort_btn}</a>
-       <!-- {else} -->
-       <a href="zhaopin.php?rec=edit&id={$zhaopin.id}">{$lang.edit}</a> | <a href="zhaopin.php?rec=del&id={$zhaopin.id}">{$lang.del}</a>
-       <!-- {/if} -->
+       <a href="{$jianli.url}" target="_blank">{$lang.jianli_download}</a>
       </td>
      </tr>
      <!-- {/foreach} -->
@@ -91,7 +86,7 @@
      </select>
      <select name="new_cat_id" style="display:none">
       <option value="0">{$lang.uncategorized}</option>
-      <!-- {foreach from=$zhaopin_category item=cate} -->
+      <!-- {foreach from=$jianli_category item=cate} -->
       <!-- {if $cate.cat_id eq $cat_id} -->
       <option value="{$cate.cat_id}" selected="selected">{$cate.mark} {$cate.cat_name}</option>
       <!-- {else} -->
@@ -108,21 +103,21 @@
     <!-- {/if} -->
     <!-- {if $rec eq 'add' || $rec eq 'edit'} 招聘添加或编辑 -->
     <h3><a href="{$action_link.href}" class="actionBtn">{$action_link.text}</a>{$ur_here}</h3>
-    <form action="zhaopin.php?rec={$form_action}" method="post" enctype="multipart/form-data">
+    <form action="jianli.php?rec={$form_action}" method="post" enctype="multipart/form-data">
      <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
       <tr>
-       <td width="90" align="right">{$lang.zhaopin_name}</td>
+       <td width="90" align="right">{$lang.jianli_name}</td>
        <td>
-        <input type="text" name="job" value="{$zhaopin.job}" size="80" class="inpMain" />
+        <input type="text" name="job" value="{$jianli.job}" size="80" class="inpMain" />
        </td>
       </tr>
       <tr>
-       <td align="right">{$lang.zhaopin_category}</td>
+       <td align="right">{$lang.jianli_category}</td>
        <td>
         <select name="cat_id">
          <option value="0">{$lang.uncategorized}</option>
-         <!-- {foreach from=$zhaopin_category item=cate} -->
-         <!-- {if $cate.cat_id eq $zhaopin.cat_id} -->
+         <!-- {foreach from=$jianli_category item=cate} -->
+         <!-- {if $cate.cat_id eq $jianli.cat_id} -->
          <option value="{$cate.cat_id}" selected="selected">{$cate.mark} {$cate.cat_name}</option>
          <!-- {else} -->
          <option value="{$cate.cat_id}">{$cate.mark} {$cate.cat_name}</option>
@@ -131,20 +126,12 @@
         </select>
        </td>
       </tr>
-      <!-- 新增一个岗位工资 -->
+      
+      <!-- {if $jianli.defined} -->
       <tr>
-       <td align="right">{$lang.zhaopin_salary}</td>
+       <td align="right" valign="top">{$lang.jianli_defined}</td>
        <td>
-        <input type="text" name="salary" value="{if $zhaopin.salary}{$zhaopin.salary}元{else}面议{/if}" size="40" class="inpMain" />
-        <span style="color:red;"><b>默认为"面议";或者请写薪资范围,如:"3000-5000"</b></span>
-       </td>
-      </tr>
-      <!--新增岗位工资结束-->
-      <!-- {if $zhaopin.defined} -->
-      <tr>
-       <td align="right" valign="top">{$lang.zhaopin_defined}</td>
-       <td>
-        <textarea name="defined" id="defined" cols="50" class="textAreaAuto" style="height:{$zhaopin.defined_count}0px">aaaaa{$zhaopin.defined}</textarea>
+        <textarea name="defined" id="defined" cols="50" class="textAreaAuto" style="height:{$jianli.defined_count}0px">aaaaa{$jianli.defined}</textarea>
         <script type="text/javascript">
          {literal}
           $("#defined").autoTextarea({maxHeight:300});
@@ -155,7 +142,7 @@
       <!-- {/if} -->
       <!-- 岗位职责 -->
       <tr>
-       <td align="right" valign="top">{$lang.zhaopin_zhize}</td>
+       <td align="right" valign="top">{$lang.jianli_zhize}</td>
        <td>
         <!-- KindEditor -->
         <!--这是要屏蔽的后台编辑器-->
@@ -175,40 +162,40 @@
         </script>
         <!-- /KindEditor -->
 
-        <textarea id="zhize" name="zhize" style="width:780px;height:100px;" class="textArea">{$zhaopin.zhize}</textarea>
+        <textarea id="zhize" name="zhize" style="width:780px;height:100px;" class="textArea">{$jianli.zhize}</textarea>
        </td>
       </tr>
       <!-- 任职资格 -->
       <tr>
-        <td align="right" valign="top">{$lang.zhaopin_zige}</td>
+        <td align="right" valign="top">{$lang.jianli_zige}</td>
         <td>
-          <textarea id="zige" name="zige" style="width:780px;height:100px;" class="textArea">{$zhaopin.zige}</textarea>
+          <textarea id="zige" name="zige" style="width:780px;height:100px;" class="textArea">{$jianli.zige}</textarea>
         </td>
       </tr>
       <!-- <tr>
        <td align="right">{$lang.thumb}</td>
        <td>
         <input type="file" name="image" size="38" class="inpFlie" />
-        {if $zhaopin.image}<a href="../{$zhaopin.image}" target="_blank"><img src="images/icon_yes.png"></a>{else}<img src="images/icon_no.png">{/if}</td>
+        {if $jianli.image}<a href="../{$jianli.image}" target="_blank"><img src="images/icon_yes.png"></a>{else}<img src="images/icon_no.png">{/if}</td>
       </tr>
       <tr>
        <td align="right">{$lang.keywords}</td>
        <td>
-        <input type="text" name="keywords" value="{$zhaopin.keywords}" size="50" class="inpMain" />
+        <input type="text" name="keywords" value="{$jianli.keywords}" size="50" class="inpMain" />
        </td>
       </tr>
       <tr>
        <td align="right">{$lang.description}</td>
        <td>
-        <input type="text" name="description" value="{$zhaopin.description}" size="50" class="inpMain" />
+        <input type="text" name="description" value="{$jianli.description}" size="50" class="inpMain" />
        </td>
       </tr> -->
       <tr>
        <td></td>
        <td>
         <input type="hidden" name="token" value="{$token}" />
-        <input type="hidden" name="image" value="{$zhaopin.image}">
-        <input type="hidden" name="id" value="{$zhaopin.id}">
+        <input type="hidden" name="image" value="{$jianli.image}">
+        <input type="hidden" name="id" value="{$jianli.id}">
         <input name="submit" class="btn" type="submit" value="{$lang.btn_submit}" />
        </td>
       </tr>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2016-01-03 16:42:13
+-- Generation Time: 2016-01-04 17:22:00
 -- 服务器版本： 5.6.17
 -- PHP Version: 5.5.12
 
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `dou_admin_log` (
   PRIMARY KEY (`id`),
   KEY `create_time` (`create_time`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=334 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=338 ;
 
 --
 -- 转存表中的数据 `dou_admin_log`
@@ -399,7 +399,11 @@ INSERT INTO `dou_admin_log` (`id`, `create_time`, `user_id`, `action`, `ip`) VAL
 (330, 1451834804, 1, '添加商品: 商品1', '127.0.0.1'),
 (331, 1451834981, 1, '添加商品: 11111111111', '127.0.0.1'),
 (332, 1451835022, 1, '添加商品: 33333333333', '127.0.0.1'),
-(333, 1451835422, 1, '添加商品: 888888888888', '127.0.0.1');
+(333, 1451835422, 1, '添加商品: 888888888888', '127.0.0.1'),
+(334, 1451924271, 1, '添加商品: 1111111111', '127.0.0.1'),
+(335, 1451924307, 1, '添加商品: 111111111111111111', '127.0.0.1'),
+(336, 1451924374, 1, '编辑商品: 888888888888', '127.0.0.1'),
+(337, 1451924391, 1, '编辑商品: 1111111111', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -553,6 +557,42 @@ INSERT INTO `dou_config` (`name`, `value`, `type`, `box`, `tab`, `sort`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `dou_jianli`
+--
+
+CREATE TABLE IF NOT EXISTS `dou_jianli` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL DEFAULT '',
+  `add_time` int(10) unsigned NOT NULL DEFAULT '0',
+  `zhaopin_id` int(10) NOT NULL,
+  `position` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+
+--
+-- 转存表中的数据 `dou_jianli`
+--
+
+INSERT INTO `dou_jianli` (`id`, `name`, `add_time`, `zhaopin_id`, `position`) VALUES
+(23, '李西豫.doc', 1451924149, 24, 'E:/wamp/www/upload/data/upload/SVCGjE.doc');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `dou_jianli_category`
+--
+
+CREATE TABLE IF NOT EXISTS `dou_jianli_category` (
+  `cat_id` smallint(5) NOT NULL AUTO_INCREMENT,
+  `unique_id` varchar(30) NOT NULL,
+  `cat_name` varchar(255) NOT NULL,
+  `sort` tinyint(1) unsigned NOT NULL DEFAULT '50',
+  PRIMARY KEY (`cat_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `dou_nav`
 --
 
@@ -650,7 +690,7 @@ CREATE TABLE IF NOT EXISTS `dou_product` (
   `width` int(5) NOT NULL,
   `height` int(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=55 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=57 ;
 
 --
 -- 转存表中的数据 `dou_product`
@@ -660,7 +700,9 @@ INSERT INTO `dou_product` (`id`, `cat_id`, `name`, `price`, `defined`, `content`
 (54, 6, '888888888888', '0.00', '', '8', 'images/product/a07ba4b6cf9fa70add43bf09ce08dd54.jpg', 'images/product/855c7b5eb4f7e334f616c72ef029e049.jpg', 'images/product/5b60733d046c6e10dc0e743300457968.jpg', '', 1451835422, '', 0, '8888', '88888', '88888', '888', 6, 7, 7),
 (53, 6, '33333333333', '44535.00', '', '2', 'images/product/7c4b80782d82ede8d5eb36f26f361501.jpg', 'images/product/0a4bd8a114c51a0e8f2e74daedd20094.jpg', 'images/product/f09dbbbb1edeb362f1c2e079f6a5e096.jpg', '', 1451835022, '', 0, 'GH99900', '上海仓', '新', '2015-3-4', 22, 22, 2),
 (52, 6, '11111111111', '3332.00', '', '33', 'images/product/3b8c5fe9b7137d6b67d19992fee7c19a.jpg', 'images/product/11b9aa1eff7c6a493ff4de2036e12143.jpg', 'images/product/ae0124dab821489dadcdcce667200439.jpg', '', 1451834981, '', 0, 'DJ8889', '北京仓', '旧', '2016-01-03', 33, 33, 33),
-(51, 6, '商品1', '9999.00', '', '<p>\r\n	新的\r\n</p>\r\n<p>\r\n	<br />\r\n</p>\r\n<p>\r\n	<img src="http://test.com/images/upload/image/20160103/20160103162631_87659.jpg" alt="" />\r\n</p>', 'images/product/efd0c9f73eb3f25a6d2135a005a747f2.jpg', 'images/product/3c1b0530edbe62514deb61f8a08c7d83.jpg', 'images/product/fd6fc70d5bb571389b97b6c4779e00d0.jpg', '', 1451834804, '', 0, 'GD6666', '北京仓库', '新品种', '2015-3-4', 34, 56, 33);
+(51, 6, '商品1', '9999.00', '', '<p>\r\n	新的\r\n</p>\r\n<p>\r\n	<br />\r\n</p>\r\n<p>\r\n	<img src="http://test.com/images/upload/image/20160103/20160103162631_87659.jpg" alt="" />\r\n</p>', 'images/product/efd0c9f73eb3f25a6d2135a005a747f2.jpg', 'images/product/3c1b0530edbe62514deb61f8a08c7d83.jpg', 'images/product/fd6fc70d5bb571389b97b6c4779e00d0.jpg', '', 1451834804, '', 0, 'GD6666', '北京仓库', '新品种', '2015-3-4', 34, 56, 33),
+(55, 6, '1111111111', '0.00', '', '1', 'images/product/749e028c5515bfd9d5ef4f3eb7a913b2.jpg', 'images/product/60f5fa13fe7ef99bd12ed2e4681d06bb.jpg', 'images/product/26ed720b14ee2ebf9830550d7aa504d3.jpg', '', 1451924271, '', 0, '1', '1', '1', '1', 1, 1, 1),
+(56, 6, '111111111111111111', '5555.00', '', '2', 'images/product/bcfe173195e94f87b7934580b4c7a574.jpg', 'images/product/87407599af9fb26896adbed59859336d.jpg', 'images/product/c73ad06b522130c9f329f973ec3dcb0b.jpg', '', 1451924307, '', 0, 'eee222', '222', '22', '22', 2, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -753,7 +795,6 @@ CREATE TABLE IF NOT EXISTS `dou_zhaopin` (
 
 INSERT INTO `dou_zhaopin` (`id`, `cat_id`, `job`, `defined`, `image`, `keywords`, `add_time`, `click`, `description`, `sort`, `salary`, `zhize`, `zige`, `parent_id`) VALUES
 (22, 2, '99', '', '', '', 1450837945, 0, '', 0, '面议', '9', '9', 0),
-(21, 2, '8', '', '', '', 1450837897, 0, '', 0, '面议', '8', '8', 0),
 (19, 2, '6', '', '', '', 1450837880, 0, '', 0, '面议', '6', '6', 0),
 (20, 2, '7', '', '', '', 1450837889, 0, '', 0, '面议', '7', '7', 0),
 (18, 2, '5', '', '', '', 1450837872, 0, '', 0, '面议', '5', '', 0),

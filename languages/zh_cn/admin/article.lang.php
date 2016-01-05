@@ -46,5 +46,6 @@ $_LANG['article_content'] = '文章描述';
 $_LANG['article_add_succes'] = '添加文章成功';
 $_LANG['article_edit_succes'] = '编辑文章成功';
 $_LANG['article_select_empty'] = '没有选择任何文章';
+$_LANG['suolue'] = '缩略图';
 
 ?>

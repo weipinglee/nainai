@@ -17,6 +17,9 @@ require (dirname(__FILE__) . '/include/init.php');
 
 // 验证并获取合法的ID，如果不合法将其设定为-1
 $id = $firewall->get_legal_id('page', $_REQUEST['id'], $_REQUEST['unique_id']);
+
+//简历上传
+include_once(ROOT_PATH . 'include/upload.class.php');
 /*if ($id == -1)
     $dou->dou_msg($GLOBALS['_LANG']['page_wrong'], ROOT_URL);*/
     
@@ -42,6 +45,8 @@ $smarty->assign('top', get_page_info($top_id));*/
 $smarty->assign('edi', $edi);
 $jianli['url'] = $GLOBALS['dou']->rewrite_url('jianli', '');
 $smarty->assign('jianli', $jianli);
+$smarty->assign('zpid', $_GET['id'] + 0);
+
 $smarty->display('edi.dwt');
 
 
