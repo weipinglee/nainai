@@ -151,8 +151,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 }
            });
           $( "#amount" ).val( "￥" + $( "#slider-range" ).slider( "values", 0 ) + " - ￥" + $( "#slider-range" ).slider( "values", 1 ) );
-
-          $( "#slider-range" ).mouseup(function(ev){
+          //原来是mouseup
+          $( "#slider-range" ).mousemove(function(ev){
             if(ev.which == 1){
               var val = $( "#amount" ).val().split('-');
               var minprice = $.trim(val[ 0 ]).substr(1);
