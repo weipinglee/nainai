@@ -72,12 +72,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <div class="product-info-cust prt_name">
                 <h4>{$product.name}</h4>                
                 <span class="item_price">{$product.price}</span>
-                <!-- <div class="ofr">
-                  <p class="pric1"><del>Rs 280</del></p>
-                      <p class="disc">[12% Off]</p>
-                </div>
-                <input type="text" class="item_quantity" value="1" />
-                <input type="button" class="item_add items" value="ADD"> -->
                 <div class="clearfix"> </div>
               </div>                        
               
@@ -209,40 +203,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           });//]]> 
           </script>
           {/literal}
-           <!---->
   
-           
-         <!-- <section  class="sky-form">
-            <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>品种</h4>
-              <div class="row row1 scroll-pane">
-                <div class="col col-4">
-                  <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>普卷 (30)</label>
-                </div>
-                <div class="col col-4">
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>薄卷   (30)</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>热轧开平板      (30)</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>低合金卷       (30)</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>花纹卷  (30)</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>酸洗卷  (30)</label>
-                </div>
-              </div>
-           </section>
-           <section  class="sky-form">
-            <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>等级</h4>
-              <div class="row row1 scroll-pane">
-                <div class="col col-4">
-                  <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>一等</label>
-                </div>
-                <div class="col col-4">
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>二等</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>三等</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>四等</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>五等</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>六等</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>七等</label>
-                </div>
-              </div>
-           </section>      -->     
        </div>        
         </div>
     </div>
