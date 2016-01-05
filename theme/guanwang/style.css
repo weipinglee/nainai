@@ -1257,7 +1257,8 @@ color:#8ce78a;
     width: 32%;
 	    margin-right: 5em;
 }
-.thumb-image { width: 323px;
+.thumb-image { 
+	width: 323px;
 	padding:1em;
  }
 
