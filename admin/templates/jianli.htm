@@ -16,7 +16,7 @@
    {include file="ur_here.htm"}
    <div class="mainBox" style="{$workspace.height}">
     <!-- {if $rec eq 'default'} 简历列表 -->
-    
+    <h3>{$action_link.text}{$ur_here}</h3>
     <div class="filter">
     <form action="jianli.php" method="post">
      <select name="cat_id">
@@ -32,13 +32,6 @@
      <input name="keyword" type="text" class="inpMain" value="{$keyword}" size="20" />
      <input name="submit" class="btnGray" type="submit" value="{$lang.btn_filter}" />
     </form>
-    <span>
-    <!-- {if $if_sort} -->
-    <a class="btnGray" href="jianli.php?rec=sort">{$lang.sort_close}</a>
-    <!-- {else} -->
-    <a class="btnGray" href="jianli.php?rec=sort">{$lang.sort_jianli}</a>
-    <!-- {/if} -->
-    </span>
     </div>
     <!-- {if $if_sort} -->
     <div class="homeSortRight">
