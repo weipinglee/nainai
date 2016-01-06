@@ -136,7 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           $(window).load(function(){
            $( "#slider-range" ).slider({
                 range: true,
-                min: 500,
+                min: 0,
                 max: 100000,
                 values: [ 500, 100000 ],
                 slide: function( event, ui ) {
@@ -155,10 +155,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 type:'post',
                 url:'/ajax.php',
                 data:{
-                  type:'ajax_product_list',
-                  min:minprice,
-                  max:maxprice,
-                  req_id:req_id
+                type:'ajax_product_list',
+                min:minprice,
+                max:maxprice,
+                req_id:req_id
                 },
                 success:function(data){
                   
@@ -170,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         plist +=    '<div class="product-grid">';
                         plist +=      '<div class="more-product"><span> </span></div>';         
                         plist +=      '<div class="product-img b-link-stripe b-animate-go  thickbox">';
-                        plist +=        '<img src="'+ data[i].thumb +'"  class="img-responsive" alt="'+ data[i].name +'" width="'+ data[i].thumb_width +'" height="'+ data[i].thumb_width +'">';
+                        plist +=        '<img src="'+ data[i].thumb +'" style="width:252px;height:196px;" class="img-responsive" alt="'+ data[i].name +'" width="'+ data[i].thumb_width +'" height="'+ data[i].thumb_width +'">';
                         plist +=        '<div class="b-wrapper">';
                         plist +=          '<h4 class="b-animate b-from-left  b-delay03">';            
                         plist +=            '<button><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>快速查看</button>';
