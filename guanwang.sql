@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- 主机: localhost
--- 生成日期: 2016 年 01 月 05 日 09:38
--- 服务器版本: 5.6.12-log
--- PHP 版本: 5.4.12
+-- Host: 127.0.0.1
+-- Generation Time: 2016-01-05 16:22:42
+-- 服务器版本： 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,10 +17,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- 数据库: `guanwang`
+-- Database: `guanwang`
 --
-CREATE DATABASE IF NOT EXISTS `guanwang` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `guanwang`;
 
 -- --------------------------------------------------------
 
@@ -45,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `dou_admin` (
 --
 
 INSERT INTO `dou_admin` (`user_id`, `user_name`, `email`, `password`, `action_list`, `add_time`, `last_login`, `last_ip`) VALUES
-(1, 'admin123', '', 'e10adc3949ba59abbe56e057f20f883e', 'ALL', 1448960629, 1451956709, '127.0.0.1');
+(1, 'admin123', '', 'e10adc3949ba59abbe56e057f20f883e', 'ALL', 1448960629, 1452007076, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -62,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `dou_admin_log` (
   PRIMARY KEY (`id`),
   KEY `create_time` (`create_time`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=357 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=360 ;
 
 --
 -- 转存表中的数据 `dou_admin_log`
@@ -424,7 +422,10 @@ INSERT INTO `dou_admin_log` (`id`, `create_time`, `user_id`, `action`, `ip`) VAL
 (353, 1451983933, 1, '添加商品: 商品4', '127.0.0.1'),
 (354, 1451986557, 1, '添加商品: 测试商品发布', '127.0.0.1'),
 (355, 1451986593, 1, '编辑商品: 测试商品发布', '127.0.0.1'),
-(356, 1451986651, 1, '添加商品: 新', '127.0.0.1');
+(356, 1451986651, 1, '添加商品: 新', '127.0.0.1'),
+(357, 1451988431, 1, '添加文章: 2', '127.0.0.1'),
+(358, 1452007076, 1, '管理员登录: 登录成功！', '127.0.0.1'),
+(359, 1452007085, 1, '批量删除: PRODUCT IN (''58'')', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -446,7 +447,7 @@ CREATE TABLE IF NOT EXISTS `dou_article` (
   `sort` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `laiyuan` varchar(40) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=40 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
 
 --
 -- 转存表中的数据 `dou_article`
@@ -472,7 +473,7 @@ INSERT INTO `dou_article` (`id`, `cat_id`, `title`, `defined`, `content`, `image
 (20, 3, '视频专区3333333', '', '333333333333333333333333333', '', '', 1449119441, 2, '', 0, ''),
 (32, 1, '22222', '', '2222', '', '', 1451804929, 3, '', 0, '222'),
 (33, 1, '新的22222', '', '万维网', '', '', 1451805015, 3, '', 0, '万维网'),
-(34, 1, '新的', '', '<p>\r\n	这是一个视频，试试能不能播出\r\n</p>\r\n<p>\r\n	<embed src="http://http://v.youku.com/v_show/id_XNTI0NDQ0NzEy.html?from=s1.8-1-1.2" type="video/x-ms-asf-plugin" width="399" height="500" autostart="false" loop="true" />\r\n</p>', '', '', 1451821702, 1, '', 0, '万维网'),
+(34, 1, '新的', '', '<p>\r\n	这是一个视频，试试能不能播出\r\n</p>\r\n<p>\r\n	<embed src="http://http://v.youku.com/v_show/id_XNTI0NDQ0NzEy.html?from=s1.8-1-1.2" type="video/x-ms-asf-plugin" width="399" height="500" autostart="false" loop="true" />\r\n</p>', '', '', 1451821702, 2, '', 0, '万维网'),
 (22, 1, '新焦点', '', '', 'images/article/20151203wgqetf.jpg', '', 1449120203, 21, '', 0, ''),
 (23, 1, '33333', '', '呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃呃', 'images/article/20151203mbshnv.jpg', '', 1449120630, 5, '', 0, ''),
 (24, 1, '额', '', '啊 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;', 'images/article/20151203mcqqxa.jpg', '', 1449120675, 2, '', 0, ''),
@@ -482,7 +483,8 @@ INSERT INTO `dou_article` (`id`, `cat_id`, `title`, `defined`, `content`, `image
 (28, 1, '测试2', '', '<p>\r\n	测试不带缩略图\r\n</p>\r\n<p>\r\n	<img src="http://test.com/images/upload/image/20151220/20151220082902_51511.jpg" alt="" />\r\n</p>', '', '', 1450596544, 6, '', 0, ''),
 (29, 2, '给他一个缩略图能在首页显示', '', '<p>\r\n	<span style="font-size:32px;background-color:#E56600;">测试</span><span style="font-size:32px;background-color:#E56600;"></span>\r\n</p>\r\n<p>\r\n	<span style="font-size:32px;background-color:#E56600;"><img src="http://test.com/images/upload/image/20151220/20151220083009_95992.jpg" alt="" /><br />\r\n</span>\r\n</p>', 'images/article/20151220xznvic.jpg', '', 1450596614, 11, '', 0, ''),
 (30, 2, '额谔谔谔谔谔谔', '', '<h4 style="font-family:Lato, sans-serif;font-weight:500;color:#333333;font-size:18px;background-color:#FFFFFF;">\r\n	这是这是一个行情资讯\r\n</h4>\r\n<span style="color:#333333;font-family:Lato, sans-serif;font-size:14px;line-height:22.2222px;background-color:#FFFFFF;">这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯</span>\r\n<h4 style="font-family:Lato, sans-serif;font-weight:500;color:#333333;font-size:18px;background-color:#FFFFFF;">\r\n	这是这是一个行情资讯\r\n</h4>\r\n<span style="color:#333333;font-family:Lato, sans-serif;font-size:14px;line-height:22.2222px;background-color:#FFFFFF;">这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯</span>\r\n<h4 style="font-family:Lato, sans-serif;font-weight:500;color:#333333;font-size:18px;background-color:#FFFFFF;">\r\n	这是这是一个行情资讯\r\n</h4>\r\n<span style="color:#333333;font-family:Lato, sans-serif;font-size:14px;line-height:22.2222px;background-color:#FFFFFF;">这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯</span>\r\n<h4 style="font-family:Lato, sans-serif;font-weight:500;color:#333333;font-size:18px;background-color:#FFFFFF;">\r\n	这是这是一个行情资讯\r\n</h4>\r\n<span style="color:#333333;font-family:Lato, sans-serif;font-size:14px;line-height:22.2222px;background-color:#FFFFFF;">这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯</span>\r\n<h4 style="font-family:Lato, sans-serif;font-weight:500;color:#333333;font-size:18px;background-color:#FFFFFF;">\r\n	这是这是一个行情资讯\r\n</h4>\r\n<span style="color:#333333;font-family:Lato, sans-serif;font-size:14px;line-height:22.2222px;background-color:#FFFFFF;">这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯</span>\r\n<h4 style="font-family:Lato, sans-serif;font-weight:500;color:#333333;font-size:18px;background-color:#FFFFFF;">\r\n	这是这是一个行情资讯\r\n</h4>\r\n<span style="color:#333333;font-family:Lato, sans-serif;font-size:14px;line-height:22.2222px;background-color:#FFFFFF;">这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯</span>\r\n<h4 style="font-family:Lato, sans-serif;font-weight:500;color:#333333;font-size:18px;background-color:#FFFFFF;">\r\n	这是这是一个行情资讯\r\n</h4>\r\n<span style="color:#333333;font-family:Lato, sans-serif;font-size:14px;line-height:22.2222px;background-color:#FFFFFF;">这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯</span>\r\n<h4 style="font-family:Lato, sans-serif;font-weight:500;color:#333333;font-size:18px;background-color:#FFFFFF;">\r\n	这是这是一个行情资讯\r\n</h4>\r\n<span style="color:#333333;font-family:Lato, sans-serif;font-size:14px;line-height:22.2222px;background-color:#FFFFFF;">这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯这是这是一个行情资讯</span>', 'images/article/20151220ztdmvo.jpg', '', 1450597107, 16, '', 0, ''),
-(31, 3, 'video', '', '<embed src="http://http://v.youku.com/v_show/id_XNTI0NDQ0NzEy.html?from=s1.8-1-1.2" type="video/x-ms-asf-plugin" width="550" height="400" autostart="false" loop="true" />', '', '', 1450610103, 10, '', 0, '');
+(31, 3, 'video', '', '<embed src="http://http://v.youku.com/v_show/id_XNTI0NDQ0NzEy.html?from=s1.8-1-1.2" type="video/x-ms-asf-plugin" width="550" height="400" autostart="false" loop="true" />', '', '', 1450610103, 10, '', 0, ''),
+(40, 3, '2', '', '<p><video class="edui-upload-video  vjs-default-skin video-js" controls="" preload="none" width="420" height="280" src="/ueditor/php/upload/video/20160105/1451988414126556.wmv" data-setup="{}"><source src="/ueditor/php/upload/video/20160105/1451988414126556.wmv" type="video/wmv"/></video></p>', 'images/article/20160105yndyhe.jpg', '', 1451988431, 4, '', 0, '窝窝网');
 
 -- --------------------------------------------------------
 
@@ -591,7 +593,7 @@ CREATE TABLE IF NOT EXISTS `dou_jianli` (
   `cat_id` smallint(5) NOT NULL DEFAULT '0',
   `cat_name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=84 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=85 ;
 
 --
 -- 转存表中的数据 `dou_jianli`
@@ -601,6 +603,7 @@ INSERT INTO `dou_jianli` (`id`, `name`, `add_time`, `zhaopin_id`, `position`, `j
 (79, 'shop库基本表整理1126.doc', 1451978749, 26, 'D:/wamp/www/nainai/data/upload/aKtRju.doc', '文员', 3, '北京'),
 (80, 'shop库基本表整理.doc', 1451978842, 26, 'D:/wamp/www/nainai/data/upload/8dAWcP.doc', '文员', 3, '北京'),
 (83, 'shop库基本表整理.doc', 1451982417, 27, 'D:/wamp/www/nainai/data/upload/nmvHBN.doc', '网站测试', 4, '唐山'),
+(84, 'shop库基本表整理.doc', 1451989364, 27, 'D:/wamp/www/nainai/data/upload/emnSGE.doc', '网站测试', 4, '唐山'),
 (82, 'shop库基本表整理1126.doc', 1451982411, 12, 'D:/wamp/www/nainai/data/upload/NW9eEv.doc', 'java工程师', 2, '上海'),
 (81, 'shop库基本表整理.doc', 1451982406, 26, 'D:/wamp/www/nainai/data/upload/mvWPaD.doc', '文员', 3, '北京');
 
@@ -726,7 +729,6 @@ CREATE TABLE IF NOT EXISTS `dou_product` (
 
 INSERT INTO `dou_product` (`id`, `cat_id`, `name`, `price`, `defined`, `content`, `image1`, `image2`, `image3`, `keywords`, `add_time`, `description`, `sort`, `num`, `cangku`, `pinzhong`, `date`, `length`, `width`, `height`) VALUES
 (59, 6, '商品3', '38902.00', '', '<p>\r\n	新\r\n</p>\r\n<p>\r\n	<img src="http://test.com/images/upload/image/20160105/20160105085115_15210.jpg" alt="" /><img src="http://test.com/images/upload/image/20160105/20160105085115_70419.jpg" alt="" /><img src="http://test.com/images/upload/image/20160105/20160105085115_62424.jpg" alt="" />\r\n</p>', 'images/product/3f6ac07e68e3b559e0b31a7d7e51be73.jpg', 'images/product/14807b01d5a1e2d9d1f02eae87d28076.jpg', 'images/product/e5683da5b105b369d0ce92e12dc0736e.jpg', '', 1451983885, '', 0, 'SE324', '上海仓', '新', '2012-3-4', 3, 3, 3),
-(58, 6, '商品2', '2999.00', '', '<p>\r\n	这也是个新商品\r\n</p>\r\n<p>\r\n	<br />\r\n</p>\r\n<p>\r\n	<img src="http://test.com/images/upload/image/20160105/20160105085026_34743.jpg" alt="" /><img src="http://test.com/images/upload/image/20160105/20160105085026_28341.jpg" alt="" /><img src="http://test.com/images/upload/image/20160105/20160105085027_99711.jpg" alt="" />\r\n</p>', 'images/product/cf78c0d4bc9657b77f37da5aa021118c.jpg', 'images/product/712f8bf32b88d85a80f07a18b08edd8a.jpg', 'images/product/3cf631ff226dd4fb9306d719152848a3.jpg', '', 1451983836, '', 0, 'SK9098', '北京仓', '新', '2012-3-4', 33, 22, 22),
 (57, 6, '商品1', '19999.00', '', '<p>\r\n	这是个新的商品\r\n</p>\r\n<p>\r\n	<img src="http://test.com/images/upload/image/20160105/20160105084914_51921.jpg" alt="" />\r\n</p>', 'images/product/6bff36507680999958bd8c0d85400aaa.jpg', 'images/product/944ff35c737f12a3a312b20f6f3e6500.jpg', 'images/product/d33d414f27e20acdaafa9beb1a13114f.jpg', '', 1451983764, '', 0, 'DF1111', '北京仓', '新', '2014-5', 23, 4, 5),
 (60, 6, '商品4', '9000.00', '', '<img src="http://test.com/images/upload/image/20160105/20160105085204_51223.jpg" alt="" /><img src="http://test.com/images/upload/image/20160105/20160105085204_47106.jpg" alt="" />', 'images/product/99fda801752971d7c0b1435713d8b2d6.jpg', 'images/product/474d5e7a20e88cbdec6b406feabe760e.jpg', 'images/product/c2b45f72c013e6093681e7c6e3d72c99.jpg', '', 1451983933, '', 0, 'ER2222', '上海仓', '新', '2013-2-4', 3, 2, 3),
 (61, 6, '测试商品发布', '0.00', '', '<p>\r\n	22\r\n</p>\r\n<p>\r\n	<img src="http://test.com/images/upload/image/20160105/20160105093549_27160.jpg" alt="" />\r\n</p>', 'images/product/a9ae0c74bc38382e7f6bbe94a98ff558.jpg', 'images/product/fd589e16f1eefa579d16f25943ffd37c.jpg', 'images/product/705547095c9d5b5a61c5bbaa32f05368.jpg', '', 1451986557, '', 0, 'DE3333', '上海仓', '新', '2015-11-05', 22, 22, 22),

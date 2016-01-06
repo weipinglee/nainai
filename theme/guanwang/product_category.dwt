@@ -143,7 +143,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           $(window).load(function(){
            $( "#slider-range" ).slider({
                 range: true,
-                min: 0,
+                min: 500,
                 max: 100000,
                 values: [ 500, 100000 ],
                 slide: function( event, ui ) {
@@ -152,7 +152,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
            });
           $( "#amount" ).val( "￥" + $( "#slider-range" ).slider( "values", 0 ) + " - ￥" + $( "#slider-range" ).slider( "values", 1 ) );
           //原来是mouseup
-          $( "#slider-range" ).mousemove(function(ev){
+          $( "#slider-range" ).mouseup(function(ev){
             if(ev.which == 1){
               var val = $( "#amount" ).val().split('-');
               var minprice = $.trim(val[ 0 ]).substr(1);
@@ -195,6 +195,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         plist +=  '</div>';
                     }
                     $('div.product-model-sec').html(plist);
+                  }else{
+                      $('div.product-model-sec').html('');
                   }
                 }
               });
