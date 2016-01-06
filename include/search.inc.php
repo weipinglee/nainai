@@ -40,34 +40,39 @@ $limit = $dou->pager($module, ($_DISPLAY[$module] ? $_DISPLAY[$module] : 10), $p
 $sql = "SELECT * FROM " . $dou->table($module) . $where . " ORDER BY id DESC" . $limit;
 $query = $dou->query($sql);
 
+
 while ($row = $dou->fetch_array($query)) {
-    $cat_name = $dou->get_one("SELECT cat_name FROM " . $dou->table('product_category') . " WHERE cat_id = '$row[cat_id]'");
-    $url = $dou->rewrite_url($module, $row['id']);
+    $url = $dou->rewrite_url('product', $row['id']); // 获取经过伪静态产品链接
     $add_time = date("Y-m-d", $row['add_time']);
-    $add_time_short = date("m-d", $row['add_time']);
     
+    // 如果描述不存在则自动从详细介绍中截取
     $description = $row['description'] ? $row['description'] : $dou->dou_substr($row['content'], 150);
     
     // 生成缩略图的文件名
-    $image = explode('.', $row['image']);
-    $thumb = ROOT_URL . $image[0] . '_thumb.' . $image[1];
+    $image = explode(".", $row['image']);
+    // $image1 = explode(".", $row['image1']);
+    // $image2 = explode(".", $row['image2']);
+    // $image3 = explode(".", $row['image3']);
+    $thumb = ROOT_URL . $image[0] . "_thumb." . $image[1];
+    
+    // 格式化价格
     $price = $row['price'] > 0 ? $dou->price_format($row['price']) : $_LANG['price_discuss'];
     
     $search_list[] = array (
             "id" => $row['id'],
             "cat_id" => $row['cat_id'],
-            "name" => $row[$name_field],
-            "title" => $row[$name_field],
+            "name" => $row['name'],
             "price" => $price,
             "thumb" => $thumb,
-            "cat_name" => $cat_name,
             "add_time" => $add_time,
-            "add_time_short" => $add_time_short,
-            "click" => $row['click'],
+            "image1" => $row['image1'],
+            "image2" => $row['image2'],
+            "image3" => $row['image3'],
             "description" => $description,
             "url" => $url 
     );
 }
+
 
 $search_results = preg_replace('/d%/Ums', $keyword, $_LANG['search_results']);
 

@@ -59,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
            <a href="{$product.url}"><div class="product-grid">
             <div class="more-product"><span> </span></div>            
             <div class="product-img b-link-stripe b-animate-go  thickbox">
-              <img src="{$product.thumb}"  class="img-responsive" alt="{$product.name}" width="{$site.thumb_width}" height="{$site.thumb_height}">
+              <img src="{$product.image1}" style="width:252px;height:196px;" class="img-responsive" alt="{$product.name}">
               <div class="b-wrapper">
               <h4 class="b-animate b-from-left  b-delay03">             
               <button><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>快速查看</button>
