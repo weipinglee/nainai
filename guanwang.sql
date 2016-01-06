@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: 2016-01-05 16:22:42
--- 服务器版本： 5.6.17
--- PHP Version: 5.5.12
+-- 主机: localhost
+-- 生成日期: 2016 年 01 月 06 日 07:27
+-- 服务器版本: 5.6.12-log
+-- PHP 版本: 5.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,8 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `guanwang`
+-- 数据库: `guanwang`
 --
+CREATE DATABASE IF NOT EXISTS `guanwang` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `guanwang`;
 
 -- --------------------------------------------------------
 
@@ -43,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `dou_admin` (
 --
 
 INSERT INTO `dou_admin` (`user_id`, `user_name`, `email`, `password`, `action_list`, `add_time`, `last_login`, `last_ip`) VALUES
-(1, 'admin123', '', 'e10adc3949ba59abbe56e057f20f883e', 'ALL', 1448960629, 1452007076, '127.0.0.1');
+(1, 'admin123', '', 'e10adc3949ba59abbe56e057f20f883e', 'ALL', 1448960629, 1452063005, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -60,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `dou_admin_log` (
   PRIMARY KEY (`id`),
   KEY `create_time` (`create_time`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=360 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=368 ;
 
 --
 -- 转存表中的数据 `dou_admin_log`
@@ -425,7 +427,15 @@ INSERT INTO `dou_admin_log` (`id`, `create_time`, `user_id`, `action`, `ip`) VAL
 (356, 1451986651, 1, '添加商品: 新', '127.0.0.1'),
 (357, 1451988431, 1, '添加文章: 2', '127.0.0.1'),
 (358, 1452007076, 1, '管理员登录: 登录成功！', '127.0.0.1'),
-(359, 1452007085, 1, '批量删除: PRODUCT IN (''58'')', '127.0.0.1');
+(359, 1452007085, 1, '批量删除: PRODUCT IN (''58'')', '127.0.0.1'),
+(360, 1452043329, 1, '管理员登录: 登录成功！', '127.0.0.1'),
+(361, 1452046374, 1, '添加商品: 测试没图片', '127.0.0.1'),
+(362, 1452046413, 1, '添加商品: 测试2', '127.0.0.1'),
+(363, 1452063005, 1, '管理员登录: 登录成功！', '127.0.0.1'),
+(364, 1452063054, 1, '添加商品: 商品1', '127.0.0.1'),
+(365, 1452063090, 1, '添加商品: 333', '127.0.0.1'),
+(366, 1452064314, 1, '编辑招聘: 运维专员', '127.0.0.1'),
+(367, 1452064342, 1, '编辑招聘: 运维专员', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -721,7 +731,7 @@ CREATE TABLE IF NOT EXISTS `dou_product` (
   `width` int(5) NOT NULL,
   `height` int(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=67 ;
 
 --
 -- 转存表中的数据 `dou_product`
@@ -732,7 +742,11 @@ INSERT INTO `dou_product` (`id`, `cat_id`, `name`, `price`, `defined`, `content`
 (57, 6, '商品1', '19999.00', '', '<p>\r\n	这是个新的商品\r\n</p>\r\n<p>\r\n	<img src="http://test.com/images/upload/image/20160105/20160105084914_51921.jpg" alt="" />\r\n</p>', 'images/product/6bff36507680999958bd8c0d85400aaa.jpg', 'images/product/944ff35c737f12a3a312b20f6f3e6500.jpg', 'images/product/d33d414f27e20acdaafa9beb1a13114f.jpg', '', 1451983764, '', 0, 'DF1111', '北京仓', '新', '2014-5', 23, 4, 5),
 (60, 6, '商品4', '9000.00', '', '<img src="http://test.com/images/upload/image/20160105/20160105085204_51223.jpg" alt="" /><img src="http://test.com/images/upload/image/20160105/20160105085204_47106.jpg" alt="" />', 'images/product/99fda801752971d7c0b1435713d8b2d6.jpg', 'images/product/474d5e7a20e88cbdec6b406feabe760e.jpg', 'images/product/c2b45f72c013e6093681e7c6e3d72c99.jpg', '', 1451983933, '', 0, 'ER2222', '上海仓', '新', '2013-2-4', 3, 2, 3),
 (61, 6, '测试商品发布', '0.00', '', '<p>\r\n	22\r\n</p>\r\n<p>\r\n	<img src="http://test.com/images/upload/image/20160105/20160105093549_27160.jpg" alt="" />\r\n</p>', 'images/product/a9ae0c74bc38382e7f6bbe94a98ff558.jpg', 'images/product/fd589e16f1eefa579d16f25943ffd37c.jpg', 'images/product/705547095c9d5b5a61c5bbaa32f05368.jpg', '', 1451986557, '', 0, 'DE3333', '上海仓', '新', '2015-11-05', 22, 22, 22),
-(62, 6, '新', '0.00', '', '<p>\r\n	22\r\n</p>\r\n<p>\r\n	<img src="http://test.com/images/upload/image/20160105/20160105093723_44942.jpg" alt="" />\r\n</p>', 'images/product/805df7db4fef8164a42add58a1681c42.jpg', 'images/product/a0a8164df6d8a2b72091c362c8a1c9aa.jpg', 'images/product/7002a321493decdaf7d013240b2c88f7.jpg', '', 1451986651, '', 0, '333', '44', '新', '2015-10-01', 22, 22, 22);
+(62, 6, '新', '0.00', '', '<p>\r\n	22\r\n</p>\r\n<p>\r\n	<img src="http://test.com/images/upload/image/20160105/20160105093723_44942.jpg" alt="" />\r\n</p>', 'images/product/805df7db4fef8164a42add58a1681c42.jpg', 'images/product/a0a8164df6d8a2b72091c362c8a1c9aa.jpg', 'images/product/7002a321493decdaf7d013240b2c88f7.jpg', '', 1451986651, '', 0, '333', '44', '新', '2015-10-01', 22, 22, 22),
+(63, 6, '测试没图片', '0.00', '', '<img src="http://test.com/images/upload/image/20160106/20160106021240_94097.jpg" alt="" />', 'images/product/a8cd5fe306424e1c6b501c1da16b468d.jpg', 'images/product/c2ac1c9cb1aee1ababf2df81b0632e85.jpg', 'images/product/8350fbc22aa118366e1ff38b4944c76f.jpg', '', 1452046374, '', 0, 'EF111', '北京', '新', '2015-07-01', 2, 3, 4),
+(64, 6, '测试2', '0.00', '', '', 'images/product/d36a9703320bbed29e7b46fd16fad348.jpg', 'images/product/fd151b701e3771b9273617a9a3f6ed07.jpg', 'images/product/d74c39f01405d7c03b10a78874b675f6.jpg', '', 1452046413, '', 0, 'TF111', '北京仓', '34', '2015-08-06', 4, 5, 5),
+(65, 6, '商品1', '0.00', '', '', 'images/product/c87d1759d3776e4d6c18286161f8864e.jpg', 'images/product/7b542880853a83a4504c86f2f41c0fe0.jpg', 'images/product/7f32df9513a2a3903b444fa1ccd127d1.jpg', '', 1452063054, '', 0, 'ER232', '新仓库', '新', '2015-07-15', 3, 3, 3),
+(66, 6, '333', '0.00', '', '4', 'images/product/2ab9cd8de40c380d70b9568a2c40844b.jpg', 'images/product/374e93fce4098452de1ebd50480ee234.jpg', 'images/product/7f3fc247e2ea305400f881fab74adf03.jpg', '', 1452063090, '', 0, '33', '3', '3', '2015-10-07', 4, 4, 4);
 
 -- --------------------------------------------------------
 
@@ -826,7 +840,7 @@ CREATE TABLE IF NOT EXISTS `dou_zhaopin` (
 INSERT INTO `dou_zhaopin` (`id`, `cat_id`, `job`, `defined`, `image`, `keywords`, `add_time`, `click`, `description`, `sort`, `salary`, `zhize`, `zige`, `parent_id`) VALUES
 (26, 3, '文员', '', '', '', 1451959027, 0, '', 0, '面议', '1.完成上级交给的任务<br />\r\n2.完成上级交给的任务<br />\r\n3.完成上级交给的任务<br />\r\n4.完成上级交给的任务<br />\r\n<div>\r\n	<br />\r\n</div>', '1.热爱工作<br />\r\n2.认真负责<br />\r\n3.3年以上经验<br />\r\n4.大专以上学历<br />', 0),
 (12, 2, 'java工程师', '', '', '', 1450836655, 0, '', 0, '5000-8000', '<p>\r\n	1.招聘信息\r\n</p>\r\n<p>\r\n	2.招聘信息\r\n</p>\r\n<p>\r\n	3.招聘信息\r\n</p>', '<p>\r\n	1.招聘信息\r\n</p>\r\n<p>\r\n	2.招聘信息\r\n</p>\r\n<p>\r\n	3.招聘信息\r\n</p>', 0),
-(25, 2, '运维专员', '', '', '', 1451959004, 0, '', 0, '面议', '<p>\r\n	1.完成上级交给的任务\r\n</p>\r\n<p>\r\n	<span>2.完成上级交给的任务</span>\r\n</p>\r\n<p>\r\n	<span>3.完成上级交给的任务</span>\r\n</p>\r\n<p>\r\n	<span>4.完成上级交给的任务</span>\r\n</p>', '<p>\r\n	1.热爱工作\r\n</p>\r\n<p>\r\n	2.认真负责\r\n</p>\r\n<p>\r\n	3.3年以上经验\r\n</p>\r\n<p>\r\n	4.大专以上学历\r\n</p>', 0),
+(25, 2, '运维专员', '', '', '', 1451959004, 0, '', 0, '面议', '<p>\r\n	1.完成上级交给的任务\r\n</p>\r\n<p>\r\n	<span>2.完成上级交给的任务</span> \r\n</p>\r\n<p>\r\n	<span>3.完成上级交给的任务</span> \r\n</p>\r\n<p>\r\n	<span>4.完成上级交给的任务</span> \r\n</p>', '<p>\r\n	1.热爱工作\r\n</p>\r\n<p>\r\n	2.认真负责\r\n</p>\r\n<p>\r\n	3.3年以上经验\r\n</p>\r\n<p>\r\n	4.大专以上学历\r\n</p>', 0),
 (27, 4, '网站测试', '', '', '', 1451959053, 0, '', 0, '面议', '1.完成上级交给的任务<br />\r\n2.完成上级交给的任务<br />\r\n3.完成上级交给的任务<br />\r\n4.完成上级交给的任务<br />', '1.热爱工作<br />\r\n2.认真负责<br />\r\n3.3年以上经验<br />\r\n4.大专以上学历<br />', 0);
 
 -- --------------------------------------------------------
