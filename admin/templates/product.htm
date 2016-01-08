@@ -217,20 +217,29 @@
       <tr>
        <td align="right">{$lang.thumb1}</td>
        <td>
+        <!-- {if $product.image1} -->
+        <img src="../{$product.image1}" alt="" style="width:80px;height:60px;">
+        <!-- {/if} -->
         <input type="file" name="image1" size="38" class="inpFlie" />
-        {if $product.image}<a href="../{$product.image}" target="_blank"><img src="images/icon_yes.png"></a>{else}<img src="images/icon_no.png">{/if}</td>
+        {if $product.image}<a href="../{$product.image1}" target="_blank"><img src="images/icon_yes.png"></a>{else}<img src="images/icon_no.png">{/if}</td>
       </tr>
       <tr>
        <td align="right">{$lang.thumb2}</td>
        <td>
+        <!-- {if $product.image2} -->
+        <img src="../{$product.image2}" alt="" style="width:80px;height:60px;">
+        <!-- {/if} -->
         <input type="file" name="image2" size="38" class="inpFlie" />
-        {if $product.image}<a href="../{$product.image}" target="_blank"><img src="images/icon_yes.png"></a>{else}<img src="images/icon_no.png">{/if}</td>
+        {if $product.image}<a href="../{$product.image2}" target="_blank"><img src="images/icon_yes.png"></a>{else}<img src="images/icon_no.png">{/if}</td>
       </tr>
       <tr>
        <td align="right">{$lang.thumb3}</td>
        <td>
+        <!-- {if $product.image3} -->
+        <img src="../{$product.image3}" alt="" style="width:80px;height:60px;">
+        <!-- {/if} -->
         <input type="file" name="image3" size="38" class="inpFlie" />
-        {if $product.image}<a href="../{$product.image}" target="_blank"><img src="images/icon_yes.png"></a>{else}<img src="images/icon_no.png">{/if}</td>
+        {if $product.image}<a href="../{$product.image3}" target="_blank"><img src="images/icon_yes.png"></a>{else}<img src="images/icon_no.png">{/if}</td>
       </tr>
       <!-- <tr>
        <td align="right">{$lang.keywords}</td>

@@ -248,7 +248,7 @@ elseif ($rec == 'update') {
         $file1 = $images_dir . $upfile1;
         //$img->make_thumb($upfile, $_CFG['thumb_width'], $_CFG['thumb_height']);
         
-        $up_file1 = ", image='$file1'";
+        $up_file1 = ", image1='$file1'";
     }
 
     if ($_FILES['image2']['name'] != "") {
@@ -260,7 +260,7 @@ elseif ($rec == 'update') {
         $file2 = $images_dir . $upfile2;
         //$img->make_thumb($upfile, $_CFG['thumb_width'], $_CFG['thumb_height']);
         
-        $up_file2 = ", image='$file2'";
+        $up_file2 = ", image2='$file2'";
     }
 
     if ($_FILES['image3']['name'] != "") {
@@ -272,7 +272,7 @@ elseif ($rec == 'update') {
         $file3 = $images_dir . $upfile3;
         //$img->make_thumb($upfile, $_CFG['thumb_width'], $_CFG['thumb_height']);
         
-        $up_file3 = ", image='$file3'";
+        $up_file3 = ", image3='$file3'";
     }
     
     // 格式化自定义参数
@@ -282,6 +282,7 @@ elseif ($rec == 'update') {
     $firewall->check_token($_POST['token'], 'product_edit');
     
     $sql = "update " . $dou->table('product') . " SET cat_id = '$_POST[cat_id]', name = '$_POST[name]', price = '$_POST[price]', defined = '$_POST[defined]' ,content = '$_POST[content]'" . $up_file1 . $up_file2 . $up_file3 . ", keywords = '$_POST[keywords]', description = '$_POST[description]' , num = '$_POST[num]' , cangku = '$_POST[cangku]' , pinzhong = '$_POST[pinzhong]' ,date = '$_POST[date]' , length = '$_POST[length]' ,width = '$_POST[width]' , height = '$_POST[height]' WHERE id = '$_POST[id]'";
+    // echo $sql;exit;
     $dou->query($sql);
     
     $dou->create_admin_log($_LANG['product_edit'] . ': ' . $_POST['name']);
