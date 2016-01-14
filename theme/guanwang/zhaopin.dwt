@@ -31,6 +31,7 @@ body {behavior: url("csshover.htc");}
   body {behavior: url("csshover.htc");}
 </style>
 {/literal}
+
 </head>
 
 <body>
