@@ -19,10 +19,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="images/simpleCart.min.js"> </script>
 <!-- start menu -->
 <link href="memenu.css" rel="stylesheet" type="text/css" media="all" />
+<link href="footer.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="images/memenu.js"></script>
 
 <script>{literal}$(document).ready(function(){$(".memenu").memenu();});{/literal}</script>	
 <!-- /start menu -->
+<script src="images/footer.js"></script>
 <link href="form.css" rel="stylesheet" type="text/css" media="all" />
 <link href="flexslider.css" rel="stylesheet"  type="text/css" media="screen" />
 

@@ -1,34 +1,6 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-{literal}
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>{/literal}
-<!-- start menu -->
-{literal}<script src="images/simpleCart.min.js"> </script>{/literal}
-<!-- start menu -->
-<link href="memenu.css" rel="stylesheet" type="text/css" media="all" />
-<link href="header.css" rel="stylesheet" type="text/css" media="all" />
-<link href="footer.css" rel="stylesheet" type="text/css" media="all" />
-{literal}<script type="text/javascript" src="images/memenu.js"></script>{/literal}
-<script type="text/javascript" src="images/slide_show.js"></script>
 
-{literal}<script>$(document).ready(function(){$(".memenu").memenu();});</script>{/literal}
-<!-- /start menu -->
-{literal}
-<script> 
-   (function() {
-     if (! 
-     /*@cc_on!@*/
-     0) return;
-     var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video".split(', ');
-     var i= e.length;
-     while (i--){
-         document.createElement(e[i])
-     } 
-})() 
-</script>
-{/literal}
+
+
 <!--header-->	
 	<header class="header">
 		<div class="main">

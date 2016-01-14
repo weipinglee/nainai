@@ -16,10 +16,17 @@ body {behavior: url("csshover.htc");}
 <link href="style.css" rel="stylesheet">
 <link href="jianjie.css" rel="stylesheet" type="text/css">
 <link href="theme/guanwang/font-awesome.min.css" rel="stylesheet" >
+<link href="memenu.css" rel="stylesheet" type="text/css" media="all" />
+<link href="header.css" rel="stylesheet" type="text/css" media="all" />
+<link href="footer.css" rel="stylesheet" type="text/css" media="all" />
 <!-- <script type="text/javascript" src="images/bootstrap.js"></script> -->
 <script type="text/javascript" src="images/jquery.min.js"></script>
 <script type="text/javascript" src="images/zhaopin.js"></script>
+<script type="text/javascript" src="images/memenu.js"></script>
+<script src="images/footer.js"></script>
+{literal}<script>$(document).ready(function(){$(".memenu").memenu();});</script>{/literal}
 {literal}
+
 <style type="text/css">
   body {behavior: url("csshover.htc");}
 </style>

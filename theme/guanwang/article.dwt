@@ -6,8 +6,14 @@
 <link href="bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link href="jianjie.css" rel="stylesheet" type="text/css" />
+<link href="memenu.css" rel="stylesheet" type="text/css" media="all" />
+<link href="header.css" rel="stylesheet" type="text/css" media="all" />
+<link href="footer.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="images/jquery.min.js"></script>
 <script type="text/javascript" src="images/global.js"></script>
+<script type="text/javascript" src="images/memenu.js"></script>
+<script src="images/footer.js"></script>
+{literal}<script>$(document).ready(function(){$(".memenu").memenu();});</script>{/literal}
 </head>
 
 <body>

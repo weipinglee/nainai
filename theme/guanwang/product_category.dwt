@@ -25,6 +25,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 {literal}
 <script>$(document).ready(function(){$(".memenu").memenu();});</script> 
 {/literal}
+<script type="text/javascript" src="images/memenu.js"></script>
+<script src="images/footer.js"></script>
+{literal}<script>$(document).ready(function(){$(".memenu").memenu();});</script>{/literal}
 <!-- /start menu -->
 <link href="form.css" rel="stylesheet" type="text/css" media="all" />
 <!-- the jScrollPane script -->
@@ -153,7 +156,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               var req_id = $('#req_id').val();
               $.ajax({
                 type:'post',
-                url:'/ajax.php',
+                url:'ajax.php',
                 data:{
                 type:'ajax_product_list',
                 min:minprice,

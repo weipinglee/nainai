@@ -1,9 +1,4 @@
-<link href="footer.css" rel="stylesheet" >
-<!-- <link rel="stylesheet" type="text/css" href="footer.css">
- --><script src="images/footer.js"></script>
-</head>
 
-<body onLoad="MM_preloadImages('images/hezuo_1.png','images/hezuo_2.png','images/hezuo_3.png','images/hezuo_4.png','images/hezuo_5.png','images/hezuo_6.png','images/hezuo_7.png')">
 <div class="footer">
 	<div class="line">
     <img class="hezuo_img" src="images/hezuo.jpg" width="97" height="22" alt="合作企业">
