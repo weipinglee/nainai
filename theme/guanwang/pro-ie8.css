@@ -6,5 +6,5 @@
     }
 	.product-model-sec{float:right !important;}
 .flex-control-thumbs LI{
-	widht:'31%'
+	width:31% !important;
 }
