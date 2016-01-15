@@ -12,12 +12,14 @@ body {behavior: url("csshover.htc");}
 <![endif]-->
 <title>Products</title>
 <link href="bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="style.css" rel="stylesheet" type="text/css" media="all" />  
+<link href="theme/guanwang/font-awesome.min.css" rel="stylesheet" >
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="images/jquery.min.js"></script>
 
 <!-- Custom Theme files -->
 <!--theme style-->
-<link href="style.css" rel="stylesheet" type="text/css" media="all" />  
+
 <!--//theme style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -29,17 +31,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="images/simpleCart.min.js"> </script>
 <!-- start menu -->
 <link href="memenu.css" rel="stylesheet" type="text/css" media="all" />
-<link href="header.css" rel="stylesheet" type="text/css" media="all" />
-<link href="footer.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="images/memenu.js"></script>
-<script type="text/javascript" src="images/slider.js"></script>
 {literal}
 <script>$(document).ready(function(){$(".memenu").memenu();});</script> 
 {/literal}
+<script type="text/javascript" src="images/memenu.js"></script>
+<script src="images/footer.js"></script>
+{literal}<script>$(document).ready(function(){$(".memenu").memenu();});</script>{/literal}
 <!-- /start menu -->
 <link href="form.css" rel="stylesheet" type="text/css" media="all" />
 <!-- the jScrollPane script -->
-
+<!--[if lt IE 9]>
+	<script src="images/respond.js"></script>
+	<link href="pro-ie8.css" rel="stylesheet" type="text/css" media="all" />
+<![endif]-->
 <script type="text/javascript" src="images/jquery.jscrollpane.min.js"></script>
     {literal}<script type="text/javascript" id="sourcecode">
       $(function()
@@ -48,7 +53,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       });
     </script>{/literal}
 <!-- //the jScrollPane script -->
-
+<link href="header.css" rel="stylesheet" type="text/css" media="all" />
+<link href="footer.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="images/slider.js"></script>
 </head>
 <body> 
 <!--header-->
