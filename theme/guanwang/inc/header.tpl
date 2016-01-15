@@ -18,7 +18,7 @@
 	<header class="header">
 		<div class="main">
 			<div class="header_left">
-				<iframe name="weather_inc" src="http://i.tianqi.com/index.php?c=code&id=52&icon=1&num=3" width="280" height="25" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" id="weather"></iframe>
+				<iframe name="weather_inc" allowTransparency="true" src="http://i.tianqi.com/index.php?c=code&id=52&icon=1&num=3" width="280" height="25" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" id="weather"></iframe>
 			</div>
 			<div class="header_right" style="font-family: 'Lato', sans-serif;font-size:14px;">
 				<span><a href="javascript:void(0);"  onclick="SetHome(this,'{$site.root_url}');" style="color:#333;line-height:30px;">设为首页</a></span>
