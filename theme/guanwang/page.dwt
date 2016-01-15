@@ -26,7 +26,7 @@ body {behavior: url("csshover.htc");}
 </head>
 <body>
 <div id="wrapper"> {include file="inc/header.tpl"}
- <div class="wrap mb" style="margin:0 auto; padding:0 10%; height:auto; overflow:hidden;padding-top:30px;">
+ <div class="wrap mb" style="margin:0 auto;  height:auto; overflow:hidden;padding-top:30px;">
   <div id="pageLeft"> {include file="inc/page_tree.tpl"} </div>
   <div id="pageIn"> 
    <div id="page" style="float:right; width:65%; height:auto; overflow:hidden;margin-bottom:40px; margin-top:20px;">
