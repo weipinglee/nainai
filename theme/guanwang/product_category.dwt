@@ -41,7 +41,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- /start menu -->
 <link href="form.css" rel="stylesheet" type="text/css" media="all" />
 <!-- the jScrollPane script -->
-
+<!--[if lt IE 9]>
+	<script src="images/respond.js"></script>
+	<link href="pro-ie8.css" rel="stylesheet" type="text/css" media="all" />
+<![endif]-->
 <script type="text/javascript" src="images/jquery.jscrollpane.min.js"></script>
     {literal}<script type="text/javascript" id="sourcecode">
       $(function()
