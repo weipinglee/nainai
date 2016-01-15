@@ -19,8 +19,10 @@ require (dirname(__FILE__) . '/include/init.php');
 $id = $firewall->get_legal_id('article', $_REQUEST['id'], $_REQUEST['unique_id']);
 $cat_id = $dou->get_one("SELECT cat_id FROM " . $dou->table('article') . " WHERE id = '$id'");
 $parent_id = $dou->get_one("SELECT parent_id FROM " . $dou->table('article_category') . " WHERE cat_id = '" . $cat_id . "'");
-if ($id == -1)
-    $dou->dou_msg($GLOBALS['_LANG']['page_wrong'], ROOT_URL);
+if ($id == -1){
+ header('location:'.ROOT_URL);
+}
+   
     
 /* 获取详细信息 */
 $query = $dou->select($dou->table('article'), '*', '`id` = \'' . $id . '\'');

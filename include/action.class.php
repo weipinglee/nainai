@@ -208,7 +208,6 @@ class Action extends Common {
         if (!$text) {
             $text = $GLOBALS['_LANG']['dou_msg_success'];
         }
-        
         /* 获取meta和title信息 */
         $GLOBALS['smarty']->assign('page_title', $GLOBALS['_CFG']['site_title']);
         $GLOBALS['smarty']->assign('keywords', $GLOBALS['_CFG']['site_keywords']);

@@ -10,6 +10,9 @@
 <meta name="generator" content="DouPHP v1.3" />
 <title>{$page_title}</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
+<link href="memenu.css" rel="stylesheet" type="text/css" media="all" />
+<link href="header.css" rel="stylesheet" type="text/css" media="all" />
+<link href="footer.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="images/jquery.min.js"></script>
 <script type="text/javascript" src="images/global.js"></script>
 <!-- {if !$url} -->
@@ -18,10 +21,11 @@
 function go() {
     window.history.go( - 1);
 }
-setTimeout("go()", 3000);
+setTimeout("go()", 3007770);
 {/literal}
 </script>
 <!-- {/if} -->
+
 </head>
 <body>
 <div id="wrapper"> {include file="inc/header.tpl"}

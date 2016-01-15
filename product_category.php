@@ -18,7 +18,7 @@ require (dirname(__FILE__) . '/include/init.php');
 // 验证并获取合法的ID，如果不合法将其设定为-1
 $cat_id = $firewall->get_legal_id('product_category', $_REQUEST['id'], $_REQUEST['unique_id']);
 if ($cat_id == -1) {
-    $dou->dou_msg($GLOBALS['_LANG']['page_wrong'], ROOT_URL);
+     header('location:'.ROOT_URL);
 } else {
     $where = ' WHERE cat_id IN (' . $cat_id . $dou->dou_child_id('product_category', $cat_id) . ')';
 }

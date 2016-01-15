@@ -18,7 +18,7 @@ require (dirname(__FILE__) . '/include/init.php');
 // 验证并获取合法的ID，如果不合法将其设定为-1
 $id = $firewall->get_legal_id('page', $_REQUEST['id'], $_REQUEST['unique_id']);
 if ($id == -1)
-    $dou->dou_msg($GLOBALS['_LANG']['page_wrong'], ROOT_URL);
+     header('location:'.ROOT_URL);
     
     // 获取单页面信息
 $page = get_page_info($id);

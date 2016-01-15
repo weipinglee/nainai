@@ -20,7 +20,7 @@ $id = $firewall->get_legal_id('product', $_REQUEST['id'], $_REQUEST['unique_id']
 $cat_id = $dou->get_one("SELECT cat_id FROM " . $dou->table('product') . " WHERE id = '$id'");
 $parent_id = $dou->get_one("SELECT parent_id FROM " . $dou->table('product_category') . " WHERE cat_id = '" . $cat_id . "'");
 if ($id == -1)
-    $dou->dou_msg($GLOBALS['_LANG']['page_wrong'], ROOT_URL);
+     header('location:'.ROOT_URL);
     
     /* 获取产品信息 */
 $query = $dou->select($dou->table('product'), '*', '`id` = \'' . $id . '\'');
