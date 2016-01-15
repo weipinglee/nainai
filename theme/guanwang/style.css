@@ -121,7 +121,7 @@ h1.b1,h2.b2,h3.b3 {
 }
 .header-bottom {
     border-bottom: 1px solid #eee;
-    width: 1190px;
+    width: 90%;
     height: 124px;
     margin: 0 auto;
 }
