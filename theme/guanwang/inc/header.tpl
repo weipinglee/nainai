@@ -138,7 +138,7 @@ catch (e) {
 	     	<!-- {foreach from=$show_list name=show item=show} -->
 	         <li>
 				<div class="banner1" style="background-image:url({$show.show_img}) ;">
-					<img sr="{$show.show_img}" width="100%" style='max-height:640px;'/>
+					<img src="{$show.show_img}" width="100%" style='max-height:640px;'/>
 				</div>
 	         </li>
 	         
