@@ -32,6 +32,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="header.css" rel="stylesheet" type="text/css" media="all" />
 <link href="footer.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="images/memenu.js"></script>
+<script type="text/javascript" src="images/slider.js"></script>
 {literal}
 <script>$(document).ready(function(){$(".memenu").memenu();});</script> 
 {/literal}
@@ -102,106 +103,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		   {include file="inc/product_tree.tpl"} 
 		   <!-- {else} --> 
 		   {include file="inc/article_tree.tpl"} 
-		   <!-- {/if} --> 
-
-
-              
-              <!--script-->
-              {literal}
-            <script>
-              $(document).ready(function(){
-                $(".tab1 .single-bottom").hide();
-                $(".tab2 .single-bottom").hide();
-                $(".tab3 .single-bottom").hide();
-                $(".tab4 .single-bottom").hide();
-                $(".tab5 .single-bottom").hide();
-                $(".tab6 .single-bottom").hide();
-                $(".tab7 .single-bottom").hide();
-
-                
-                $(".tab1 ul").click(function(){
-                  $(".tab1 .single-bottom").slideToggle(300);
-                  $(".tab2 .single-bottom").hide();
-                  $(".tab3 .single-bottom").hide();
-                  $(".tab4 .single-bottom").hide();
-                  $(".tab5 .single-bottom").hide();
-                  $(".tab6 .single-bottom").hide();
-                  $(".tab7 .single-bottom").hide();
-                })
-                $(".tab2 ul").click(function(){
-                  $(".tab2 .single-bottom").slideToggle(300);
-                  $(".tab1 .single-bottom").hide();
-                  $(".tab3 .single-bottom").hide();
-                  $(".tab4 .single-bottom").hide();
-                  $(".tab5 .single-bottom").hide();
-                  $(".tab6 .single-bottom").hide();
-                  $(".tab7 .single-bottom").hide();
-                })
-                $(".tab3 ul").click(function(){
-                  $(".tab3 .single-bottom").slideToggle(300);
-                  $(".tab4 .single-bottom").hide();
-                  $(".tab5 .single-bottom").hide();
-                  $(".tab2 .single-bottom").hide();
-                  $(".tab1 .single-bottom").hide();
-                  $(".tab6 .single-bottom").hide();
-                  $(".tab7 .single-bottom").hide();
-                })
-                $(".tab4 ul").click(function(){
-                  $(".tab4 .single-bottom").slideToggle(300);
-                  $(".tab5 .single-bottom").hide();
-                  $(".tab3 .single-bottom").hide();
-                  $(".tab2 .single-bottom").hide();
-                  $(".tab1 .single-bottom").hide();
-                  $(".tab6 .single-bottom").hide();
-                  $(".tab7 .single-bottom").hide();
-                })  
-                $(".tab5 ul").click(function(){
-                  $(".tab5 .single-bottom").slideToggle(300);
-                  $(".tab4 .single-bottom").hide();
-                  $(".tab3 .single-bottom").hide();
-                  $(".tab2 .single-bottom").hide();
-                  $(".tab1 .single-bottom").hide();
-                  $(".tab6 .single-bottom").hide();
-                  $(".tab7 .single-bottom").hide();
-                })  
-                $(".tab6 ul").click(function(){
-                  $(".tab6 .single-bottom").slideToggle(300);
-                  $(".tab4 .single-bottom").hide();
-                  $(".tab3 .single-bottom").hide();
-                  $(".tab2 .single-bottom").hide();
-                  $(".tab1 .single-bottom").hide();
-                  $(".tab5 .single-bottom").hide();
-                  $(".tab7 .single-bottom").hide();
-                })
-                $(".tab7 ul").click(function(){
-                  $(".tab7 .single-bottom").slideToggle(300);
-                  $(".tab4 .single-bottom").hide();
-                  $(".tab3 .single-bottom").hide();
-                  $(".tab2 .single-bottom").hide();
-                  $(".tab1 .single-bottom").hide();
-                  $(".tab5 .single-bottom").hide();
-                  $(".tab6 .single-bottom").hide();
-                })
-              });
-            </script>
-            {/literal}
-            <!-- script -->          
+		   <!-- {/if} -->         
          </section>
          
-      <!--   <section  class="sky-form">
-           <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>DISCOUNTS</h4>
-           <div class="row row1 scroll-pane">
-             <div class="col col-4">
-                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Upto - 10% (20)</label>
-             </div>
-             <div class="col col-4">
-                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>40% - 50% (5)</label>
-                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (7)</label>
-                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (2)</label>
-                <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other(50)</label>
-             </div>
-           </div>
-         </section>   -->        
+            
            
          <section  class="sky-form">
             <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>价格</h4>
@@ -222,7 +127,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 range: true,
                 min: 0,
                 max: 100000,
-                values: [ 500, 100000 ],
+                values: [ 0, 100000 ],
                 slide: function( event, ui ) {
                   $( "#amount" ).val( "￥" + ui.values[ 0 ] + " - ￥" + ui.values[ 1 ] );
                 }
@@ -235,37 +140,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
            <!---->
   
            
-         <!-- <section  class="sky-form">
-            <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>品种</h4>
-              <div class="row row1 scroll-pane">
-                <div class="col col-4">
-                  <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>普卷 (30)</label>
-                </div>
-                <div class="col col-4">
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>薄卷   (30)</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>热轧开平板      (30)</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>低合金卷       (30)</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>花纹卷  (30)</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>酸洗卷  (30)</label>
-                </div>
-              </div>
-           </section>
-           <section  class="sky-form">
-            <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>等级</h4>
-              <div class="row row1 scroll-pane">
-                <div class="col col-4">
-                  <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>一等</label>
-                </div>
-                <div class="col col-4">
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>二等</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>三等</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>四等</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>五等</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>六等</label>
-                  <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>七等</label>
-                </div>
-              </div>
-           </section>      -->     
+         
        </div>        
         </div>
     </div>

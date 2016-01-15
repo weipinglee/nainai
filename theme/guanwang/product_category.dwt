@@ -55,6 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //the jScrollPane script -->
 <link href="header.css" rel="stylesheet" type="text/css" media="all" />
 <link href="footer.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src="images/slider.js"></script>
 </head>
 <body> 
 <!--header-->
@@ -121,20 +122,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <!-- {/if} -->
             </div>
             <!-- {/foreach} -->
-            <!--script-->
-              {literal}
-            <script>
-            $(document).ready(function(){
-                $(".single-bottom").hide();
-                $("[class^=tab] ul").click(function(){
-                $(this).parent().find('.single-bottom').slideToggle(300);
-                $(this).parent().siblings("[class^=tab]").find('.single-bottom').hide();
-                })
-              });
-
-            </script>
-            {/literal}
-            <!-- script -->          
+          
          </section>
 
          <section  class="sky-form">
