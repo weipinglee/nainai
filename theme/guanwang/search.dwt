@@ -75,26 +75,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <h2>{$cate_info.cat_name}</h2>     
      <div class="col-md-9 product-model-sec">
      	<!-- {foreach from=$search_list name=search_list item=product} --> 
-           <a href="{$product.url}"><div class="product-grid">
-            <div class="more-product"><span> </span></div>            
-            <div class="product-img b-link-stripe b-animate-go  thickbox">
-              <img src="{$product.image1}" style="width:252px;height:196px;" class="img-responsive" alt="{$product.name}">
-              <div class="b-wrapper">
-              <h4 class="b-animate b-from-left  b-delay03">             
-              <button><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>快速查看</button>
-              </h4>
-              </div>
-            </div></a>            
+          <div class="product-grid">
+           <a href="{$product.url}">
+			
+				<div class="more-product"><span> </span></div>            
+				<div class="product-img b-link-stripe b-animate-go  thickbox">
+					<img src="{$product.image1}" style="width:252px;height:196px;"  class="img-responsive" alt="{$product.name}" >
+						<div class="b-wrapper">
+							<h4 class="b-animate b-from-left  b-delay03">             
+							<button><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>快速查看</button>
+							</h4>
+						</div>
+				</div>
+            </a>         
             <div class="product-info simpleCart_shelfItem">
               <div class="product-info-cust prt_name">
                 <h4>{$product.name}</h4>                
                 <span class="item_price">{$product.price}</span>
-                <!-- <div class="ofr">
-                  <p class="pric1"><del>Rs 280</del></p>
-                      <p class="disc">[12% Off]</p>
-                </div>
-                <input type="text" class="item_quantity" value="1" />
-                <input type="button" class="item_add items" value="ADD"> -->
                 <div class="clearfix"> </div>
               </div>                        
               
