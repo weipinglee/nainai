@@ -72,7 +72,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <li class="active">
       </li>
      </ol>
-      <h2>{$cate_info.cat_name}</h2>     
+          
      <div class="col-md-9 product-model-sec" >
         <!-- {foreach from=$product_list name=product_list item=product} --> 
 		<div class="product-grid">
