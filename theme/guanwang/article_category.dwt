@@ -9,6 +9,7 @@
 <link href="bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link href="jianjie.css" rel="stylesheet" type="text/css" />
+
 <link href="footer.css" rel="stylesheet" type="text/css" media="all" />
 <script src="images/jquery.min.js" type="text/javascript" ></script>
 
@@ -21,6 +22,7 @@
 {/literal} 
 <!-- start menu -->
 <link href="memenu.css" rel="stylesheet" type="text/css" media="all" />
+<link href="header.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="images/memenu.js"></script>
 {literal} 
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
