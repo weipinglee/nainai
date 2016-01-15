@@ -150,19 +150,7 @@ left: 35%;
     -webkit-border-radius:5px;
     color: #fff;
 }
-.content{
-	
-	 margin: 0px 35px;
-    background: url(../images/left_bg.jpg) #f4f4f4 repeat-y;
-    display: inline-block;
-    padding-left: 40px;
-    /* display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -o-box;
-    display: box;*/
 
-}
 
 .content ul {
 	width:1080px;
