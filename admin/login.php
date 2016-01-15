@@ -39,12 +39,13 @@ if ($rec == 'default') {
  * +----------------------------------------------------------
  */
 elseif ($rec == 'login') {
+
     if ($check->is_captcha(trim($_POST['captcha'])) && $_CFG['captcha'])
-        $_POST['captcha'] = strtoupper(trim($_POST['captcha']));
+        $_POST['captcha'] = strtolower(trim($_POST['captcha']));
     
     if (!$_POST['user_name']) {
         $dou->dou_msg($_LANG['login_input_wrong'], 'login.php', 'out');
-    } elseif (md5($_POST['captcha'] . DOU_SHELL) != $_SESSION['captcha'] && $_CFG['captcha']) {
+    } elseif ($_POST['captcha']!= $_SESSION['captcha'] && $_CFG['captcha']) {
         $dou->dou_msg($_LANG['login_captcha_wrong'], 'login.php', 'out');
     }
     
