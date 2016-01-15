@@ -1,7 +1,10 @@
 .col-md-7 {
-        width: 30% !important;
+        width: 32% !important;
     }
 	.col-md-5 {
-        width: 58% !important;
+        width: 60% !important;
     }
 	.product-model-sec{float:right !important;}
+.flex-control-thumbs LI{
+	widht:'31%'
+}
