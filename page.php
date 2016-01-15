@@ -39,6 +39,8 @@ $smarty->assign('ur_here', $dou->ur_here('page', '', $page['page_name']));
 $smarty->assign('page_list', $dou->get_page_list($top_id, $id));
 $smarty->assign('top', get_page_info($top_id));
 $smarty->assign('page', $page);
+$smarty->assign('controller','page');
+$smarty->assign('num',$_GET['id']);
 if ($top_id == $id)
     $smarty->assign("top_cur", 'top_cur');
 

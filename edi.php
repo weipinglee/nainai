@@ -46,7 +46,7 @@ $smarty->assign('edi', $edi);
 $jianli['url'] = $GLOBALS['dou']->rewrite_url('jianli', '');
 $smarty->assign('jianli', $jianli);
 $smarty->assign('zpid', $_GET['id'] + 0);
-
+$smarty->assign('controller','zhaopin');
 
 //两表联查，查出dou_zhaopin表的job和cat_name字段
 $sc = $dou->table('zhaopin');

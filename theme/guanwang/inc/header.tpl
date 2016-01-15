@@ -130,6 +130,26 @@ catch (e) {
 			 </div>
 			<div class="clearfix"> </div>
 </div>
+<!--{if $controller=='page'}-->
+	<!--{if $num==1}-->
+	<div class="top_bg" style="margin:0 auto;"><div class="main_top"><img src="images/jianj.jpg"></div></div>
+	<!--{/if}-->
+	<!--{if $num==8}-->
+	<div class="top_bg" style="margin:0 auto;"><div class="main_top"><img src="images/jl.jpg"></div></div>
+	<!--{/if}-->
+	<!--{if $num==10}-->
+	<div class="top_bg" style="margin:0 auto;"><div class="main_top"><img src="images/jianj.jpg"></div></div>
+	<!--{/if}-->
+<!--{/if}-->
+
+<!--{if $controller=='product'}-->
+	<div class="top_bg" style="margin:0 auto;"><div class="main_top"><img src="images/cp.jpg"></div></div>
+
+<!--{/if}-->
+<!--{if $controller=='zhaopin'}-->
+	<div class="top_bg" style="margin:0 auto;"><div class="main_top"><img src="images/zp.jpg"></div></div>
+
+<!--{/if}-->
 <!---->	
 <div class="slider">
 	  <div class="callbacks_container">
@@ -153,5 +173,3 @@ catch (e) {
 {literal}<script src="images/bootstrap.js"> </script>{/literal}
 
 
-</body>
-</html>

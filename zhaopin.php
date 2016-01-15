@@ -77,7 +77,7 @@ $smarty->assign('cate_info', $cate_info);
 $smarty->assign('zhaopin', $zhaopin);
 $smarty->assign('zh', $zh);//zhaopin_category表的
 $smarty->assign('zhaopin_category', $dou->get_category('zhaopin_category', 0, ''));
-
+$smarty->assign('controller','zhaopin');
 //招聘信息分页
 $pageBar = getPageBar($smarty->_tpl_vars['pager']);
 

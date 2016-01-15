@@ -15,7 +15,7 @@ body {behavior: url("csshover.htc");}
 <link href="style.css" rel="stylesheet" type="text/css" />
 <link href="theme/guanwang/font-awesome.min.css" rel="stylesheet" >
 <link href="memenu.css" rel="stylesheet" type="text/css" media="all" />
-
+<link href="jianjie.css" rel="stylesheet" type="text/css" media="all" />
 <link href="header.css" rel="stylesheet" type="text/css" media="all" />
 <link href="footer.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="images/jquery.min.js"></script>
@@ -26,6 +26,7 @@ body {behavior: url("csshover.htc");}
 </head>
 <body>
 <div id="wrapper"> {include file="inc/header.tpl"}
+
  <div class="wrap mb" style="margin:0 auto;  height:auto; overflow:hidden;padding-top:30px;">
   <div id="pageLeft"> {include file="inc/page_tree.tpl"} </div>
   <div id="pageIn"> 

@@ -65,7 +65,7 @@ $smarty->assign('description', $product['description']);
 $smarty->assign('nav_top_list', $dou->get_nav('top'));
 $smarty->assign('nav_middle_list', $dou->get_nav('middle', '0', 'product_category', $cat_id, $parent_id));
 $smarty->assign('nav_bottom_list', $dou->get_nav('bottom'));
-
+$smarty->assign('controller','product');
 $cate = $dou->get_category('product_category', 0, $cat_id);
 //print_r($cate);exit;
 foreach($cate as $key => $val){

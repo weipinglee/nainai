@@ -84,6 +84,7 @@ $smarty->assign('cate_info', $cate_info);
 $smarty->assign('product_category', $dou->get_category('product_category', 0, $cat_id));
 $smarty->assign('product_list', $product_list);
 $smarty->assign('product', $product);
+$smarty->assign('controller','product');
 
 //分类id
 $smarty->assign('req_id', $_REQUEST['id']);
