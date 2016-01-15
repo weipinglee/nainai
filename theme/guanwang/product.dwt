@@ -3,6 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<!--//theme style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <!--[if IE 6]>
 {literal}
 <style>
@@ -12,20 +17,20 @@ body {behavior: url("csshover.htc");}
 <![endif]-->
 <title>{$page_title}</title>
 <link href="bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<!--[if lt IE 9]>
-	<script src="images/respond.js"></script>
-<![endif]-->
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!-- Custom Theme files -->
 <!--theme style-->
 <link href="style.css" rel="stylesheet" type="text/css" media="all" />	
 <link href="theme/guanwang/font-awesome.min.css" rel="stylesheet" >
 <script src="images/jquery.min.js"></script>
-<!--//theme style-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Wedding Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<!--[if lt IE 9]>
+	<script src="images/respond.js"></script>
+	<link href="pro-ie8.css" rel="stylesheet" type="text/css" media="all" />
+<![endif]-->
+
+
+
 {literal}
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>{/literal}
 <!-- start menu -->
