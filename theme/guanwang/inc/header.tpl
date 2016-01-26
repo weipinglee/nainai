@@ -1,5 +1,3 @@
-
-
 {literal}
 <script> 
    (function() {
