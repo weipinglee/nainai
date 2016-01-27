@@ -82,23 +82,19 @@ catch (e) {
 					<img src="images/logo.png">					
 				</div>
 			 <!---->		 
-			 <div class="top-nav">
+			 <div class="top-nav" id="MT_nav">
 				<ul class="memenu skyblue">
-					<li {if $index.cur} class="active" {/if}><a href="{$site.root_url}" class="menu_li">{$lang.home}</a></li>
+					<li {if $index.cur} class="MT_item" {/if}><a href="{$site.root_url}" class="MT_bg" hidefocus="true" >{$lang.home}</a></li>
 					<!-- {foreach from=$nav_middle_list name=nav_middle_list item=nav} --> 
-					<li {if $nav.cur} class="active hover" {/if} >
+					<li {if $nav.cur} class="MT_item" {/if} >
 						<a href="{$nav.url}"{if $smarty.foreach.nav_middle_list.iteration eq 5}{/if}{if $nav.target} target="_blank"{/if}>
 							{$nav.nav_name}
 						</a>
 						<!-- {if $nav.child} -->
-						<div class="mepanel">
-							<div class="row">
+						<div>							
 					    <!-- {foreach from=$nav.child item=child} -->
-								<div class="col1 me-one">
-									<h4 style="border:0;"><a href="{$child.url}"{if $child.child}{/if}>{$child.nav_name}</a></h4>
-								</div>
+								<a href="{$child.url}"{if $child.child}{/if} hidefocus="true">{$child.nav_name}</a>
 						<!-- {/foreach} -->
-							</div>
 						</div>
 						<!-- {/if} --> 
 					</li>
