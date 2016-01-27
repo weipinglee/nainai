@@ -235,6 +235,7 @@ left: 4.5%;
 	position: relative;
 	font-family: Calibri,Arial;
 	font-size: 15px;
+	top:35px;
 }
 #MT_nav ul .MT_item {
 	width:95px;
@@ -252,11 +253,12 @@ left: 4.5%;
 	display:block;
 	font-size:16px;
 	font-weight: bold;
-	height:47px;
-	line-height:47px;
-	_line-height:50px;
+	height:41px;
+	line-height:41px;
+	_line-height:43px;
 	text-align:center;
 	text-decoration:none;
+	padding:0px 8px;
 }
 #MT_nav ul .MT_item a:hover {
 	color:#fff;
@@ -275,7 +277,6 @@ left: 4.5%;
 #MT_nav ul .MT_item div {
 	display:none;
 	background-color:#000;
-	border:1px solid #ccc;
 	position:absolute;
 	top:42px;
 	left:35%;
