@@ -238,7 +238,7 @@ left: 4.5%;
 	top:35px;
 }
 #MT_nav ul .MT_item {
-	width:95px;
+	width:auto;
 	height:57px;
 	float:left;
 	position:relative;
@@ -258,7 +258,7 @@ left: 4.5%;
 	_line-height:43px;
 	text-align:center;
 	text-decoration:none;
-	padding:0px 8px;
+	padding:0px 10px;
 }
 #MT_nav ul .MT_item a:hover {
 	color:#fff;
