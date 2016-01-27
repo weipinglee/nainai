@@ -227,12 +227,14 @@ left: 4.5%;
 	font-family:"Microsoft Yahei","Hiragino Sans GB",Arial,Helvetica;
 }
 #MT_nav ul {
-	list-style:none;
-	width:600px;
-	height:57px;
-	top:22px;
-	position:absolute;
-	z-index:99;
+	margin: 0;
+	padding: 0;
+	width: 600px;
+	list-style: none;
+	display: inline-block;
+	position: relative;
+	font-family: Calibri,Arial;
+	font-size: 15px;
 }
 #MT_nav ul .MT_item {
 	width:95px;
