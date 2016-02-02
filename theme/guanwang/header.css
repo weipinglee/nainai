@@ -9,12 +9,12 @@
     margin:0;
 }
 #MT_nav {
-    height:0;
     line-height:0;
-    width:1000px;
-    margin:0 auto;
+    width:639px;
+    float: left;
     font-size:0;
     position:relative;
+    display: block;
     z-index:99;
     font-family:"Microsoft Yahei","Hiragino Sans GB",Arial,Helvetica;
 }
