@@ -91,11 +91,12 @@ catch (e) {
 				 <li class="MT_item">
 					 <a href="{$nav.url}" hidefocus="true" class="MT_bg {if $nav.cur} hover {/if}" {if $nav.target} target="_blank"{/if}>{$nav.nav_name}</a>
 					 <!-- {if $nav.child} -->
+					 <div>
 					 <!-- {foreach from=$nav.child item=child} -->
-					  <div>
+
 						 <a href="{$child.url}" hidefocus="true" {if $child.child}{/if}>{$child.nav_name}</a>
-					 </div>
 					 <!-- {/foreach} -->
+					 </div>
 					 <!-- {/if} -->
 				 </li>
 				 <!-- {/foreach} -->
