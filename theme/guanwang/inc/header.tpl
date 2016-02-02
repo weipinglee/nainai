@@ -81,26 +81,28 @@ catch (e) {
 				<div class="logo">
 					<img src="images/logo.png">					
 				</div>
-			 <!---->		 
-			 <div class="top-nav" id="MT_nav">
-				<ul class="memenu skyblue">
-					<li {if $index.cur} class="MT_item" {/if}><a href="{$site.root_url}" class="MT_bg" hidefocus="true" >{$lang.home}</a></li>
-					<!-- {foreach from=$nav_middle_list name=nav_middle_list item=nav} --> 
-					<li {if $nav.cur} class="MT_item" {/if} >
-						<a href="{$nav.url}"{if $smarty.foreach.nav_middle_list.iteration eq 5}{/if}{if $nav.target} target="_blank"{/if}>
-							{$nav.nav_name}
-						</a>
-						<!-- {if $nav.child} -->
-						<div>							
-					    <!-- {foreach from=$nav.child item=child} -->
-								<a href="{$child.url}"{if $child.child}{/if} hidefocus="true">{$child.nav_name}</a>
-						<!-- {/foreach} -->
-						</div>
-						<!-- {/if} --> 
-					</li>
-					<!-- {/foreach} -->
-				</ul>				
-			 </div>
+
+			 <!---->
+		 <div id="MT_nav">
+			 <ul>
+				 <li class="MT_item">
+					 <a href="{$site.root_url}" hidefocus="true" class="MT_bg {if $index.cur}hover{/if}">{$lang.home}</a>
+				 </li>
+				 <!-- {foreach from=$nav_middle_list name=nav_middle_list item=nav} -->
+				 <li class="MT_item">
+					 <a href="{$nav.url}" hidefocus="true" class="MT_bg {if $nav.cur} hover {/if}" {if $nav.target} target="_blank"{/if}>{$nav.nav_name}</a>
+					 <!-- {if $nav.child} -->
+					 <!-- {foreach from=$nav.child item=child} -->
+					  <div>
+						 <a href="{$child.url}" hidefocus="true" {if $child.child}{/if}>{$child.nav_name}</a>
+					 </div>
+					 <!-- {/foreach} -->
+					 <!-- {/if} -->
+				 </li>
+				 <!-- {/foreach} -->
+			 </ul>
+		 </div>
+
 			 <!---->
 			 <div class="cart box_1">
 				<form action="{$site.root_url}" method="get" class="search" id="search" name="search">
