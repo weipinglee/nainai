@@ -16,9 +16,9 @@
    {include file="ur_here.htm"}
    <div class="mainBox" style="{$workspace.height}">
     <!-- {if $rec eq 'default'} 商品列表 -->
-    <h3><a href="{$action_link.href}" class="actionBtn add">{$action_link.text}</a>{$ur_here}</h3>
+    <h3><a href="{$action_link.href}&type={$type}" class="actionBtn add">{$action_link.text}</a>{$ur_here}</h3>
     <div class="filter">
-    <form action="product.php" method="post">
+    <form action="product.php?type={$type}" method="post">
      <select name="cat_id">
       <option value="0">{$lang.uncategorized}</option>
       <!-- {foreach from=$product_category item=cate} -->
@@ -71,14 +71,14 @@
       <tr>
         <td align="center"><input type="checkbox" name="checkbox[]" value="{$product.id}" /></td>
         <td align="center">{$product.id}</td>
-        <td><a href="product.php?rec=edit&id={$product.id}">{$product.name}</a></td>
+        <td><a href="product.php?rec=edit&id={$product.id}&type={$type}">{$product.name}</a></td>
         <td align="center"><!-- {if $product.cat_name} --><a href="product.php?cat_id={$product.cat_id}">{$product.cat_name}</a><!-- {else} -->{$lang.uncategorized}<!-- {/if} --></td>
         <td align="center">{$product.add_time}</td>
         <td align="center">
          <!-- {if $if_sort} -->
          <a href="product.php?rec=set_sort&id={$product.id}">{$lang.sort_btn}</a>
          <!-- {else} -->
-         <a href="product.php?rec=edit&id={$product.id}">{$lang.edit}</a> | <a href="product.php?rec=del&id={$product.id}">{$lang.del}</a>
+         <a href="product.php?rec=edit&id={$product.id}&type={$type}">{$lang.edit}</a> | <a href="product.php?rec=del&id={$product.id}">{$lang.del}</a>
          <!-- {/if} -->
         </td>
       </tr>
@@ -108,8 +108,9 @@
     {include file="pager.htm"}
     <!-- {/if} -->
     <!-- {if $rec eq 'add' || $rec eq 'edit'} 商品添加或编辑 -->
-    <h3><a href="{$action_link.href}" class="actionBtn">{$action_link.text}</a>{$ur_here}</h3>
+    <h3><a href="{$action_link.href}?type={$type}" class="actionBtn">{$action_link.text}</a>{$ur_here}</h3>
     <form action="product.php?rec={$form_action}" method="post" enctype="multipart/form-data">
+     <input type="hidden" name="type" value="{$type}" />
      <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
       <tr>
        <td width="90" align="right">{$lang.name}</td>

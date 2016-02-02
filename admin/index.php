@@ -60,7 +60,7 @@ if ($rec == 'default') {
     $smarty->assign('sys_info', $sys_info);
     $smarty->assign("log_list", $dou->get_admin_log($_SESSION[DOU_ID]['user_id'], 4));
     $smarty->assign('localsite', $dou->dou_localsite());
-    
+
     $smarty->display('index.htm');
 } 
 

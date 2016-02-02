@@ -22,6 +22,9 @@
  <ul>
   <li{if $cur eq $menu.name_category} class="cur"{/if}><a href="{$menu.name_category}.php"><i class="{$menu.name}Cat"></i><em>{$menu.lang_category}</em></a></li>
   <li{if $cur eq $menu.name} class="cur"{/if}><a href="{$menu.name}.php"><i class="{$menu.name}"></i><em>{$menu.lang}</em></a></li>
+ <!--{if $menu.name=='product'}-->
+  <li{if $cur eq 'product_sell'} class="cur"{/if}><a href="{$menu.name}.php?type=1"><i class="{$menu.name}"></i><em>销售商品</em></a></li>
+  <!--{/if}-->
  </ul>
  <!-- {/foreach} -->
  <!-- {if $workspace.menu_single} -->

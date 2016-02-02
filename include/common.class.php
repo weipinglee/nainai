@@ -92,10 +92,9 @@ class Common extends DbMysql {
             $_OPEN[$module_id] = true;
         }
         $module['open'] = $_OPEN;
-        
         return $module;
     }
-     
+
     /**
      * +----------------------------------------------------------
      * 将系统文件转换为数组

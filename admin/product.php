@@ -27,10 +27,18 @@ if (!file_exists(ROOT_PATH . $images_dir)) {
     mkdir(ROOT_PATH . $images_dir, 0777);
 }
 
+$type = isset($_GET['type']) && $_GET['type'] == 1 ? 1 : 0;
+
 // 赋值给模板
 $smarty->assign('rec', $rec);
-$smarty->assign('cur', 'product');
+if($type==1){
+    $smarty->assign('cur', 'product_sell');
 
+}
+else {
+    $smarty->assign('cur', 'product');
+}
+$smarty->assign('type', $type);
 /**
  * +----------------------------------------------------------
  * 产品列表
@@ -48,12 +56,13 @@ if ($rec == 'default') {
     $keyword = isset($_REQUEST['keyword']) ? trim($_REQUEST['keyword']) : '';
     
     // 筛选条件
+
     $where = ' WHERE cat_id IN (' . $cat_id . $dou->dou_child_id('product_category', $cat_id) . ')';
     if ($keyword) {
         $where = $where . " AND name LIKE '%$keyword%'";
         $get = '&keyword=' . $keyword;
     }
-    
+    $where .= " AND type=".$type;
     // 分页
     $page = $check->is_number($_REQUEST['page']) ? $_REQUEST['page'] : 1;
     $page_url = 'product.php' . ($cat_id ? '?cat_id=' . $cat_id : '');
@@ -129,7 +138,7 @@ elseif ($rec == 'insert') {
         $dou->dou_msg($_LANG['name'] . $_LANG['is_empty']);
     if (!$check->is_price($_POST['price'] = trim($_POST['price'])))
         $dou->dou_msg($_LANG['price_wrong']);
-        
+
     // 判断是否有上传图片/上传图片生成
     /*
     if ($_FILES['image1']['name'] != '') {
@@ -149,23 +158,23 @@ elseif ($rec == 'insert') {
         //$img->make_thumb($upfile3, $_CFG['thumb3_width'], $_CFG['thumb3_height']);
     }
     */
-    
+
     if(!empty($_FILES)){
         $file = array();
         foreach($_FILES as $key => $val){
-            $file[] = $images_dir . $img->upload_image( $key , $id); // 上传的文件域
+           $file[] = $images_dir . $img->upload_image( $key , $id); // 上传的文件域
         }
     }
-    
+
     $add_time = time();
     
     // 格式化自定义参数
     $_POST['defined'] = str_replace("\r\n", ',', $_POST['defined']);
-    
+    $type = isset($_POST['type'])&&$_POST['type']==1 ? 1 : 0;
     // CSRF防御令牌验证
     $firewall->check_token($_POST['token'], 'product_add');
     //新增字段
-    $sql = "INSERT INTO " . $dou->table('product') . " (id, cat_id, name, price, defined, content, image1 , image2 , image3 , keywords, add_time, description , num ,cangku , pinzhong, date , length , width , height)" . " VALUES (NULL, '$_POST[cat_id]', '$_POST[name]', '$_POST[price]', '$_POST[defined]', '$_POST[content]', '$file[0]', '$file[1]' , '$file[2]' , '$_POST[keywords]', '$add_time', '$_POST[description]' , '$_POST[num]' ,'$_POST[cangku]' , '$_POST[pinzhong]' , '$_POST[date]' , '$_POST[length]' , '$_POST[width]' , '$_POST[height]')";
+    $sql = "INSERT INTO " . $dou->table('product') . " (id, cat_id, name, price, defined, content, image1 , image2 , image3 , keywords, add_time, description , num ,cangku , pinzhong, date , length , width , height , type)" . " VALUES (NULL, '$_POST[cat_id]', '$_POST[name]', '$_POST[price]', '$_POST[defined]', '$_POST[content]', '$file[0]', '$file[1]' , '$file[2]' , '$_POST[keywords]', '$add_time', '$_POST[description]' , '$_POST[num]' ,'$_POST[cangku]' , '$_POST[pinzhong]' , '$_POST[date]' , '$_POST[length]' , '$_POST[width]' , '$_POST[height]' , '$type')";
     $dou->query($sql);
     
     // 为了产品图片管理方便，重新以产品ID定义图片名称
@@ -305,7 +314,7 @@ elseif ($rec == 're_thumb') {
     $count = mysql_num_rows($query = $dou->query($sql));
     $mask['count'] = preg_replace('/d%/Ums', $count, $_LANG['product_thumb_count']);
     $mask_tag = '<i></i>';
-    $mask['confirm'] = $_POST['confirm'];
+    $mask['confirm'] = isset($_POST['confirm']) ? $_POST['confirm'] : 0;
     
     for($i = 1; $i <= $count; $i++)
         $mask['bg'] .= $mask_tag;
