@@ -26,6 +26,9 @@ class DbMysql {
     private $sql; // sql执行语句
     private $result; // 执行query命令的结果资源标识
     private $error_msg; // 数据库错误提示
+
+    private $table_data = array();
+    private $tableName  = '';
                         
     // 构造函数
     function DbMysql($dbhost, $dbuser, $dbpass, $dbname = '', $prefix, $charset = 'utf8', $pconnect = 0) {
@@ -261,6 +264,47 @@ class DbMysql {
             $num++;
         }
         return ($ret);
+    }
+
+    //设置数据库新增数据
+    function data($data){
+        if(!is_array($data))return false;
+        $this->table_data = $data;
+    }
+    //设置操作表名
+    function setTable($tableName){
+        if(!is_string($tableName))return false;
+        $this->tableName = $this->prefix.$tableName;
+    }
+    //新增数据
+    function add(){
+        $tableObj = $this->table_data;
+
+        $insertCol = array();
+        $insertVal = array();
+        foreach($tableObj as $key => $val)
+        {
+            $insertCol[] = '`'.$key.'`';
+            $insertVal[] = '\''.$val.'\'';
+        }
+        $sql = 'INSERT INTO '.$this->tableName.' ( '.join(',',$insertCol).' ) VALUES ( '.join(',',$insertVal).' ) ';
+        return $this->query($sql);
+
+    }
+    //更新数据
+    function update($where){
+        if(!isset($where))return false;
+        $tableObj = $this->table_data;
+        $updateStr = '';
+        foreach($tableObj as $key => $val)
+        {
+            if($updateStr != '') $updateStr.=' , ';
+             $updateStr.= '`'.$key.'` = "'.$val.'"';
+        }
+        $sql = 'UPDATE '.$this->tableName.' SET '.$updateStr.' WHERE '.$where;
+
+
+        return $this->query($sql);
     }
 }
 ?>

@@ -384,7 +384,7 @@ elseif ($rec == 'del_sort') {
 elseif ($rec == 'del') {
     // 验证并获取合法的ID
     $id = $check->is_number($_REQUEST['id']) ? $_REQUEST['id'] : $dou->dou_msg($_LANG['illegal'], 'product.php');
-    
+
     $name = $dou->get_one("SELECT name FROM " . $dou->table('product') . " WHERE id = '$id'");
     
     if (isset($_POST['confirm']) ? $_POST['confirm'] : '') {
