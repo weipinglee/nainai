@@ -24,8 +24,7 @@ header("Content-type: text/html; charset=utf-8");
 define('IN_DOUCO', true);
 require_once(dirname(__FILE__) ."/include/tool.class.php");
 require_once(dirname(__FILE__) ."/include/filter_class.php");
-require_once(dirname(__FILE__) ."/direct_pay/alipay.config.php");
-require_once(dirname(__FILE__) ."/direct_pay/lib/alipay_submit.class.php");
+require_once(dirname(__FILE__) ."/payment/payment.calss.php");
 require (dirname(__FILE__) . '/include/init.php');
 define('WEB_ROOT',Tool::getHttpHost());
 
@@ -105,9 +104,9 @@ if(!$dou->add()){
 
 //构造要请求的参数数组，无需改动
 $parameter = array(
-		"service" => "create_direct_pay_by_user",
-		"partner" => trim($alipay_config['partner']),
-		"seller_id" => trim($alipay_config['partner']),
+		//"service" => "create_direct_pay_by_user",
+		//"partner" => trim($alipay_config['partner']),
+		//"seller_id" => trim($alipay_config['partner']),
 		"payment_type"	=> $payment_type,
 		"notify_url"	=> $notify_url,
 		"return_url"	=> $return_url,
@@ -118,13 +117,15 @@ $parameter = array(
 		//"show_url"	=> $show_url,
 		//"anti_phishing_key"	=> $anti_phishing_key,
 		//"exter_invoke_ip"	=> $exter_invoke_ip,
-		"_input_charset"	=> trim(strtolower($alipay_config['input_charset']))
+		//"_input_charset"	=> trim(strtolower($alipay_config['input_charset']))
 );
 
+payment::createPaymentInstance('direct_pay',$parameter);
+
 //建立请求
-$alipaySubmit = new AlipaySubmit($alipay_config);
-$html_text = $alipaySubmit->buildRequestForm($parameter,"get", "确认");
-echo $html_text;
+//$alipaySubmit = new AlipaySubmit($alipay_config);
+//$html_text = $alipaySubmit->buildRequestForm($parameter,"get", "确认");
+//echo $html_text;
 
 ?>
 </body>
