@@ -715,5 +715,7 @@ class Common extends DbMysql {
         return $substr;
     }
 
+
+
 }
 ?>
