@@ -148,6 +148,9 @@ catch (e) {
 <!--{/if}-->
 <!---->	
 <div class="slider">
+	  <div class="word">
+	  	<img src="../images/word.png" style="width:100%;height:100%;"/>
+	  </div>
 	  <div class="callbacks_container">
 	     <ul class="rslides" id="slider">
 
