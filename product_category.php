@@ -20,7 +20,7 @@ $cat_id = $firewall->get_legal_id('product_category', $_REQUEST['id'], $_REQUEST
 if ($cat_id == -1) {
      header('location:'.ROOT_URL);
 } else {
-    $where = ' WHERE cat_id IN (' . $cat_id . $dou->dou_child_id('product_category', $cat_id) . ')';
+    $where = ' WHERE type = 0 and cat_id IN (' . $cat_id . $dou->dou_child_id('product_category', $cat_id) . ')';
 }
     
 // 获取分页信息

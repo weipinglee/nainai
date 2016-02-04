@@ -102,16 +102,18 @@ body {behavior: url("csshover.htc");}
 									 <li>- 大小 : 长 {$product.length}&nbsp;米 , 宽 {$product.width}&nbsp;米 ,厚度 {$product.height}&nbsp;米</li>
 								 </ul>
 							</div>
-							<!-- <div class="check">
+							<div class="check">
 							 <p><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>Enter pin code for delivery &amp; availability</p>
-							 <form class="navbar-form">
+							 <!--<form class="navbar-form">
 								  <div class="form-group">
 									<input type="text" class="form-control" placeholder="Enter Pin code">
 								  </div>
 								  <button type="submit" class="btn btn-default">Verify</button>
-							 </form>
+							 </form>-->
 						    </div>
-							<a href="#" class="add-cart item_add">加入购物车</a>	 -->						
+						    {if $product.type==1}
+							<a href="javascript:void(0)" onclick='fun3()' class="add-cart item_add">立即购买</a>
+							{/if}
 					 </div>
 				 </div>
 				 <div class="clearfix"> </div>
@@ -144,7 +146,7 @@ body {behavior: url("csshover.htc");}
 	 </div>
 </div>
 
-
+ {if $product.type==1}
 <script type="text/javascript">
 var url = '{$order_url}?id=+{$product.id}';
 {literal}
@@ -167,7 +169,7 @@ function fun3()
 }
 {/literal}
 </script>
-<input type='button' onClick="fun3()" value="再弹"/>
+{/if}
 
 {include file="inc/footer.tpl"}
 <form action='alipay.php' method='post' id='order_box'>

@@ -25,9 +25,8 @@ if ($id == -1)
 $query = $dou->select($dou->table('product'), '*', '`id` = \'' . $id . '\'');
 $product = $dou->fetch_array($query);
 
-
     /* 获取相关产品信息 */
-$query = $dou->select($dou->table('product'), '*', '`cat_id` = \'' . $product['cat_id'] . '\' limit 5 ');
+$query = $dou->select($dou->table('product'), '*', '`type` = '.$product['type'].' and `cat_id` = \'' . $product['cat_id'] . '\' limit 5 ');
 while ($row = $dou->fetch_assoc($query)) {
 	$row['url'] = $dou->rewrite_url('product', $row['id']);
 	$relate[] = $row;
