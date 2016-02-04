@@ -148,7 +148,7 @@ body {behavior: url("csshover.htc");}
 
  {if $product.type==1}
 <script type="text/javascript">
-var url = '{$order_url}?id=+{$product.id}';
+var url = '{$order_url}?id={$product.id}';
 {literal}
 function fun1()
 {

@@ -5,6 +5,9 @@
 <title></title>
 
 <script src="images/jquery.min.js"></script>
+<script src="images/artTemplate.js"></script>
+<script src="images/artTemplate-plugin.js"></script>
+<script src="images/area_select.js"></script>
 <link href="layers/css/style.css" rel="stylesheet" type="text/css" >
 <link href="order.css" rel="stylesheet" type="text/css" >
 <script src="images/order.js"></script>
@@ -41,25 +44,34 @@
         </tr>
         <tr>
           <td>            
+
             <tr>
-              <td align="right">姓名：</td>
-              <td><input type="text" width="1000px" name='buyer_name'></td>
-            </tr>
-            <tr>
-              <td align="right">公司：</td>
+              <td align="right">付款单位：</td>
               <td><input type="text" width="1000px" name='buyer_company'></td>
              </tr>
             <tr>
-            <tr>
-              <td align="right">手机：</td>
-              <td><input type="text" width="1000px" name='buyer_phone'></td>
-             </tr>
-            <tr>
+             <tr>
+                <td align="right">所在地区：</td>
+                    <td>
+                        <select name="province" child="city,area" onchange="areaChangeCallback(this,area_url);" style='width:100px;'></select>
+                        <select name="city" child="area" parent="province" onchange="areaChangeCallback(this,area_url);" style='width:100px;'></select>
+                        <select name="area" parent="city" style='width:100px;'></select>
+                    </td>
 
-              <td align="right">地址：</td>
+              </tr>
+
+            <tr>
+              <td align="right">详细地址：</td>
               <td><input type="text" width="1000px" name='buyer_address'></td>
-
-        </tr>
+            </tr>
+             <tr>
+                <td align="right">姓名：</td>
+                <td><input type="text" width="1000px" name='buyer_name'></td>
+              </tr>
+             <tr>
+               <td align="right">手机：</td>
+               <td><input type="text" width="1000px" name='buyer_phone'></td>
+              </tr>
       </table>
 
 
@@ -70,22 +82,29 @@
         </tr>
         <tr>
           <td>
-            <p>
-              <span>发票类型：</span>
-              <span>普通发票</span>
-            </p>
-            <p>
-              <span>开票方式：</span>
-              <span>电子发票</span>
-            </p> 
-            <p>
-              <span>手机号码：</span>
-              <span>1360****985</span>
-            </p> 
-            <p>
-              <span>发票内容：</span>
-              <span>日用品</span>
-            </p>            
+            <div id="tabbox">
+                           <ul class="tabs" id="tabs">
+                              <li><a href="#">普通发票</a></li>
+                              <li><a href="#">增值税发票</a></li>
+                           </ul>
+                           <ul class="tab_conbox" id="tab_conbox">
+                               <li class="tab_con">
+                                  <p><span class="fr">发票抬头：</span><input type="text" placeholder="请填写个人或单位全称"></p>
+                                  <p><span class="fr">发票内容：</span><input type="text" placeholder=""></p>
+                                  <p><a href="" class="button">确认发票信息</a></p>
+                               </li>
+
+                               <li class="tab_con">
+                                  <p><span class="fr">单位名称：</span><input type="text" placeholder="请填写单位全称"></p>
+                                  <p><span class="fr">纳税人识别码：</span><input type="text" placeholder=""></p>
+                                  <p><span class="fr">注册地址：</span><input type="text" placeholder=""></p>
+                                  <p><span class="fr">注册电话：</span><input type="text" placeholder=""></p>
+                                  <p><span class="fr">开户银行：</span><input type="text" placeholder=""></p>
+                                  <p><span class="fr">银行账户：</span><input type="text" placeholder=""></p>
+                                  <p><a href="" class="button">确认发票信息</a></p>
+                               </li>
+                           </ul>
+                       </div>
           </td>
         </tr>
       </table>
@@ -99,12 +118,7 @@
             <div>
               <input type="radio" checked="checked" name="payment">
               <label>支付宝支付</label>
-              <span class="gray">(请您下单后24小时内付款。)</span>
-            </div> 
-            <div>
-              <input type="radio" checked="checked" name="payment">
-              <label>货到付款</label>
-            </div>            
+            </div>
           </td>
         </tr>
       </table>
@@ -116,8 +130,6 @@
       <table width="100%" align="center" cellpadding="4" cellspacing="4" bordercolor="#666666" class="confirm">
         <tr>
           <td align="right" width="90%">
-            <p>包裹(个)：1&nbsp;&nbsp;&nbsp;&nbsp;重量(kg)：0.520</p>
-            <p class="fr">商品金额<span class="fz18">18.8</span>元  + 运费<span class="fz18">20</span>元</p>
             <p><b>总金额<span class="fz18 red">38.8</span>元</b></p>
           </td> 
           <td>
