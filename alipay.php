@@ -1,9 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>支付宝即时到账交易接口接口</title>
-</head>
 <?php
 header("Content-type: text/html; charset=utf-8");
 /* *
@@ -120,13 +114,7 @@ $parameter = array(
 		//"_input_charset"	=> trim(strtolower($alipay_config['input_charset']))
 );
 
-payment::requirePayMethod('direct_pay',$parameter);
+payment::requirePayMethod('wap_pay',$parameter);
 
-//建立请求
-//$alipaySubmit = new AlipaySubmit($alipay_config);
-//$html_text = $alipaySubmit->buildRequestForm($parameter,"get", "确认");
-//echo $html_text;
 
 ?>
-</body>
-</html>

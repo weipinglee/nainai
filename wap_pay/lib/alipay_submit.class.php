@@ -11,7 +11,7 @@
  */
 require_once("alipay_core.function.php");
 require_once("alipay_rsa.function.php");
-
+require_once("alipay_md5.function.php");
 class AlipaySubmit {
 
 	var $alipay_config;
@@ -40,6 +40,9 @@ class AlipaySubmit {
 		switch (strtoupper(trim($this->alipay_config['sign_type']))) {
 			case "RSA" :
 				$mysign = rsaSign($prestr, $this->alipay_config['private_key_path']);
+				break;
+			case "MD5" :
+				$mysign = md5Sign($prestr, $this->alipay_config['key']);
 				break;
 			default :
 				$mysign = "";
