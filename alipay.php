@@ -18,7 +18,7 @@ header("Content-type: text/html; charset=utf-8");
 define('IN_DOUCO', true);
 require_once(dirname(__FILE__) ."/include/tool.class.php");
 require_once(dirname(__FILE__) ."/include/filter_class.php");
-require_once(dirname(__FILE__) ."/payment/payment.calss.php");
+require_once(dirname(__FILE__) ."/payment/payment.class.php");
 require (dirname(__FILE__) . '/include/init.php');
 define('WEB_ROOT',Tool::getHttpHost());
 
@@ -113,7 +113,6 @@ $parameter = array(
 		//"exter_invoke_ip"	=> $exter_invoke_ip,
 		//"_input_charset"	=> trim(strtolower($alipay_config['input_charset']))
 );
-
 payment::requirePayMethod('wap_pay',$parameter);
 
 
