@@ -20,7 +20,7 @@
  
 //↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 //合作身份者id，以2088开头的16位纯数字
-$alipay_config['partner']		= '';
+$alipay_config['partner']		= '2088121869989852';
 
 //收款支付宝账号，一般情况下收款账号就是签约账号
 $alipay_config['seller_id']	= $alipay_config['partner'];

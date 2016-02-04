@@ -88,7 +88,7 @@ if(!$dou->add()){
 
        // $body = $_POST['WIDbody'];
         //商品展示地址
-       // $show_url = $_POST['WIDshow_url'];
+        $show_url = WEB_ROOT.'/product.php?id='.$data['product_id'];
         //需以http://开头的完整路径，例如：http://www.商户网址.com/myorder.html
 
         //防钓鱼时间戳
@@ -114,13 +114,13 @@ $parameter = array(
 		"subject"	=> $subject,
 		"total_fee"	=> $total_fee,
 		//"body"	=> $body,
-		//"show_url"	=> $show_url,
+		"show_url"	=> $show_url,
 		//"anti_phishing_key"	=> $anti_phishing_key,
 		//"exter_invoke_ip"	=> $exter_invoke_ip,
 		//"_input_charset"	=> trim(strtolower($alipay_config['input_charset']))
 );
 
-payment::createPaymentInstance('direct_pay',$parameter);
+payment::requirePayMethod('direct_pay',$parameter);
 
 //建立请求
 //$alipaySubmit = new AlipaySubmit($alipay_config);
