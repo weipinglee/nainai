@@ -62,11 +62,11 @@ if (!defined('EXIT_INIT')) {
     header('Content-type: text/html; charset=' . DOU_CHARSET);
 
     // 判断是否是移动设备
-    if ($dou->is_mobile() && !$_COOKIE['client'] && !$_CFG['mobile_closed']) {
+    /*if ($dou->is_mobile() && !$_COOKIE['client'] && !$_CFG['mobile_closed']) {
         $content_url = str_replace(ROOT_URL, '', 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
         //$dou->dou_header(ROOT_URL . M_PATH . '/' . $content_url);
         $dou->dou_header(ROOT_URL . $content_url);
-    }
+    }*/
     
     // 豆壳防火墙
     $firewall->dou_firewall();
