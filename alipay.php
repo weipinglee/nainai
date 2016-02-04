@@ -1,5 +1,6 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
+date_default_timezone_set('Asia/Shanghai');
 /* *
  * 功能：即时到账交易接口接入页
  * 版本：3.3
@@ -38,7 +39,7 @@ $product_num = 2;
 $data['buyer_name']  = '某某';
 $data['buyer_phone'] = '15334343434';
 $data['buyer_address'] = '山西阳泉郊区';
-$data['order_create_time'] = date('Y-m-d H:m:s');
+$data['order_create_time'] = date('Y-m-d H:i:s');
 //计算订单总价
 $price = $dou->get_one("SELECT price FROM " . $dou->table('product') . " WHERE id = ".$data['product_id'] );
 

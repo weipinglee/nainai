@@ -36,13 +36,19 @@ if($verify_result) {//验证成功
     if($_GET['trade_status'] == 'TRADE_SUCCESS' OR $_GET['trade_status'] == 'TRADE_FINISHED'){//操作成功
         $data = array();
         $order_no = $_GET['out_trade_no'];
-        $data['order_trade_no'] = $_GET['trade_no'];
-        $data['order_trade_status'] = 1;
-        $data['order_notify_time'] = date('Y-m-d H:m:s');
-        $dou->data($data);
-        $dou->setTable('order');
-        $dou->update('order_no = "'.$order_no.'"');
+        $order_status = $dou->get_one("SELECT order_trade_status FROM " . $dou->table('order') . " WHERE order_no = '".$order_no."'" );
+
+        if($order_status == 0){
+            $data['order_trade_no'] = $_GET['trade_no'];
+            $data['order_trade_status'] = 1;
+            $data['order_notify_time'] = date('Y-m-d H:i:s');
+            $dou->data($data);
+            $dou->setTable('order');
+            $dou->update('order_no = "'.$order_no.'"');
+
+        }
         echo '交易成功';
+
     }
     else echo '交易失败';
 }
