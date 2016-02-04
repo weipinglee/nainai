@@ -114,7 +114,9 @@ $parameter = array(
 		//"exter_invoke_ip"	=> $exter_invoke_ip,
 		//"_input_charset"	=> trim(strtolower($alipay_config['input_charset']))
 );
-payment::requirePayMethod('wap_pay',$parameter);
-
+if($dou->is_mobile())
+	payment::requirePayMethod('wap_pay',$parameter);
+else
+	payment::requirePayMethod('direct_pay',$parameter);
 
 ?>

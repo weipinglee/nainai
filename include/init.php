@@ -69,7 +69,7 @@ if (!defined('EXIT_INIT')) {
     
     // 豆壳防火墙
     $firewall->dou_firewall();
-    
+
     // SMARTY配置
     $smarty = new smarty();
     $smarty->config_dir = ROOT_PATH . 'include/smarty/Config_File.class.php'; // 目录变量
