@@ -13,7 +13,7 @@
  */
 define('IN_DOUCO', true);
 require (dirname(__FILE__) . '/include/init.php');
-
+require (dirname(__FILE__) . '/include/tool.class.php');
 // 验证并获取合法的ID，如果不合法将其设定为-1
 $id = $firewall->get_legal_id('product', $_REQUEST['id'], $_REQUEST['unique_id']);
 $cat_id = $dou->get_one("SELECT cat_id FROM " . $dou->table('product') . " WHERE id = '$id'");
@@ -88,6 +88,8 @@ $smarty->assign('ur_here', $dou->ur_here('product_category', $cat_id, $product['
 $smarty->assign('product', $product);
 $smarty->assign('relate', $relate);
 $smarty->assign('defined', $defined);
+
+$smarty->assign('order_url',Tool::getHttpHost().'/order.php');
 
 $smarty->display('product.dwt');
 ?>

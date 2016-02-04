@@ -1,0 +1,5 @@
+#dingdanqueren .confirm{border: 0;border-top: 1px solid #ccc;}
+#dingdanqueren .confirm a{display: block;width:150px;height:45px;background: #ff4800;color: #fff;font-weight: bolder;line-height: 45px;border:0;font-size: 24px;text-align: center;}
+#dingdanqueren .payment .gray{color:#a00;margin-left: 20px;}
+#dingdanqueren .address a{display: inline-block;margin-left:10px;width:40px;height:25px;background: #ff4800;color: #fff;font-weight: bolder;line-height: 25px;border:0;font-size: 14px;}
+#dingdanqueren .ship tr td p span{width: 150px;height:52px;display: inline-block;border:1px solid #aaa;}

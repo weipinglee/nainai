@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title></title>
+
+<script src="images/jquery.min.js"></script>
+<link href="layers/css/style.css" rel="stylesheet" type="text/css" >
+<link href="order.css" rel="stylesheet" type="text/css" >
+<script src="images/order.js"></script>
+
+</head>
+<body>
+  <div id="dingdanqueren">
+      <table width="100%" border="0" align="center" cellpadding="4" cellspacing="4" bordercolor="#666666">
+        <tr>
+          <td colspan="8" bgcolor="#eeeeee">商品详情</td>
+        </tr>
+        <tr>
+          <td width="150">图片</td>
+          <td width="150">名称</td>
+
+          <td width="150">价格</td>
+          <td width="150">仓库</td>
+          <td width="150">数量</td>
+        </tr>
+        <tr>
+          <td width="150"><img src='{$product.image1}' width='50' height='50'/></td>
+          <td width="150">{$product.name}</td>
+
+          <td width="150">{$product.price}</td>
+          <td width="150">{$product.cangku}</td>
+           <td width="150"><input type='text' name='product_num' /></td>
+        </tr>
+
+      </table>
+
+      <table width="100%" border="0" align="center" cellpadding="4" cellspacing="4" bordercolor="#666666" class="address">
+        <tr>
+          <td bgcolor="#eeeeee" colspan="2" >填写用户信息</td>
+        </tr>
+        <tr>
+          <td>            
+            <tr>
+              <td align="right">姓名：</td>
+              <td><input type="text" width="1000px" name='buyer_name'></td>
+            </tr>
+            <tr>
+              <td align="right">公司：</td>
+              <td><input type="text" width="1000px" name='buyer_company'></td>
+             </tr>
+            <tr>
+            <tr>
+              <td align="right">手机：</td>
+              <td><input type="text" width="1000px" name='buyer_phone'></td>
+             </tr>
+            <tr>
+
+              <td align="right">地址：</td>
+              <td><input type="text" width="1000px" name='buyer_address'></td>
+
+        </tr>
+      </table>
+
+
+
+      <table width="100%" border="0" align="center" cellpadding="4" cellspacing="4" bordercolor="#666666">
+        <tr>
+          <td bgcolor="#eeeeee" >发票信息</td>
+        </tr>
+        <tr>
+          <td>
+            <p>
+              <span>发票类型：</span>
+              <span>普通发票</span>
+            </p>
+            <p>
+              <span>开票方式：</span>
+              <span>电子发票</span>
+            </p> 
+            <p>
+              <span>手机号码：</span>
+              <span>1360****985</span>
+            </p> 
+            <p>
+              <span>发票内容：</span>
+              <span>日用品</span>
+            </p>            
+          </td>
+        </tr>
+      </table>
+     
+      <table width="100%" border="0" align="center" cellpadding="4" cellspacing="4" bordercolor="#666666" class="payment">
+        <tr>
+          <td bgcolor="#eeeeee" >支付信息</td>
+        </tr>
+        <tr>
+          <td>
+            <div>
+              <input type="radio" checked="checked" name="payment">
+              <label>支付宝支付</label>
+              <span class="gray">(请您下单后24小时内付款。)</span>
+            </div> 
+            <div>
+              <input type="radio" checked="checked" name="payment">
+              <label>货到付款</label>
+            </div>            
+          </td>
+        </tr>
+      </table>
+
+
+          <!-- 信息二 -->
+
+
+      <table width="100%" align="center" cellpadding="4" cellspacing="4" bordercolor="#666666" class="confirm">
+        <tr>
+          <td align="right" width="90%">
+            <p>包裹(个)：1&nbsp;&nbsp;&nbsp;&nbsp;重量(kg)：0.520</p>
+            <p class="fr">商品金额<span class="fz18">18.8</span>元  + 运费<span class="fz18">20</span>元</p>
+            <p><b>总金额<span class="fz18 red">38.8</span>元</b></p>
+          </td> 
+          <td>
+            <a href="javascript:void(0)" id='sub'>提交订单</a>
+          </td>          
+        </tr>
+      </table>
+
+  </div>
+
+
+</body>
+</html>
