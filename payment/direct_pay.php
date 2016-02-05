@@ -14,6 +14,6 @@ $params = array_merge($params,$param);
 
 
 $alipaySubmit = new AlipaySubmit($alipay_config);
-$html_text = $alipaySubmit->buildRequestForm($params,"get", "确认");
+$html_text = $alipaySubmit->buildRequestForm($params,"get", "页面跳转...");
 echo $html_text;
 ?>
