@@ -164,9 +164,6 @@ catch (e) {
 	        <!-- {/foreach} -->
 	      </ul>
 	  </div>
-	  <div class="word">
-	  	
-	  </div>
   </div>
 <!---->
 {literal}<script src="images/bootstrap.js"> </script>{/literal}
