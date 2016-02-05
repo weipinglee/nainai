@@ -60,7 +60,9 @@ if($data['order_total_fee']==0 || $product['type']==0)return false;
 $dou->data($data);
 $dou->setTable('order');
 if(!$dou->add()){
-	echo '提交失败';
+	$smarty->assign('title','订单提交失败');
+	$smarty->assign('product_id',$data['product_id']);
+	$smarty->display('error.dwt');
 	return false;
 };
 

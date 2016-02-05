@@ -20,7 +20,7 @@ require_once(dirname(__FILE__) . '/include/init.php');
 //计算得出通知验证结果
 $alipayNotify = new AlipayNotify($alipay_config);
 $verify_result = $alipayNotify->verifyReturn();
-$smarty->display('return_url.dwt');exit;
+//$smarty->display('return_url.dwt');exit;
 if($verify_result) {//验证成功
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//请在这里加上商户的业务逻辑程序代码
@@ -49,9 +49,15 @@ if($verify_result) {//验证成功
         $smarty->display('return_url.dwt');
 
     }
-    else echo '交易失败';
+    else {
+        $smarty->assign('title','支付失败');
+
+        $smarty->display('error.dwt');
+    }
 }
 else {
-    echo "验证失败";
+    $smarty->assign('title','支付失败');
+
+    $smarty->display('error.dwt');
 }
 ?>
