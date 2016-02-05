@@ -34,7 +34,7 @@
 
           <td width="150" id='price'>{$product.price}</td>
           <td width="150">{$product.cangku}</td>
-           <td width="150"><input type='text' name='product_num' value=1 /></td>
+           <td width="150"><input type='text' name='product_num' value=1 /><span class='red'>*</span></td>
         </tr>
 
       </table>
@@ -57,21 +57,22 @@
                         <select name="province" child="city,area" onchange="areaChangeCallback(this,area_url);" style='width:100px;'></select>
                         <select name="city" child="area" parent="province" onchange="areaChangeCallback(this,area_url);" style='width:100px;'></select>
                         <select name="area" parent="city" style='width:100px;'></select>
+                        <span class='red'>*</span>
                     </td>
 
               </tr>
 
             <tr>
               <td align="right">{$lang.buyer_address}：</td>
-              <td><input type="text" width="1000px" name='buyer_address'></td>
+              <td><input type="text" width="1000px" name='buyer_address'><span class='red'>*</span></td>
             </tr>
              <tr>
                 <td align="right">{$lang.buyer_name}：</td>
-                <td><input type="text" width="1000px" name='buyer_name'></td>
+                <td><input type="text" width="1000px" name='buyer_name'><span class='red'>*</span></td>
               </tr>
              <tr>
                <td align="right">{$lang.buyer_phone}：</td>
-               <td><input type="text" width="1000px" name='buyer_phone'></td>
+               <td><input type="text" width="1000px" name='buyer_phone'><span class='red'>*</span></td>
               </tr>
       </table>
 
