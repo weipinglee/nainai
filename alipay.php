@@ -33,9 +33,9 @@ $data['product_num'] = IFilter::act($_POST['product_num'],'int');
 $data['buyer_company']  = IFilter::act($_POST['buyer_company']);
 $data['buyer_name']  = IFilter::act($_POST['buyer_name']);
 $data['buyer_phone'] = IFilter::act($_POST['buyer_phone']);
-$data['buyer_province'] = IFilter::act($_POST['buyer_province']);
-$data['buyer_city'] = IFilter::act($_POST['buyer_city']);
-$data['buyer_area'] = IFilter::act($_POST['buyer_area']);
+$data['buyer_province'] = IFilter::act($_POST['province']);
+$data['buyer_city'] = IFilter::act($_POST['city']);
+$data['buyer_area'] = IFilter::act($_POST['area']);
 $data['buyer_address'] = IFilter::act($_POST['buyer_address']);
 
 $data['invo_type'] = IFilter::act($_POST['invo_type'],'int');
