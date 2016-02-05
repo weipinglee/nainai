@@ -116,8 +116,8 @@ catch (e) {
 				<style type="text/css">
 				.search{border:1px solid #ccc; height: 62px;}
 				.kuan ,.an{display: inline-block;float: left;}
-				.kuan input{ width:180px; height:60px; border:none ; float:left; padding-left:10px; color: #ccc;}
-				.an input{ width:60px; height:60px;  background:url(theme/guanwang/images/search.png) no-repeat;border:none;  float:left;}
+				.kuan input{ width:100%; height:60px; border:none ; float:left; padding-left:10px; color: #ccc;}
+				.an input{ max-width:87px; min-width: 60px; height:60px;  background:url(theme/guanwang/images/search.png) no-repeat;border:none;  float:left;}
 				</style>
 				{/literal}
 			 	<div class="clearfix"> </div>
@@ -149,6 +149,9 @@ catch (e) {
 <!--{/if}-->
 <!---->	
 <div class="slider">
+	  <div class="word">
+	  	<img src="../images/word.png" style="width:100%;height:100%;"/>
+	  </div>
 	  <div class="callbacks_container">
 	     <ul class="rslides" id="slider">
 
