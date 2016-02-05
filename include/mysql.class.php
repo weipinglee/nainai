@@ -288,6 +288,7 @@ class DbMysql {
             $insertVal[] = '\''.$val.'\'';
         }
         $sql = 'INSERT INTO '.$this->tableName.' ( '.join(',',$insertCol).' ) VALUES ( '.join(',',$insertVal).' ) ';
+
         return $this->query($sql);
 
     }

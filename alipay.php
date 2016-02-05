@@ -1,6 +1,7 @@
 <?php
 header("Content-type: text/html; charset=utf-8");
 date_default_timezone_set('Asia/Shanghai');
+ini_set('display_errors','On');
 /* *
  * 功能：即时到账交易接口接入页
  * 版本：3.3
@@ -45,7 +46,7 @@ $data['invo_address'] = IFilter::act($_POST['invo_address']);
 $data['invo_phone'] = IFilter::act($_POST['invo_phone']);
 $data['invo_bank'] = IFilter::act($_POST['invo_bank']);
 $data['invo_account'] = IFilter::act($_POST['invo_account']);
-
+$data['invo_company'] = IFilter::act($_POST['invo_company']);
 
 $data['order_create_time'] = date('Y-m-d H:i:s');
 //计算订单总价

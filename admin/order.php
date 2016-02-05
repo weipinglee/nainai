@@ -49,6 +49,8 @@ else if($rec == 'edit'){
     }
     else $order_detail['order_trade_status_text'] = '未支付';
 
+    $province = $dou->get_one("SELECT area_name FROM " . $dou->table('areas') . " WHERE area_id = '".$order_detail['buyer_province']."'");
+    echo $province;exit;
     $smarty->assign('order', $order_detail);
     $smarty->display('order.htm');
 }

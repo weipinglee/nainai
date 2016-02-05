@@ -17,15 +17,10 @@ require_once(dirname(__FILE__) ."/direct_pay/alipay.config.php");
 require_once(dirname(__FILE__) ."/direct_pay/lib/alipay_notify.class.php");
 require_once(dirname(__FILE__) . '/include/init.php');
 
-?>
-<!DOCTYPE HTML>
-<html>
-    <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<?php
 //计算得出通知验证结果
 $alipayNotify = new AlipayNotify($alipay_config);
 $verify_result = $alipayNotify->verifyReturn();
+$smarty->display('return_url.dwt');exit;
 if($verify_result) {//验证成功
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//请在这里加上商户的业务逻辑程序代码
@@ -38,7 +33,9 @@ if($verify_result) {//验证成功
         $order_no = $_GET['out_trade_no'];
         $order_status = $dou->get_one("SELECT order_trade_status FROM " . $dou->table('order') . " WHERE order_no = '".$order_no."'" );
 
-        if($order_status == 0){
+        $query = $dou->select($dou->table('order'), '*', '`order_no` = \'' . $order_no . '\'');
+        $order_detail = $dou->fetch_assoc($query);
+        if($order_detail['order_trade_status'] == 0){
             $data['order_trade_no'] = $_GET['trade_no'];
             $data['order_trade_status'] = 1;
             $data['order_notify_time'] = date('Y-m-d H:i:s');
@@ -47,7 +44,9 @@ if($verify_result) {//验证成功
             $dou->update('order_no = "'.$order_no.'"');
 
         }
-        echo '交易成功';
+
+        $smarty->assign('order',$order_detail);
+        $smarty->display('return_url.dwt');
 
     }
     else echo '交易失败';
@@ -56,8 +55,3 @@ else {
     echo "验证失败";
 }
 ?>
-        <title>支付宝即时到账交易接口</title>
-	</head>
-    <body>
-    </body>
-</html>
