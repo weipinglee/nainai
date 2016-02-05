@@ -1,16 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title></title>
 
 <script src="images/jquery.min.js"></script>
 <script src="images/artTemplate.js"></script>
 <script src="images/artTemplate-plugin.js"></script>
-<script src="images/area_select.js"></script>
+<script type='text/javascript' src="images/area_select.js"></script>
 <link href="layers/css/style.css" rel="stylesheet" type="text/css" >
 <link href="order.css" rel="stylesheet" type="text/css" >
-<script src="images/order.js"></script>
+<script src="images/order.js" type='text/javascript' charset="utf-8" ></script>
 
 </head>
 <body>
@@ -28,12 +28,13 @@
           <td width="150">数量</td>
         </tr>
         <tr>
+        <input type='hidden' name='product_id' value='{$product.id}'/>
           <td width="150"><img src='{$product.image1}' width='50' height='50'/></td>
           <td width="150">{$product.name}</td>
 
-          <td width="150">{$product.price}</td>
+          <td width="150" id='price'>{$product.price}</td>
           <td width="150">{$product.cangku}</td>
-           <td width="150"><input type='text' name='product_num' /></td>
+           <td width="150"><input type='text' name='product_num' value=1 /></td>
         </tr>
 
       </table>
@@ -84,24 +85,25 @@
           <td>
             <div id="tabbox">
                            <ul class="tabs" id="tabs">
-                              <li><a href="#">普通发票</a></li>
-                              <li><a href="#">增值税发票</a></li>
+                              <li id='common'><a href="#">普通发票</a></li>
+                              <li id='spec'><a href="#">增值税发票</a></li>
                            </ul>
+                           <input type='hidden' name='invo_type' value=0 />
                            <ul class="tab_conbox" id="tab_conbox">
                                <li class="tab_con">
-                                  <p><span class="fr">发票抬头：</span><input type="text" placeholder="请填写个人或单位全称"></p>
-                                  <p><span class="fr">发票内容：</span><input type="text" placeholder=""></p>
-                                  <p><a href="" class="button">确认发票信息</a></p>
+                                  <p><span class="fr">发票抬头：</span><input type="text" name='invo_title' placeholder="请填写个人或单位全称"></p>
+                                  <p><span class="fr">发票内容：</span><input type="text" name='invo_content' placeholder=""></p>
+                                 <!-- <p><a href="" class="button">确认发票信息</a></p>-->
                                </li>
 
                                <li class="tab_con">
-                                  <p><span class="fr">单位名称：</span><input type="text" placeholder="请填写单位全称"></p>
-                                  <p><span class="fr">纳税人识别码：</span><input type="text" placeholder=""></p>
-                                  <p><span class="fr">注册地址：</span><input type="text" placeholder=""></p>
-                                  <p><span class="fr">注册电话：</span><input type="text" placeholder=""></p>
-                                  <p><span class="fr">开户银行：</span><input type="text" placeholder=""></p>
-                                  <p><span class="fr">银行账户：</span><input type="text" placeholder=""></p>
-                                  <p><a href="" class="button">确认发票信息</a></p>
+                                  <p><span class="fr">单位名称：</span><input type="text" name='invo_company' placeholder="请填写单位全称"></p>
+                                  <p><span class="fr">纳税人识别码：</span><input type="text" name='invo_taxno' placeholder=""></p>
+                                  <p><span class="fr">注册地址：</span><input type="text" name='invo_address' placeholder=""></p>
+                                  <p><span class="fr">注册电话：</span><input type="text" name='invo_phone' placeholder=""></p>
+                                  <p><span class="fr">开户银行：</span><input type="text" name='invo_bank' placeholder=""></p>
+                                  <p><span class="fr">银行账户：</span><input type="text" name='invo_account' placeholder=""></p>
+                                 <!-- <p><a href="" class="button">确认发票信息</a></p>-->
                                </li>
                            </ul>
                        </div>
@@ -130,10 +132,10 @@
       <table width="100%" align="center" cellpadding="4" cellspacing="4" bordercolor="#666666" class="confirm">
         <tr>
           <td align="right" width="90%">
-            <p><b>总金额<span class="fz18 red">38.8</span>元</b></p>
+            <p><b>总金额<span class="fz18 red" id='total_fee'>{$product.price}</span>元</b></p>
           </td> 
           <td>
-            <a href="javascript:void(0)" id='sub'>提交订单</a>
+            <a href="javascript:void(0)" id='sub'>立即支付</a>
           </td>          
         </tr>
       </table>

@@ -26,27 +26,36 @@ define('WEB_ROOT',Tool::getHttpHost());
 //将订单信息写入数据库
 $data = array();
 $data['order_no'] = Tool::getOrderNo();
-$data['product_name'] = IFilter::act($_POST['product_name']);
+
 $data['product_id'] = IFilter::act($_POST['product_id'],'int');
-$product_num = IFilter::act($_POST['product_num'],'int');
+$data['product_num'] = IFilter::act($_POST['product_num'],'int');
+$data['buyer_company']  = IFilter::act($_POST['buyer_company']);
 $data['buyer_name']  = IFilter::act($_POST['buyer_name']);
 $data['buyer_phone'] = IFilter::act($_POST['buyer_phone']);
+$data['buyer_province'] = IFilter::act($_POST['buyer_province']);
+$data['buyer_city'] = IFilter::act($_POST['buyer_city']);
+$data['buyer_area'] = IFilter::act($_POST['buyer_area']);
 $data['buyer_address'] = IFilter::act($_POST['buyer_address']);
 
-//$data['product_name'] = '玻璃擦';
-//$data['product_id'] = 54;
-//$product_num = 2;
-//$data['buyer_name']  = '某某';
-//$data['buyer_phone'] = '15334343434';
-//$data['buyer_address'] = '山西阳泉郊区';
+$data['invo_type'] = IFilter::act($_POST['invo_type'],'int');
+$data['invo_title'] = IFilter::act($_POST['invo_title']);
+$data['invo_content'] = IFilter::act($_POST['invo_content']);
+$data['invo_taxno'] = IFilter::act($_POST['invo_taxno']);
+$data['invo_address'] = IFilter::act($_POST['invo_address']);
+$data['invo_phone'] = IFilter::act($_POST['invo_phone']);
+$data['invo_bank'] = IFilter::act($_POST['invo_bank']);
+$data['invo_account'] = IFilter::act($_POST['invo_account']);
+
+
 $data['order_create_time'] = date('Y-m-d H:i:s');
 //计算订单总价
 $sql = "SELECT * FROM " . $dou->table('product') . " WHERE id = ".$data['product_id'];
 $query = $dou->query($sql);
 $product = $dou->fetch_assoc($query);
 $price = $product['price'];
-if(!$price || $product['type']==0)return false;
-$data['order_total_fee'] = floatval($price * $product_num);
+$data['product_name'] = $product['name'];
+$data['order_total_fee'] = floatval($price * $data['product_num']);
+if($data['order_total_fee']==0 || $product['type']==0)return false;
 $dou->data($data);
 $dou->setTable('order');
 if(!$dou->add()){
