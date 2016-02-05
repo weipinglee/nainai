@@ -10,7 +10,7 @@
 }
 #MT_nav {
     line-height:0;
-    max-width:639px;
+    max-width:46%;
     float: left;
     font-size:0;
     position:relative;
@@ -21,8 +21,8 @@
 #MT_nav ul {
     list-style:none;
     max-width:600px;
-    min-width:600px;
-    height:57px;
+    min-width:300px;
+    height:auto;
     top:40px;
     position:absolute;
     z-index:99;
