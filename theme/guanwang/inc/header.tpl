@@ -149,9 +149,6 @@ catch (e) {
 <!--{/if}-->
 <!---->	
 <div class="slider">
-	  <div class="word">
-	  	<img src="../images/word.png" style="width:100%;height:100%;"/>
-	  </div>
 	  <div class="callbacks_container">
 	     <ul class="rslides" id="slider">
 
@@ -160,6 +157,9 @@ catch (e) {
 				<div class="banner1" >
 					<img src="{$show.show_img}" width="100%" style='max-height:640px;'/>
 				</div>
+				  <div class="word">
+					<img src="../images/word.png" style="width:100%;height:100%;"/>
+				  </div>
 	         </li>
 	         
 	        <!-- {/foreach} -->

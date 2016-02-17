@@ -1,6 +1,6 @@
 .header{background: url(./images/header_bg.png) repeat-x;height: 58px;}
 .header .main{max-width:1190px;height:58px;background: url(./images/header_bg.png) repeat-x;padding: 15px 0px;color: #777;margin:0 auto; }
-.header_left{float:left;}.header_right{float:right;}
+.header_left{float:left;width: 50%;}.header_right{float:right;width: 50%;}
 
 
 
@@ -10,7 +10,7 @@
 }
 #MT_nav {
     line-height:0;
-    max-width:51%;
+	width:51%;
     float: left;
     font-size:0;
     position:relative;
@@ -21,14 +21,12 @@
 #MT_nav ul {
     list-style:none;
     width:auto;
-    min-width:300px;
+    min-width:210px;
     height:auto;
-    top:40px;
     position:absolute;
     z-index:99;
 }
 #MT_nav ul .MT_item {
-    width:95px;
     height:57px;
     float:left;
     position:relative;
@@ -41,7 +39,6 @@
 #MT_nav ul .MT_item a {
     color:#646464;
     display:block;
-    font-size:16px;
     font-weight: bold;
     height:47px;
     line-height:47px;
