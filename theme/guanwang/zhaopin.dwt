@@ -70,8 +70,7 @@ body {behavior: url("csshover.htc");}
       <li>{$zhaopin.cat_name}</li>
       <li>{$zhaopin.salary}</li>
       <li>{$zhaopin.add_time}</li>
-      <!-- <li class="button"><a class="ytd_bg" href="#">已投递</a></li> -->
-      <li style="text-align:right;"><a href="{$zhaopin.url}"><img src="images/upload_files.png" border="0" class="upload"></a></li>
+      <li class="button"><a class="td_bg" href="{$zhaopin.url}">上传简历</a></li>
     </ul>
      <div class="cont_txt" style="display:none">
     <div class="content">
@@ -80,7 +79,7 @@ body {behavior: url("csshover.htc");}
            
             <h4>{$lang.zhaopin_zhize}</h4>
               <ul> 
-                {$zhaopin.zhize}
+                <li>{$zhaopin.zhize}</li>
               </ul>
         </li>
         <li class="c_text">
@@ -96,13 +95,15 @@ body {behavior: url("csshover.htc");}
 <!-- {/foreach} -->
   
 </div>
+
+
+</div>
   <div style="    margin: 10px 0;
     text-align: center;">
-     
-{include file="inc/pager.tpl"} 
+
+{include file="inc/pager.tpl"}
 
   </div>
-</div>
 <div style="clear:both;"></div>
 {include file="inc/footer.tpl"}
 
