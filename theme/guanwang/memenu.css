@@ -1,5 +1,5 @@
 .memenu
-{margin:0;padding:0;width:600px;list-style:none;display:inline-block;position:relative;font-family:Calibri,Arial;font-size:15px}
+{margin:0;padding:0;width:100%;list-style:none;display:inline-block;position:relative;font-family:Calibri,Arial;font-size:15px}
 .memenu li{text-align:left;}
 ul.memenu.skyblue {text-align: center;}
 .memenu>li>a{ font-family: 'Dosis-Regular';float:left;font-size: 1.2em;padding:8px 10px;margin:0 5px;color:#caccce;font-weight:600;text-decoration:none;text-transform:uppercase;transition:color .4s ease-in-out;-moz-transition:color .4s ease-in-out;-webkit-transition:color .4s ease-in-out;-o-transition:color .4s ease-in-out}

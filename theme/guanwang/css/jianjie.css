@@ -26,7 +26,8 @@ a:focus, input[type=button] ,input[type=submit] {
 .jianjie_main .main_right .xiasanjiao{ width:20px; height:20px; float:left;}
 .jianjie_main .main_right h2{ color:#2c2c2c; font-size:16px;line-height: 20px;}
 .jianjie_main .main_right hr{ size:1px; color:#c1c1c1;margin:15px 0;}
-.jianjie_main .main_right p{line-height:25px; color:#666666;text-indent:2em; font-size:14px;}
+.jianjie_main .main_right p{line-height:25px; color:#666666;/*text-indent:2em;*/ font-size:14px;}
+.jianjie_main .main_right .new_list a{margin-left: 10px;}
 .jianjie_main .main_right h5{ font-size:14px; color:#666666;text-indent:2em;margin:20px 0 10px 0;}
 .jianjie_main .main_right a .ditu{margin:20px 0;}
 
