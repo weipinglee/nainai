@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--[if IE 6]>
 {literal}
 <style>
@@ -70,10 +72,10 @@ body {behavior: url("csshover.htc");}
       <li>{$zhaopin.cat_name}</li>
       <li>{$zhaopin.salary}</li>
       <li>{$zhaopin.add_time}</li>
-      <li class="button"><a class="td_bg" href="{$zhaopin.url}">上传简历</a></li>
+      <li class="button"><a class="td_bg" href="{$zhaopin.url}"><img src="images/upload_files.png"></a></li>
     </ul>
      <div class="cont_txt" style="display:none">
-    <div class="content">
+    <div class="zhaopin_content">
       <ul>
         <li class="c_text">
            
