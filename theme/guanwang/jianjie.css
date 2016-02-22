@@ -155,6 +155,7 @@ left: 35%;
 }
 
 .zhaopin_content{
+    width:95%;
 
     margin: 0px 35px;
     background: url('./images/left_bg.jpg') #f4f4f4 repeat-y;
