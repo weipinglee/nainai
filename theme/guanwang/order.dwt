@@ -22,21 +22,26 @@
           <td colspan="8" bgcolor="#eeeeee">{$lang.product_detail}</td>
         </tr>
         <tr>
-          <td width="150">{$lang.image}</td>
-          <td width="150">{$lang.name}</td>
-
-          <td width="150">{$lang.price}</td>
-          <td width="150">{$lang.store}</td>
-          <td width="150">{$lang.nums}</td>
+          <td colspan="2"><img src='{$product.image1}' width='100' height='100'/></td>
         </tr>
         <tr>
-        <input type='hidden' name='product_id' value='{$product.id}'/>
-          <td width="150"><img src='{$product.image1}' width='50' height='50'/></td>
-          <td width="150">{$product.name}</td>
-
-          <td width="150" id='price'>{$product.price}</td>
-          <td width="150">{$product.cangku}</td>
-           <td width="150"><input type='text' name='product_num' value=1 /><span class='red'>*</span></td>
+          <td width="20%">{$lang.name}</td>
+          <td width="80%">{$product.name}</td>
+        </tr>
+        <tr>
+          <td width="20%">{$lang.price}</td>
+          <td width="80%" id='price'>{$product.price}</td>
+        </tr>
+        <tr>
+          <td width="20%">{$lang.store}</td>
+          <td width="80%">{$product.cangku}</td>          
+        </tr>
+        <tr>
+          <td width="20%">{$lang.nums}</td>
+          <td width="80%">
+            <input type='hidden' name='product_id' value='{$product.id}'/>
+            <input type='text' name='product_num' value=1 /><span class='red'>*</span>
+          </td>          
         </tr>
 
       </table>
@@ -49,12 +54,12 @@
           <td>            
 
             <tr>
-              <td align="right">{$lang.buyer_company}：</td>
+              <td align="right">{$lang.buyer_company}</td>
               <td><input type="text" width="1000px" name='buyer_company'></td>
              </tr>
             <tr>
              <tr>
-                <td align="right">{$lang.buyer_area}：</td>
+                <td align="right">{$lang.buyer_area}</td>
                     <td>
                         <select name="province" child="city,area" onchange="areaChangeCallback(this,area_url);" style='width:100px;'></select>
                         <select name="city" child="area" parent="province" onchange="areaChangeCallback(this,area_url);" style='width:100px;'></select>
@@ -65,15 +70,15 @@
               </tr>
 
             <tr>
-              <td align="right">{$lang.buyer_address}：</td>
+              <td align="right">{$lang.buyer_address}</td>
               <td><input type="text" width="1000px" name='buyer_address'><span class='red'>*</span></td>
             </tr>
              <tr>
-                <td align="right">{$lang.buyer_name}：</td>
+                <td align="right">{$lang.buyer_name}</td>
                 <td><input type="text" width="1000px" name='buyer_name'><span class='red'>*</span></td>
               </tr>
              <tr>
-               <td align="right">{$lang.buyer_phone}：</td>
+               <td align="right">{$lang.buyer_phone}</td>
                <td><input type="text" width="1000px" name='buyer_phone'><span class='red'>*</span></td>
               </tr>
       </table>
