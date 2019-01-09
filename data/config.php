@@ -13,16 +13,16 @@
  */
 
 // database host
-$dbhost   = "localhost";
+$dbhost   = "172.16.1.11";
 
 // database name
-$dbname   = "guanwang";
+$dbname   = "nngw";
 
 // database username
-$dbuser   = "root";
+$dbuser   = "testmysql";
 
 // database password
-$dbpass   = "";
+$dbpass   = "123456";
 
 // table prefix
 $prefix   = "dou_";

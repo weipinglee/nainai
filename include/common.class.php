@@ -450,7 +450,7 @@ class Common extends DbMysql {
      */
     function pager($table, $page_size = 10, $page, $page_url = '', $where = '', $get = '', $close_rewrite = false) {
         $sql = "SELECT * FROM " . $this->table($table) . $where;
-        $record_count = @mysql_num_rows($this->query($sql));
+        $record_count = @mysqli_num_rows($this->query($sql));
         
         // 调整分页链接样式
         if (!defined('IS_ADMIN') && $GLOBALS['_CFG']['rewrite'] && !$close_rewrite) {

@@ -31,7 +31,7 @@ class DbMysql {
     private $tableName  = '';
                         
     // 构造函数
-    function DbMysql($dbhost, $dbuser, $dbpass, $dbname = '', $prefix, $charset = 'utf8', $pconnect = 0) {
+    function __construct($dbhost, $dbuser, $dbpass, $dbname = '', $prefix, $charset = 'utf8', $pconnect = 0) {
         $this->dbhost = $dbhost;
         $this->dbuser = $dbuser;
         $this->dbpass = $dbpass;
@@ -45,13 +45,13 @@ class DbMysql {
     // 数据库连接
     function connect() {
         if ($this->pconnect) {
-            if (!$this->dou_link = @mysql_pconnect($this->dbhost, $this->dbuser, $this->dbpass)) {
+            if (!$this->dou_link = @mysqli_pconnect($this->dbhost, $this->dbuser, $this->dbpass)) {
                 $this->error('Can not pconnect to mysql server');
                 return false;
             }
         } else {
-            if (!$this->dou_link = @mysql_connect($this->dbhost, $this->dbuser, $this->dbpass, true)) {
-                $this->error('Can not connect to mysql server');
+            if (!$this->dou_link = @mysqli_connect($this->dbhost, $this->dbuser, $this->dbpass, $this->dbnam)) {
+                $this->error('Can not connect to mysql server2');
                 return false;
             }
         }
@@ -67,7 +67,7 @@ class DbMysql {
             }
         }
         
-        if (mysql_select_db($this->dbname, $this->dou_link) === false) {
+        if (mysqli_select_db($this->dou_link ,$this->dbname ) === false) {
             $this->error("NO THIS DBNAME:" . $this->dbname);
             return false;
         }
@@ -76,7 +76,7 @@ class DbMysql {
     // 数据库执行语句，可执行查询添加修改删除等任何sql语句
     function query($sql) {
         $this->sql = $sql;
-        $query = mysql_query($this->sql, $this->dou_link);
+        $query = mysqli_query($this->dou_link,$this->sql);
         return $query;
     }
     
@@ -117,18 +117,18 @@ class DbMysql {
     
     // 从结果集中取得一行作为关联数组
     function fetch_assoc($query) {
-        return @mysql_fetch_assoc($query);
+        return @mysqli_fetch_assoc($query);
     }
     
     // 从结果集取得的行生成的数组
     function fetch_array($query) {
-        return @mysql_fetch_array($query);
+        return @mysqli_fetch_array($query);
     }
     
     // 返回 MySQL 服务器的信息
     function version() {
         if (empty($this->version)) {
-            $this->version = mysql_get_server_info($this->dou_link);
+            $this->version = mysqli_get_server_info($this->dou_link);
         }
         return $this->version;
     }
@@ -191,7 +191,7 @@ class DbMysql {
         
         $res = $this->query($sql);
         if ($res !== false) {
-            $row = mysql_fetch_row($res);
+            $row = mysqli_fetch_row($res);
             
             if ($row !== false) {
                 return $row[0];

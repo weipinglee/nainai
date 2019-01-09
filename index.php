@@ -11,8 +11,8 @@
  * Author: DouCo
  * Release Date: 2015-10-16
  */
-define('IN_DOUCO', true);
 
+define('IN_DOUCO', true);
 if (isset($_REQUEST['mobile'])) setcookie('client', 'pc'); // 判断时候强制在移动端中显示PC版
 
 require (dirname(__FILE__) . '/include/init.php');

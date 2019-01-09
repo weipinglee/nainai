@@ -16,10 +16,8 @@ if (!defined('IN_DOUCO')) {
 }
 
 // error_reporting
-error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
+error_reporting(0);
 
-// 关闭 set_magic_quotes_runtime
-@ set_magic_quotes_runtime(0);
 
 // 调整时区
 if (PHP_VERSION >= '5.1') {
