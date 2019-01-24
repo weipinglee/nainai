@@ -1,6 +1,6 @@
 <?php
 define('IN_DOUCO',true);
-require_once(dirname(__FILE__).'\include\init.php');
+require_once(dirname(__FILE__).'/include/init.php');
 $rec=$check->is_rec($_REQUEST['rec'])?$_REQUEST['rec']:'default';
 
 //图片上传

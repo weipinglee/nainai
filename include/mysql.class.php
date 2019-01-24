@@ -82,37 +82,37 @@ class DbMysql {
     
     // 取得前一次 MySQL 操作所影响的记录行数
     function affected_rows() {
-        return mysql_affected_rows();
+        return mysqli_affected_rows();
     }
     
     // 返回结果集中一个字段的值
     function result($row = 0) {
-        return @ mysql_result($this->result, $row);
+        return @ mysqli_result($this->result, $row);
     }
     
     // 返回结果集中行的数目
     function num_rows($query) {
-        return @ mysql_num_rows($query);
+        return @ mysqli_num_rows($query);
     }
     
     // 返回结果集中字段的数
     function num_fields($query) {
-        return mysql_num_fields($query);
+        return mysqli_num_fields($query);
     }
     
     // 释放结果内存
     function free_result() {
-        return mysql_free_result($this->result);
+        return mysqli_free_result($this->result);
     }
     
     // 返回上一步 INSERT 操作产生的 ID
     function insert_id() {
-        return mysql_insert_id();
+        return mysqli_insert_id();
     }
     
     // 从结果集中取得一行作为数字数组
     function fetch_row($query) {
-        return mysql_fetch_row($query);
+        return mysqli_fetch_row($query);
     }
     
     // 从结果集中取得一行作为关联数组
@@ -135,7 +135,7 @@ class DbMysql {
     
     // 关闭 MySQL 连接
     function close() {
-        return mysql_close($this->dou_link);
+        return mysqli_close($this->dou_link);
     }
     
     // 将指定的表名加上前缀后返回
