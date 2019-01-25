@@ -363,7 +363,7 @@ display:inline-block;
 .feature-grid .news_con li{
     list-style-type:square;
    /* margin-left: 15px;*/
-    line-height: 40px;
+    line-height: 30px;
     color: #666;
 }
 .feature-grid .news_con li a{
