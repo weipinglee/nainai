@@ -11,7 +11,7 @@
           //首页视频专区
           $(".video_l p").each(function(index){
 		    $(".video_l p").eq(index).addClass("video"+(index+1))
-		    $(".video_l p").not("video1").hide()
+		    $(".video_l p").not(".video1").hide()
 		  });
           $(".videoTitle .videodiv").click(function(){
           	 $(".videoTitle .videodiv").find("span").removeClass("cur")
