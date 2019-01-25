@@ -104,7 +104,7 @@ win.height = win.Document.body.scrollHeight;
 					
 				</div>
 				<div class="news_con">
-					<div class="news_top">
+					<!-- <div class="news_top">
 						<img src="{$recommend_article.news.article.0.image}"/>
 						<h4>
 							<a href="{$recommend_article.news.article.0.url}">{$recommend_article.news.article.0.title}
@@ -112,7 +112,7 @@ win.height = win.Document.body.scrollHeight;
 						</h4>
 						<a href=""><p class="limit"></p></a>
 						<span class="time">{$recommend_article.news.article.0.add_time_short}</span>
-					</div>
+					</div> -->
 					<ul>
 						<!-- {foreach from=$recommend_article.news.article name=news_article key=artkey item=article} -->
 						<!--{if $artkey eq 0}-->
@@ -209,9 +209,23 @@ win.height = win.Document.body.scrollHeight;
 						<!--{/if}-->
 						<!-- {/foreach} -->
 					<!-- </ul> -->
+					
 					<div class="home_video">
 						<div class="video_l">
+							<div class="videoTitle">
+								<div class="videodiv one"><span class="cur">视频1</span></div>
+								<div class="videodiv two"><span>视频2</span></div>
+								<div class="videodiv three"><span>视频3</span></div>
+							</div>
+							<div class="ceid">
+								<ul>
+									<li></li>
+									<li></li>
+									<li></li>
+								</ul>
+							</div>
                         {$video.content}
+                     
 					<!--	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="300" height="240">
 						<param name="movie" value="http://www.vlongbiz.com/about/images/vcastr22.swf">
 						<param name="quality" value="high">
@@ -233,12 +247,10 @@ win.height = win.Document.body.scrollHeight;
 					</div>
 				</div>
 			 </div>
-			 <div class="col-md-12 feature-grid">
+			 <!-- <div class="col-md-12 feature-grid">
 				<div class="new_head"><h4 class="icon_4">{$recommend_article.project.name}</h4></div>
 				<div class="news_con">
 					<div class="moblie">
-						 <!-- Swiper -->
-    
 					    <div class="slider9"> 
 					    	 {foreach from=$recommend_article.project.article name=project_article key=pkey item=pitem}
 					      <div class="slide"><a href="{$pitem.url}" target="_blank"><img src="{$pitem.image}"/></a>
@@ -247,13 +259,15 @@ win.height = win.Document.body.scrollHeight;
 					    </div>
 					</div>
 				</div>
-			 </div>
+			 </div> -->
 			 <div class="clearfix"></div>
 		 </div>
 	 </div>
 </div>
 <script type="text/javascript">
-	$('video').css('width',520).css('height',400).attr('autoplay','autoplay').removeAttr('preload');
+
+	$('video').css('width',550).css('height',335).removeAttr('preload');
+
 </script>
 
 

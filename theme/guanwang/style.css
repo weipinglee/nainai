@@ -363,7 +363,7 @@ display:inline-block;
 .feature-grid .news_con li{
     list-style-type:square;
    /* margin-left: 15px;*/
-    line-height: 30px;
+    line-height: 40px;
     color: #666;
 }
 .feature-grid .news_con li a{
@@ -2632,17 +2632,41 @@ input.item_add.items {
 .home_video{
 	padding-top:30px; 
 }
-.home_video .video_l{
+/*.home_video .video_l{
 	float: left;
 	width: 70%;
 }
 .video_r{
 	float: left;
 	width: 30%;
-}
+}*/
 .video_r img{
 	padding:0 0 5px 0;
 	height: 125px; 
+}
+.videoTitle{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 20px;
+    border-bottom: 4px solid #8e8787;
+    position: relative;
+    top: -15px;
+}
+.videoTitle .videodiv{
+	width: 30%;
+	text-align: center;
+}
+.videoTitle .videodiv span{
+	display: inline-block;
+   cursor: pointer;
+    position: relative;
+    top: -10px;
+    padding: 0 20px;
+}
+.videoTitle .videodiv span.cur{
+	 border-bottom: 4px solid #fec003;
 }
 /*公司动态*/
 .col-md-3 .cominfor_img{
@@ -2679,6 +2703,7 @@ input.item_add.items {
 	float: none;
 	display: block;
 	text-align: right;
+	line-height: 20px;
 }
 /*信息咨询模块*/
 .col-md-4 .infor_ul {

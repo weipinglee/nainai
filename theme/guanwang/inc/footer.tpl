@@ -4,7 +4,7 @@
 	<div class="line">
    <!--  <img class="hezuo_img" src="images/hezuo.jpg" width="97" height="22" alt="合作企业"> -->
 
-		<div class="img_box">
+		<div class="img_box" style="display: flex;justify-content: center;">
 			{foreach from=$frdlink item=item key=key name=frdlink}
 				{if $key eq 11}{php}break;{/php}{/if}
 			<div class="hztb"><a href="{$item.url}" target="_blank"><img src="./{$item.img}"></a></div>
@@ -15,10 +15,10 @@
     	<div class="lxfs">
     		<p>联系电话</p>
 			<p>{$site.tel}</p>
-			<p>咨询QQ</p>
+			<!-- <p>咨询QQ</p>
 			{foreach from=$site.qq item=item}
 			<p>{$item}</p>
-			{/foreach}
+			{/foreach} -->
 			<p><a class="lxwm">联系我们</a></p>
     	</div>
     	<div class="erm_img"><img src="images/{$site.weixin}"></div>
