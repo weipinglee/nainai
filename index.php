@@ -63,7 +63,7 @@ while($arr=$dou->fetch_assoc($query)){
     ];
 }
 //获得首页视频数据
-$sql="select * from".$dou->table('article').' as a left join'.$dou->table('article_category'). ' as c on a.cat_id=c.cat_id where c.unique_id = \'shipin\' order by id desc limit 1';
+$sql="select * from".$dou->table('article').' as a left join'.$dou->table('article_category'). ' as c on a.cat_id=c.cat_id where c.unique_id = \'shipin\' order by id desc limit 3';
 $query=$dou->query($sql);
 $video=$dou->fetch_assoc($query);
 //var_dump($video);
