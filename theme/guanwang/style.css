@@ -342,6 +342,12 @@ display:inline-block;
 .feature-grid .new_head span{
     float: right;display: inline-block;color: #999;line-height: 32px;
 }
+.feature-grid .new_head span.genduo_a a{
+	color: #333;
+}
+.feature-grid .new_head span.genduo_a a:hover{
+	color: #337ab7
+}
 .feature-grid .news_con .news_top {
     height: 280px;
     margin-top: 1em;

@@ -101,7 +101,11 @@ win.height = win.Document.body.scrollHeight;
 					<h4 class="icon_1">
 						{$recommend_article.news.name}
 					</h4>
-					
+					<span class="genduo_a">
+						<a href="{$recommend_article.news.url}">
+							更多 >>
+						</a>
+					</span>
 				</div>
 				<div class="news_con">
 					<!-- <div class="news_top">
@@ -113,7 +117,7 @@ win.height = win.Document.body.scrollHeight;
 						<a href=""><p class="limit"></p></a>
 						<span class="time">{$recommend_article.news.article.0.add_time_short}</span>
 					</div> -->
-					<ul>
+					<ul class="xwzxli">
 						<!-- {foreach from=$recommend_article.news.article name=news_article key=artkey item=article} -->
 						<!--{if $artkey eq 0}-->
 						<li style="line-height: 40px;">
@@ -128,11 +132,7 @@ win.height = win.Document.body.scrollHeight;
 						<!--{/if}-->
 						<!-- {/foreach} -->
 					</ul>
-					<span class="genduo_a">
-						<a href="{$recommend_article.news.url}">
-							更多 >>
-						</a>
-					</span>
+					
 				</div>
 			 </div>
 {literal}
@@ -141,10 +141,21 @@ win.height = win.Document.body.scrollHeight;
 		display: block;
 		background: red;
 	}
+	.xwzxli li:hover{
+		background: #ddd;
+	}
 </style>
 {/literal}
+<div class="col-md-1">
+	<div style="width: 1px;height:563px;border: 1px solid #ddd;margin:1em auto"></div>
+</div>
 <div class="col-md-3 feature-grid">
 				<div class="new_head"><h4 class="icon_2">{$recommend_article.dongtai.name}</h4>
+					<span class="genduo_a">
+						<a href="{$recommend_article.dongtai.url}">
+							更多 >>
+						</a>
+					</span>
 				</div>
 				
 				<div class="news_con">
@@ -159,11 +170,7 @@ win.height = win.Document.body.scrollHeight;
 						</li>
 						<!-- {/foreach} -->
 					</ul>
-					<span class="genduo_a">
-						<a href="{$recommend_article.dongtai.url}">
-							更多 >>
-						</a>
-					</span>
+					
 				</div>
 			 </div>
 			
@@ -172,6 +179,11 @@ win.height = win.Document.body.scrollHeight;
 		 <div class="items-sec btm-sec">
 			 <div class="col-md-4 feature-grid">
 				<div class="new_head"><h4 class="icon_2">{$recommend_article.hangqing.name}</h4>
+					<span class="genduo_a">
+						<a href="{$recommend_article.hangqing.url}">
+							更多 >>
+						</a>
+					</span>
 				</div>
 				
 				<div class="news_con">
@@ -187,16 +199,14 @@ win.height = win.Document.body.scrollHeight;
 						<!-- {/foreach} -->
 						
 					</ul>
-					<span class="genduo_a">
-						<a href="{$recommend_article.hangqing.url}">
-							更多 >>
-						</a>
-					</span>
+					
 				</div>
 			 </div>
 			 <div class="col-md-10 feature-grid">
 				<div class="new_head"><h4 class="icon_3">{$recommend_article.shipin.name}
-				</h4></div>
+				</h4><span class="genduo_a"><a href="{$recommend_article.shipin.url}">
+						更多>>
+					</a></span></div>
 				<div class="news_con">
 					<!-- 
 					<div class="news_top">
@@ -234,11 +244,9 @@ win.height = win.Document.body.scrollHeight;
 						</object> -->
 						</div>
 
-						<div class="video_r">
-						<span class="gd-span"><a href="{$recommend_article.shipin.url}">
-						更多>>
-					</a></span>
-						</div>
+						<!-- <div class="video_r">
+						
+						</div> -->
 					</div>
 				</div>
 			 </div>
