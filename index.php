@@ -63,13 +63,15 @@ while($arr=$dou->fetch_assoc($query)){
     ];
 }
 //获得首页视频数据
-$sql="select * from".$dou->table('article').' as a left join'.$dou->table('article_category'). ' as c on a.cat_id=c.cat_id where c.unique_id = \'shipin\' order by id desc limit 3';
+$sql="select * from".$dou->table('article').' as a left join'.$dou->table('article_category'). ' as c on a.cat_id=c.cat_id where c.unique_id = \'shipin\' order by a.id desc limit 3';
 $query=$dou->query($sql);
-$video=$dou->fetch_assoc($query);
+while($temp1 = $dou->fetch_assoc($query)) {
+  $videos[] = $temp1;
+}
 //var_dump($video);
 
 // 赋值给模板-数据
-$smarty->assign('video',$video);
+$smarty->assign('videos',$videos);
 $smarty->assign('frdlink',$frdlink);
 $smarty->assign('show_list', $dou->get_show_list());
 $smarty->assign('link', get_link_list());
@@ -85,7 +87,11 @@ while( $tmp = $dou->fetch_assoc($query)){
 foreach($cate as $key => $val){
     $cate[$val['unique_id']]['name'] = $val['cat_name'];
     $cate[$val['unique_id']]['url'] = $val['url'];
-    $cate[$val['unique_id']]['article'] = $dou->get_list('article', $val['cat_id'], $_DISPLAY['home_article'], 'id DESC'); 
+    if($val['unique_id']=='news'){
+       $cate[$val['unique_id']]['article'] = $dou->get_list('article', $val['cat_id'], 12, 'id DESC'); 
+    }else{
+    	 $cate[$val['unique_id']]['article'] = $dou->get_list('article', $val['cat_id'], $_DISPLAY['home_article'], 'id DESC'); 
+    }
     unset($cate[$key]);
 }
 // print_r($dou->get_list('article', 'ALL', $_DISPLAY['home_article'], 'sort DESC'));exit;

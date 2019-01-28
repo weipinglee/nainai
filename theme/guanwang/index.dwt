@@ -116,6 +116,10 @@ win.height = win.Document.body.scrollHeight;
 					<ul>
 						<!-- {foreach from=$recommend_article.news.article name=news_article key=artkey item=article} -->
 						<!--{if $artkey eq 0}-->
+						<li style="line-height: 40px;">
+							<span><a href="{$article.url}">{$article.title|truncate:26:"..."}</a></span>
+							<span class="time">{$article.add_time_short}</span>
+						</li>
 						<!--{else}-->
 						<li style="line-height: 40px;">
 							<span><a href="{$article.url}">{$article.title|truncate:26:"..."}</a></span>
