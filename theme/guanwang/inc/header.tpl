@@ -114,10 +114,10 @@ catch (e) {
 				</form>
 				{literal}
 				<style type="text/css">
-				.search{border:1px solid #ccc; height: 62px;}
+				.search{border:1px solid #ccc; height: 50px;border-radius: 50px}
 				.kuan ,.an{display: inline-block;float: left;}
-				.kuan input{ width:100%; height:60px; border:none ; float:left; padding-left:10px; color: #ccc;}
-				.an input{ max-width:87px; min-width: 60px; height:60px;  background:url(theme/guanwang/images/search.png) no-repeat;border:none;  float:left;}
+				.kuan input{ width:100%; height:48px; border:none ; float:left; padding-left:10px; color: #ccc;margin-left: 20px;}
+				.an input{ max-width:60px; min-width: 48px; height:48px;  background:url(theme/guanwang/images/search.png) no-repeat;border:none;  float:left;}
 				</style>
 				{/literal}
 			 	<div class="clearfix"> </div>

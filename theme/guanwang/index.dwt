@@ -217,9 +217,10 @@ win.height = win.Document.body.scrollHeight;
 								<div class="videodiv two"><span>视频2</span></div>
 								<div class="videodiv three"><span>视频3</span></div>
 							</div>
-                   			$videos[0]
-                   			$videos[1]
-                   			$videos[2]
+                   			{$videos[0].content}
+                   			{$videos[1].content}
+                   			{$videos[2].content}
+              
 					<!--	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="300" height="240">
 						<param name="movie" value="http://www.vlongbiz.com/about/images/vcastr22.swf">
 						<param name="quality" value="high">
