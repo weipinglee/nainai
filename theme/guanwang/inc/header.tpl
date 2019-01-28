@@ -148,7 +148,7 @@ catch (e) {
 
 <!--{/if}-->
 <!---->	
-<div class="slider">
+<div class="slider" style="width: 1190px;margin:0 auto">
 	  <div class="callbacks_container">
 	     <ul class="rslides" id="slider">
 
