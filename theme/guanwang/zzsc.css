@@ -49,24 +49,25 @@ img {
 	color: #fff;
 	text-indent: 54px;
 	margin-bottom: 3px;
-	border-radius: 3px;
+	border-radius: 50px;
 	transition: all .5s ease;
 	overflow: hidden;
+	padding-left: 10px;
 }
 .yb_bar .yb_top {
-	background: #036eb8 url(images/fixCont.jpg) no-repeat 0 0;
+	background: #949292 url(images/fixCont2.png) no-repeat 0 0;
 }
 .yb_bar .yb_phone {
-	background: #036eb8 url(images/fixCont.jpg) no-repeat 0 -57px;
+	background: #949292 url(images/fixCont2.png) no-repeat 0 -57px;
 }
 .yb_bar .yb_QQ {
 	text-indent: 0;
-	background: #036eb8 url(images/fixCont.jpg) no-repeat 0 -113px;
+	background: #949292 url(images/fixCont2.png) no-repeat 0 -113px;
 }
 .yb_bar .yb_ercode {
 	/*height:200px;*/
 
-	background: #036eb8 url(images/fixCont.jpg) no-repeat 0 -169px;
+	background: #949292 url(images/fixCont2.png) no-repeat 0 -169px;
 }
 .hd_qr {
 	width: 100%;

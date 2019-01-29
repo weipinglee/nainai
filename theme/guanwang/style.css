@@ -1970,7 +1970,7 @@ label {
 font-size: 16px;
 }
 #MT_nav ul .MT_item {
-    width:95px;
+    width:143px;
 }
 #MT_nav ul {
 	top:40px;
@@ -2762,3 +2762,27 @@ input.item_add.items {
 .callbacks_tabs .callbacks_here a{
 	background: #f0dc37;
 }
+
+.yb_conct {
+    position: fixed;
+    z-index: 9999999;
+    bottom: 100px;
+    left: 5px;
+    cursor: pointer;
+    transition: all .3s ease;
+	}
+	.yb_bar ul li {
+	    width: 54px;
+	    height: 53px;
+	    font: 16px/53px 'Microsoft YaHei';
+	    color: #fff;
+	    text-indent: 54px;
+	    margin-bottom: 3px;
+	    border-radius: 50px;
+	    transition: all .5s ease;
+	    overflow: hidden;
+	    padding-left: 10px;
+	}
+	.yb_bar .yb_top {
+	    background: #949292 url(images/fixCont2.png) no-repeat 0 0;
+	}

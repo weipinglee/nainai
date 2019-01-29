@@ -31,4 +31,20 @@
           	 }
 
           }) //首页视频专区end
+
+          /*首页滚动到底部*/
+            $(window).scroll(function(){
+                // 获得div的高度
+                var h = $(".container").offset().top+500;
+                var wt = $(this).scrollTop();
+                wt>h?$(".yb_conct").show():$(".yb_conct").hide()
+                //这个判断两种写法
+                //  if($(this).scrollTop()>h){
+                //     // 滚动到指定位置
+                //     $("#btn").show();
+                // } else {
+                //     $("#btn").hide();
+                // }
+            });
+           /*首页滚动到底部*/
         });

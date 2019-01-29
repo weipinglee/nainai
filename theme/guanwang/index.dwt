@@ -40,6 +40,7 @@ body {behavior: url("csshover.htc");}
 <script src="images/footer.js"></script>
 <script  src="images/swiper.js"></script>
 <script src="images/swiper_t.js"></script>
+<script src="images/fdkf.js"></script>
 {literal}<script>$(document).ready(function(){$(".memenu").memenu();});</script>{/literal}
 
 {literal}
@@ -60,7 +61,15 @@ body {behavior: url("csshover.htc");}
 
 </head>
 <body> 
-
+ <!-- 左侧浮动客服 strat -->
+  <div class="yb_conct">
+    <div class="yb_bar">
+      <ul>
+        <li class="yb_top">返回顶部</li>
+      </ul>
+    </div>
+  </div>
+  <!-- 左侧浮动客服 strat -->
 
 <div id="leamain">
 {include file="inc/header.tpl"}

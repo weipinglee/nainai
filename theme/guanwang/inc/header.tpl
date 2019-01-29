@@ -104,28 +104,6 @@ catch (e) {
 			 </ul>
 		 </div>
 
-			 <!---->
-			 <div class="cart box_1">
-				<form action="{$site.root_url}" method="get" class="search" id="search" name="search">
-					<div class="kuan">
-						<input name="s" type="text" class="keyword" title="{$lang.search_product_cue}" autocomplete="off" maxlength="128" placeholder="{if $keyword}{$keyword|escape}{else}{$lang.search_product}{/if}" onclick="formClick(this,'{$lang.search_product}')"/></div><!--搜索框-->
-						<input name="module" value="product" type="hidden">
-					<div class="an"> <input type="submit" class="btnSearch" value=""></div><!--搜索按钮-->
-				</form>
-				{literal}
-				<style type="text/css">
-				.search{border:1px solid #ccc; height: 50px;border-radius: 50px}
-				.kuan ,.an{display: inline-block;float: left;}
-				.kuan input{ width:100%; height:48px; border:none ; float:left; padding-left:10px; color: #ccc;margin-left: 20px;}
-				.an input{ max-width:60px; min-width: 48px; height:48px;  background:url(theme/guanwang/images/search.png) no-repeat;border:none;  float:left;}
-				</style>
-				{/literal}
-			 	<div class="clearfix"> </div>
-			 </div>
-			 <div class="clearfix"> </div>
-			 <!---->			 
-			 </div>
-			<div class="clearfix"> </div>
 </div>
 <!--{if $controller=='page'}-->
 	<!--{if $num==1}-->
