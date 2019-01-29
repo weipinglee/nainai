@@ -191,7 +191,7 @@ win.height = win.Document.body.scrollHeight;
 					
 						<li class="clearfix">
 							<img src="{$article.image}"/>
-							<p><a href="{$article.url}">{$article.title}</a></p>
+							<p style="float: left;padding-left: 10px;width: 53%;line-height:25px;font-size: 12px;"><a href="{$article.url}">{$article.title}</a></p>
 							<span class="time">{$article.add_time_short}</span>
 						</li>
 						

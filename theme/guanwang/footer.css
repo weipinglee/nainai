@@ -59,6 +59,8 @@ img{ border:none;}
 	font-size: 18px;
 	font-family: '微软雅黑';
 	color: #999999;
+	position: relative;
+	top:20px;
 }
 .contact .lxfs p{
 	line-height: 38px;

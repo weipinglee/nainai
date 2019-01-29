@@ -282,7 +282,7 @@ display:inline-block;
 	/*padding:4em 0;*/
 }
 .feature-grid img {
-    padding: 0em 1em 1em 0em;
+ /*   padding: 0em 1em 1em 0em;*/
     display: inline-block;float: left;
 	width:100%;
 }
@@ -2719,11 +2719,14 @@ input.item_add.items {
 }
 .col-md-4 .infor_ul li img{
 	width: 150px;
-	height: 120px;
+	height: 100px;
 }
 .col-md-4 .infor_ul li{
 	padding-top:10px;
 	border-bottom:1px solid #999; 
+}
+.col-md-4 .infor_ul li:nth-child(3){
+	border:0px;
 }
 /*视频模块*/
 .gd-span{

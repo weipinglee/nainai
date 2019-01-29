@@ -14,12 +14,12 @@
     <div class="contact">
     	<div class="lxfs">
     		<p>联系电话</p>
-			<p>{$site.tel}</p>
+			
 			<!-- <p>咨询QQ</p>
 			{foreach from=$site.qq item=item}
 			<p>{$item}</p>
 			{/foreach} -->
-			<p><a class="lxwm">联系我们</a></p>
+			<p><a class="lxwm">{$site.tel}</a></p>
     	</div>
     	<div class="erm_img"><img src="images/{$site.weixin}"></div>
     </div>
