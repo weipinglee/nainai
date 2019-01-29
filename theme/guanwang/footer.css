@@ -32,11 +32,14 @@ img{ border:none;}
 }*/
 .img_box .hztb{
 	float: left;
-	width: 130px;
-	padding: 10px;
+	width: 100%;
+	height: 130px;
+	margin-right: 80px;
+	border-right: 1px solid #bdbdbd; 
 }
 .img_box .hztb img{
-	width: 130px;
+	width: 400px;
+    height: 130px;
 }
 .contact{
 	float: left;

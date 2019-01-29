@@ -96,18 +96,19 @@ win.height = win.Document.body.scrollHeight;
 <div class="items">
 	 <div class="container">
 		 <div class="items-sec">
-			 <div class="col-md-6 feature-grid">
-				<div class="new_head">
+			 <div class="col-md-6 feature-grid" style="margin-right: 10px ">
+			 	<div style="position: absolute;width: 1px;border-right: 1px solid #999;height: 500px;right: 30px;"></div> <!-- 右边分割线 -->
+				<div class="new_head" style="padding-right: 65px ">
 					<h4 class="icon_1">
 						{$recommend_article.news.name}
 					</h4>
 					<span class="genduo_a">
 						<a href="{$recommend_article.news.url}">
-							更多 >>
+							更多>>
 						</a>
 					</span>
 				</div>
-				<div class="news_con">
+				<div class="news_con" style="padding-right: 17px ">
 					<!-- <div class="news_top">
 						<img src="{$recommend_article.news.article.0.image}"/>
 						<h4>
@@ -120,12 +121,12 @@ win.height = win.Document.body.scrollHeight;
 					<ul class="xwzxli">
 						<!-- {foreach from=$recommend_article.news.article name=news_article key=artkey item=article} -->
 						<!--{if $artkey eq 0}-->
-						<li style="line-height: 40px;">
+						<li style="line-height: 40px;padding-right: 60px">
 							<span><a href="{$article.url}">{$article.title|truncate:26:"..."}</a></span>
 							<span class="time">{$article.add_time_short}</span>
 						</li>
 						<!--{else}-->
-						<li style="line-height: 40px;">
+						<li style="line-height: 40px;padding-right: 60px">
 							<span><a href="{$article.url}">{$article.title|truncate:26:"..."}</a></span>
 							<span class="time">{$article.add_time_short}</span>
 						</li>
@@ -142,18 +143,16 @@ win.height = win.Document.body.scrollHeight;
 		background: red;
 	}
 	.xwzxli li:hover{
-		background: #ddd;
+		background: #f5f5f5;
 	}
 </style>
 {/literal}
-<div class="col-md-1">
-	<div style="width: 1px;height:563px;border: 1px solid #ddd;margin:1em auto"></div>
-</div>
+
 <div class="col-md-3 feature-grid">
 				<div class="new_head"><h4 class="icon_2">{$recommend_article.dongtai.name}</h4>
 					<span class="genduo_a">
 						<a href="{$recommend_article.dongtai.url}">
-							更多 >>
+							更多>>
 						</a>
 					</span>
 				</div>
@@ -181,7 +180,7 @@ win.height = win.Document.body.scrollHeight;
 				<div class="new_head"><h4 class="icon_2">{$recommend_article.hangqing.name}</h4>
 					<span class="genduo_a">
 						<a href="{$recommend_article.hangqing.url}">
-							更多 >>
+							更多>>
 						</a>
 					</span>
 				</div>
