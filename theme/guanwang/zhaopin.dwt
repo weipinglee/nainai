@@ -77,7 +77,7 @@ body {behavior: url("csshover.htc");}
       <li><span>{$zhaopin.cat_name}</span></li>
       <li><span>{$zhaopin.salary}</span></li>
       <li><span>{$zhaopin.add_time}</span></li>
-      <li><span>{$zhaopin.num}数量</span></li>
+      <li><span>{$zhaopin.num}</span></li>
       <li class="button">
         <a class="td_bg" href="{$zhaopin.url}">
           上传简历
