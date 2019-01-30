@@ -32,7 +32,7 @@ $limit = $dou->pager('zhaopin', ($_DISPLAY['zhaopin'] ? $_DISPLAY['zhaopin'] : 1
 
 /* 获取招聘信息列表 新 */
 
-$sql = "SELECT $tb.id, $tb.cat_id, $tb.job, $tb.salary , $tb.add_time, $tb.zhize , $tb.zige, c.cat_name  FROM " . $dou->table('zhaopin') .' left join '. $dou->table('zhaopin_category') . " as c on $tb.cat_id = c.cat_id " . $where . " ORDER BY $tb.add_time DESC" . $limit;
+$sql = "SELECT $tb.id, $tb.cat_id, $tb.job, $tb.salary , $tb.add_time, $tb.zhize ,$tb.department,$tb.num, $tb.zige, c.cat_name  FROM " . $dou->table('zhaopin') .' left join '. $dou->table('zhaopin_category') . " as c on $tb.cat_id = c.cat_id " . $where . " ORDER BY $tb.add_time DESC" . $limit;
 $query = $dou->query($sql);
 // echo $sql;exit;
 while($row = $dou->fetch_assoc($query)){
