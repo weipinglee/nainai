@@ -154,7 +154,7 @@ elseif ($rec == 'insert') {
     // CSRF防御令牌验证
     $firewall->check_token($_POST['token'], 'zhaopin_add');
     
-    $sql = "INSERT INTO " . $dou->table('zhaopin') . " (id, cat_id, job, defined , image ,keywords, add_time, description , salary , zhize , zige )" . " VALUES (NULL, '$_POST[cat_id]', '$_POST[job]', '$_POST[defined]',  '$file', '$_POST[keywords]', '$add_time', '$_POST[description]' , '$_POST[salary]' , '$_POST[zhize]' , '$_POST[zige]')";
+    $sql = "INSERT INTO " . $dou->table('zhaopin') . " (id, cat_id, job, defined , image ,keywords, add_time, description , salary , zhize , zige,department,num )" . " VALUES (NULL, '$_POST[cat_id]', '$_POST[job]', '$_POST[defined]',  '$file', '$_POST[keywords]', '$add_time', '$_POST[description]' , '$_POST[salary]' , '$_POST[zhize]' , '$_POST[zige]' , '$_POST[department]' , '$_POST[num]')";
     $dou->query($sql);
     
     $dou->create_admin_log($_LANG['zhaopin_add'] . ': ' . $_POST['job']);
@@ -224,7 +224,7 @@ elseif ($rec == 'update') {
     // CSRF防御令牌验证
     $firewall->check_token($_POST['token'], 'zhaopin_edit');
     
-    $sql = "UPDATE " . $dou->table('zhaopin') . " SET cat_id = '$_POST[cat_id]', job = '$_POST[job]', defined = '$_POST[defined]' ,zhize = '$_POST[zhize]' , zige = '$_POST[zige]' " . $up_file . ", keywords = '$_POST[keywords]', description = '$_POST[description]' WHERE id = '$_POST[id]'";
+    $sql = "UPDATE " . $dou->table('zhaopin') . " SET cat_id = '$_POST[cat_id]', job = '$_POST[job]', defined = '$_POST[defined]' ,zhize = '$_POST[zhize]' ,department = '$_POST[department]' ,num = '$_POST[num]' , zige = '$_POST[zige]' " . $up_file . ", keywords = '$_POST[keywords]', description = '$_POST[description]' WHERE id = '$_POST[id]'";
     $dou->query($sql);
     
     $dou->create_admin_log($_LANG['zhaopin_edit'] . ': ' . $_POST['job']);
