@@ -54,7 +54,7 @@ body {behavior: url("csshover.htc");}
         <!-- {foreach from=$zh name=zh item=zh} -->
         <li><a href="{$zh.url}"><span class="hover_s">{$zh.cat_name}</span></a></li>
         <!-- {/foreach} -->
-         <li class="c-tip-arrow"><em></em><ins></ins></li>
+        <!--  <li class="c-tip-arrow"><em></em><ins></ins></li> -->
       </ul>
 
     </li>
